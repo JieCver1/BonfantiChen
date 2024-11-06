@@ -27,7 +27,7 @@
   {\setcounter{algsubstate}{0}%
    \renewcommand{\STATE}{%
      \stepcounter{algsubstate}%
-     \Statex {\small\thealgsubstate:}\space}}
+     \Statex{\small\thealgsubstate:}\space}}%
   {}
 
 % New font size
@@ -60,7 +60,7 @@
 % Renewcommand: cleardoublepage including the background pic
 \renewcommand*\cleardoublepage{%
   \clearpage\if@twoside\ifodd\c@page\else
-  \null
+  \null%
   \AddToShipoutPicture*{\BackgroundPic}
   \thispagestyle{empty}%
   \newpage

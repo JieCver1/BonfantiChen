@@ -1,3 +1,4 @@
+% chktex-file 44
 % A LaTeX template for MSc Thesis submissions to 
 % Politecnico di Milano (PoliMi) - School of Industrial and Information Engineering
 %
@@ -41,7 +42,7 @@
 \usepackage{graphicx}
 \usepackage{transparent} % Enables transparent images
 \usepackage{eso-pic} % For the background picture on the title page
-\usepackage{subfig} % Numbered and caption subfigures using \subfloat.
+\usepackage{subfig} % Numbered and caption sub figures using \subfloat.
 \usepackage{tikz} % A package for high-quality hand-made figures.
 \usetikzlibrary{}
 \graphicspath{{Images/}}% Directory of the images
@@ -84,7 +85,7 @@
 \usepackage{fancyhdr} % For the headers
 \usepackage{xcolor} % For color support
 
-\usepackage{multirow} % For multirow in tables
+\usepackage{multirow} % For multi row in tables
 
 \fancyhf{}
 
@@ -98,7 +99,7 @@
 % EXAMPLES OF NEW COMMANDS
 \newcommand{\bea}{\begin{eqnarray}} % Shortcut for equation arrays
 \newcommand{\eea}{\end{eqnarray}}
-\newcommand{\e}[1]{\times 10^{#1}}  % Powers of 10 notation
+\newcommand{\e}[1]{\times10^{#1}}  % Powers of 10 notation
 
 %----------------------------------------------------------------------------
 %	ADD YOUR PACKAGES (be careful of package interaction)
@@ -131,16 +132,17 @@
 	title= Requirements Analysis and Specification Document, % Title of the thesis
     name={\\[0.2cm]Riccardo Bonfanti \\ [0.2cm]Jie Chen}, % Author Name and Surname
 	course=, % Study Programme
-	ID  = 273115 - JIE,  % Student ID number (numero di matricola)
-	advisor= Prof. Elisabetta Di Nitto, % Supervisor name
-	academicyear={2024-25},  % Academic Year
-} % These info will be put into your Title page 
+    ID  = 273115 276324,% Student ID number
+	advisor= Prof.Elisabetta Di Nitto, % Supervisor name
+    academicyear={2024–2025},%Academic Year
+}% These info will be put into your Title page 
 
 
 %----------------------------------------------------------------------------
 %	PREAMBLE PAGES: VERSION HISTORY, TABLE OF CONTENTS, LIST OF FIGURES, TABLE OF TABLES, LIST OF SYMBOLS
 %----------------------------------------------------------------------------
-\startpreamble
+
+\startpreamble % chktex-file 48
 \setcounter{page}{1} % Set page counter to 1
 
 \chapter*{Deliverable Information} 
@@ -170,7 +172,7 @@
 \thispagestyle{empty}
 \tableofcontents % Table of contents 
 \thispagestyle{empty}
-\cleardoublepage
+\cleardoublepage%
 
 %-------------------------------------------------------------------------
 %	THESIS MAIN TEXT
@@ -188,39 +190,33 @@
 % Especially for long thesis, we recommend you the second option.
 
 \addtocontents{toc}{\vspace{2em}} % Add a gap in the Contents, for aesthetics
-\mainmatter % Begin numeric (1,2,3...) page numbering
+\mainmatter% Begin numeric (1,2,3...) page numbering
 
 % --------------------------------------------------------------------------
 % NUMBERED CHAPTERS % Regular chapters following
 % --------------------------------------------------------------------------
 \clearpage
 
-\chapter{Introduction}
-\label{sect:introduction}
+\chapter{Introduction}\label{sect:introduction}
 \input{Files/introduction}
 
 \clearpage
-\chapter{Overall Description}
-\label{sect:overview}
+\chapter{Overall Description}\label{sect:overview}
 \input{Files/overview}
 
 \clearpage
-\chapter{Specific Requirements}
-\label{sect:requirements}
+\chapter{Specific Requirements}\label{sect:requirements}
 \input{Files/requirements}
 
 \clearpage
-\chapter{Formal Analysis Using Alloy}
-\label{sect:alloy}
+\chapter{Formal Analysis Using Alloy}\label{sect:alloy}
 \input{Files/alloy}
 
 \clearpage
-\chapter{Effort Spent}
-\label{sect:effort}
+\chapter{Effort Spent}\label{sect:effort}
 \input{Files/effort}
 
 \clearpage
-\chapter{References}
-\label{sect:references}
+\chapter{References}\label{sect:references}
 %\input{Files/references}
 \end{document}
