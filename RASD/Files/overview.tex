@@ -81,6 +81,8 @@ passionate about!
 %TODO add domain-level diagram
 
 \subsection{Statecharts}\label{subsec:statecharts}
+The following sections present statechart diagrams for the platform's main processes, including internship recommendations, the internship 
+selection process, and internship status tracking. 
 
 \subsubsection{1. Internship recommendation}\label{subsubsec:internship_application}
 \begin{figure}[H]
@@ -88,7 +90,12 @@ passionate about!
     \includegraphics[width=1\textwidth]{Images/Internship_recommendation.png}
     \caption{Statechart diagram for internship recommendation}\label{fig:statechart_internship_recommendation}
 \end{figure}
-%TODO add description
+The recommendation process is a key functionality of the platform. After logging in, both students and companies can use the search system to view 
+recommendations that match their preferences. Alternatively, they can access suggestions in the notification section, which are generated through
+a statistical analysis of data from profiles and internship details. As illustrated in the statechart diagram, when users find an interesting 
+recommendation, they can click on it to view more details. At this stage, students can apply for the internship, while companies can decide whether
+to accept the student profile. If accepted, the student will be notified that a company is interested in their profile for a specific internship. 
+Otherwise the student or the company can close the recommendation after reviewing it.
 
 \subsubsection{2. Selection process for internship}\label{subsubsec:internship_feedback}
 \begin{figure}[H]
@@ -96,7 +103,14 @@ passionate about!
     \includegraphics[width=1\textwidth]{Images/Selection_process.png}
     \caption{Statechart diagram for selection process for internship}\label{fig:statechart_selection_process_for_internship}
 \end{figure}
-%TODO add description
+With the selection process, after the application deadline, companies will review all applications received for the intern position and select 
+candidates for the interview stage. Once a decision is made, the company will send an interview invitation to the selected candidates through 
+the platform, while those not selected will receive a notification explaining that, unfortunately, they were not chosen to proceed further.
+For selected candidates, a chat system between the company and the candidate will be activated to allow both parties to communicate and schedule 
+interview details. If a candidate does not attend the interview, the company will consider this as a rejection of the invitation.
+After all interviews are completed, the company will evaluate the candidates and decide whom to hire. The selected candidates will receive an offer, 
+and the company will await their acceptance to confirm the internship role. At the same time, candidates not selected at this stage will receive a 
+rejection notification. Once candidates respond to the offer, the company will be notified of their decision.
 
 \subsubsection{3. Internship status}\label{subsubsec:monitoring_student_activities}
 \begin{figure}[H]
@@ -104,7 +118,16 @@ passionate about!
     \includegraphics[width=1\textwidth]{Images/Internship_status.png}
     \caption{Statechart diagram for internship status}\label{fig:statechart_internship_status}
 \end{figure}
-%TODO add description
+This statechart diagram will illustrate the internship status tracking process. Once the internship begins, the student’s university will be notified, 
+allowing the university to monitor the student’s activities and ensure the internship is progressing as expected.
+During the internship, the student can use a chat feature to communicate with their mentor and provide feedback on their internship experience in the 
+specific internship section. Similarly, the company can use the chat to communicate and leave feedback on the student’s performance, offering suggestions
+for improvement.
+At the end of the internship, both the student and the company must complete the final evaluation and feedback process, marking the end of the internship phase.
+The internship will then be officially closed, and all related information will be archived in the database. At this stage, the university will be notified
+of the internship’s completion.
+The student will find this internship listed as a past activity in their internship history, and the company will have access to this record in their records
+ for future reference.
 
 \section{Product functions}\label{subsec:product_functions}
 \begin{itemize}
