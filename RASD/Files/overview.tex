@@ -130,20 +130,101 @@ The student will find this internship listed as a past activity in their interns
  for future reference.
 
 \section{Product functions}\label{subsec:product_functions}
-\begin{itemize}
-    \item \textbf{Sign up and login} 
-    \item \textbf{Data management system}
-    \item \textbf{Search system} 
-    \item \textbf{Recommendation system} 
-    \item \textbf{Internship application} 
-    \item \textbf{Internship Posting}
-    \item \textbf{Selection Assistance} 
-    \item \textbf{Internship Status Tracking} 
-    \item \textbf{Internship Feedback}
-    \item \textbf{Monitoring student activities} 
-    \item \textbf{Chat system} 
-    \item \textbf{Notification system} 
-    \item \textbf{Application Acceptance and Rejection} 
+\begin{itemize}[label={ }]
+    \item \textcolor{bluepoli}{\textbf{Sign up and login}} 
+    \\There are three types of users on the platform: students, companies, and universities. The platform allows users to create an account if they do not already 
+    have one. In the first step, each user will be prompted to specify whether they are a student, company, or university. All users will need to set up login
+    credentials with an email address and password.
+    For students, the system will ask them to select their university from a list. If their university is not listed, they will be unable to continue with
+    registration. Students must also verify their status by using their educational email.
+    For companies, multiple accounts can be created under the same organization, with each linked to a different department’s unique email address. The 
+    company’s identity shall be also verified using its unique EIN number and other required details.
+    Once verified, users can access the platform with their email and password. On first login, the system will require users to complete their profile with
+    essential information to finalize registration. Students, in particular, must upload a CV before accessing other features of the platform.
+    After registration, users can log in simply by selecting their user type and entering their credentials.
+
+    \item \textcolor{bluepoli}{\textbf{Data management system}}
+    \\ The platform securely stores all user data in a protected database, including personal information, CVs, chat history, and other relevant data. 
+    Specifically, the system retains detailed internship information, such as announcements, applications, interview records, internship status, and 
+    feedback, which are used to analyze and optimize the matching algorithm. Additionally, other user data is recorded to provide better personalized 
+    recommendations and notifications. The system ensures that all data is encrypted and protected from unauthorized access.
+    Furthermore, users have the option to delete their accounts, modify personal information, and, for students, update their CVs as needed.
+
+    \item \textcolor{bluepoli}{\textbf{Search system}}
+    \\This function allows students to search for internships using keywords such as job title, company name, location, and more. Similarly, companies 
+    can search for student profiles using criteria like name, university, skills, and other relevant details. Universities, on the other hand, can 
+    search a specific student within their student list by name to monitor activities and access the student's profile.
+    The search system will display a list of recommendations based on the user's preferences and search history. Additionally, users can filter the
+    search results by selecting specific categories to refine their search.
+
+    \item \textcolor{bluepoli}{\textbf{Recommendation system}} 
+    \\This feature is one of the platform's main functionalities, offering personalized recommendations to students and companies based on their search
+    preferences and the statistical analysis of data from profiles and internship details. Recommendations can be viewed in the search results or in 
+    the notification section.
+    The system is designed to continuously improve the accuracy of these recommendations by analyzing user behavior and feedback in real-time, 
+    optimizing the quality of the results. Users can click on a recommendation to view more details about the internship posting or student profile.
+
+    \item \textcolor{bluepoli}{\textbf{Internship application}}
+    \\Through this function, students can apply for internships that interest them after viewing the details of the posting. Once the application deadline
+    has passed, the company will review all received applications and select candidates for the interview stage. The platform will notify students of 
+    the results at this phase. 
+    If a student's application is accepted, they will be invited for an interview. Otherwise, the student will be notified that their application was rejected.
+    However, the student can still apply for other internships, but cannot reapply for the same internship once rejected.
+    \item \textcolor{bluepoli}{\textbf{Internship Posting}}
+    \\Companies can publish internship offers on the platform using this function. In the ``Publish Internship'' section, companies must provide all required
+    details, including the title, location, role, application deadline, number of positions, duration, employment type, description, and required skills.
+    Once the internship offer is published, the company will receive recommendations for student profiles that match the offer’s criteria. Additionally, 
+    the company can access the ``Available Internships'' section and select a specific posting to view the list of applications received and select 
+    candidates for the interview stage.
+
+    \item \textcolor{bluepoli}{\textbf{Selection phase Assistance}}
+    \\Once the application deadline has passed, the company can use this function to select candidates and send interview notifications. The system will 
+    guide the company through the selection process by providing a list of received applications, allowing the company to review each candidate's profile 
+    and CVs. Additionally, the system will offer a chat feature and tools such as questionnaire forms to help the company know more about the candidates
+    before the actual interview will take place.
+    The system will also notify students of the results from the selection phase (application or interview result). If selected for an interview, the chat
+    system will be activated for the student, enabling both parties to communicate and schedule interview details.
+
+    \item \textcolor{bluepoli}{\textbf{Internship Status Tracking}}
+    \\This function allows users to monitor the progress of internships, including the past completed internships and the current active internships.
+    Students can view internship status through their internship history, while companies can access it through their records of the history of their 
+    published internships. Universities can monitor student activities through the student list associated with them. The status tracking system
+    is designed to record all important information about the internship and notify the relevant parties of any changes or updates.
+
+    \item \textcolor{bluepoli}{\textbf{Internship Feedback system}}
+    \\This feature is activated when the internship begins. Each specific internship will have a dedicated area for both the student and the company to
+    provide feedback and evaluations.
+    It allows students and companies to share useful information, such as suggestions, key issues, and ongoing feedback, separate from the chat system. 
+    This section is designed to record important highlights throughout the internship process. At the end of the internship, the system will prompt both 
+    the student and the company to submit their final evaluations or comments. Once the internship is concluded, this feature will be deactivated, and 
+    all related information will be archived in the database. The university will evaluate the student's status based on the information provided by this
+    feature.
+    \item \textcolor{bluepoli}{\textbf{Chat system}}
+    \\The chat system is an important feature of the platform that allows users to communicate with each other. Unlike a typical chat system, this function
+    is not always active. It is activated once a company selects a student as a candidate for an interview to discuss interview details. 
+    If the student is not selected for the final offer or rejects the offer, the specific chat window will be deactivated after the interview. However, 
+    if the student accepts the internship offer, the chat system will remain active, allowing both parties to communicate during the internship period and 
+    maintain contact afterward for potential future collaboration, such as mentorship or networking.
+    Through the chat system, they can exchange messages and files, while the chat history will be stored in the database for future reference and analysis.
+    The activation and deactivation of the chat system ensures privacy and security, preventing unnecessary communication, such as spam or harassment, 
+    before real collaboration begins and filtering out unqualified messages.
+    The key difference between the chat system and the feedback system is that the chat system is real-time and private, accessible only to the two parties 
+    involved. In contrast, the information collected through the feedback system is more formal and public. The university can access this data when evaluating
+    the student's performance, and other users can read anonymous comments left by students who participated in internships when reviewing a company's reputation.
+
+    \item \textcolor{bluepoli}{\textbf{Notification system}}
+    \\This function creates a channel for the platform to send notifications to users. Notification types include recommendations, application results,
+    interview invitations, interview results, internship status updates, and other important communications from the platform. For example, when a student
+    start an internship, the university will be notified through the notification system.
+
+    \item \textcolor{bluepoli}{\textbf{Acceptance and Rejection}}
+    \\This function allows users to express their decisions: students can accept or reject internship offers, and companies can accept or reject student applications.
+    Once a student accepts an offer, the company is notified, and the internship officially begins. If a student rejects an offer, the company is notified, and the 
+    reserved position is reopened for other candidates. Similarly, if a company rejects a student’s application, the student is notified, and the application is 
+    marked as rejected.
+    The acceptance and rejection system ensures that both parties are informed of the results and can proceed accordingly. Additionally, this system helps 
+    improve the platform's matching algorithm by providing better recommendations in the future, based on the acceptance and rejection rates to better understand 
+    user preferences.
 \end{itemize}
 
 \section{User characteristics}\label{subsec:user_characteristics}
