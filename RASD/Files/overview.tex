@@ -20,7 +20,7 @@ and navigates to the ``Publish Internship'' section to create a new announcement
 the title, location, role, application deadline, number of positions, duration, employment type, description, and required skills. \\
 \begin{quote}
     \begin{center}
-       \textbf{\textquotedbl Computer Vision and AI Intern\textquotedbl}
+       \textbf{\textquotedbl{}Computer Vision and AI Intern\textquotedbl{}}
     \end{center}
     
     \textit{Location:} Krusty Krab Technology Lab, Bikini Bottom \\
@@ -56,19 +56,19 @@ from the platform. At the end of the interview, Mr.Plankton evaluates the candid
 send an offer to the best candidates and wait for their acceptance to start the internship.
 
 \subsubsection{Scenario 5: Mr.Gary's application is rejected}\label{subsubsec:scenario_5}
-Mr.Gary, an undergraduate student at the University of Bikini Bottom, applies for an internship at the ``Krusty Krab Technology Lab'' since he is very 
-interested in the internship opportunity. After the application deadline, Mr.Krabs and Mr.Plankton review all the applications received for the intern 
-position. Unfortunately, they do not think that Mr.Gary has enough experience for the internship, so they reject his application. Mr.Gary receives a 
-notification saying that his application was not selected and the reason why. He will still be able to see his application in the ``Your Applications'' 
-section and the status will be "rejected".
+Mr.Gary, an undergraduate student at the University of Bikini Bottom, applied for an internship at the ``Krusty Krab Technology Lab'' since he was very 
+interested in the internship opportunity. After the application deadline, Mr.Krabs and Mr.Plankton reviewed all the applications received for the intern 
+position. Unfortunately, they do not think Mr.Gary has enough experience for the internship, so they reject his application. Mr.Gary received a 
+notification informing him that his application was not selected and explaining the reason for the decision. He will still be able to see his application 
+in the ``Your Applications'' section and the status will be marked as ``rejected''.
 
 \subsubsection{Scenario 6: Mr.Squidward goes through the interview phase}\label{subsubsec:scenario_6}
-Mr.Squidward, a student at the University of Bikini Bottom, is selected for an interview after he submitted an application for the ``Krusty Krab Technology 
-Lab'' as a data science intern. He goes to the "Your Applications" section and fills the interview form with his answers. Then he checks the details for the 
-live interview and prepares for it. In the meantime he can communicate with the company through the chat system to ask questions, clarify any doubts or 
+Mr.Squidward, a student at the University of Bikini Bottom, was selected for an interview after he applied to the ``Krusty Krab Technology 
+Lab'' as a data science intern. He goes to the ``Your Applications'' section and fills the interview form with his answers. Then he checks the details for the 
+live interview and prepares for it. In the meantime, he can communicate with the company through the chat system to ask questions, clarify any doubts or 
 reschedule the interview if needed. After the interview, he receives feedback from the company about his performance and waits for the final decision. 
-Finally, if he is selected he will receive a notification with the offer from the company, he can still choose to turn down the offer in case he changed 
-his mind or he found a better opportunity, in that case the chat will be deactivated. Otherwise, if he accepts the internship will start and the chat 
+Finally, if he is selected he will receive a notification with the offer from the company, he can still choose to turn down the offer if he changes 
+his mind or finds a better opportunity, in that case, the chat will be deactivated. Otherwise, if he accepts the internship will start and the chat 
 will remain active.
 
 \subsubsection{Scenario 7: Ms.Sandy starts her internship}\label{subsubsec:scenario_7}
@@ -100,7 +100,7 @@ passionate about!
     \includegraphics[width=1\textwidth]{Images/UML_Class_diagram.png}
     \caption{Domain-level diagram}\label{fig:domain-lebel_diagram}
 \end{figure}
-Students, Companies and Universities are implemented by extending the abstact class User. The User class contains the common attributes: email, password and
+Students, Companies and Universities are implemented by extending the abstract class User. The User class contains the common attributes: email, password and
 the list of notifications. Notifications have a type, description and date and are related to a specific User. Universities have a name and contain the list 
 of all their enrolled students. The Student class contains specific attributes to save their profile information (like name, interests, university, CV) and 
 can create applications for internships that are stored in a list. They also have references to current interviews for internships, current chats and ongoing 

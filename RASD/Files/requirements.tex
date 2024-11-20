@@ -5,38 +5,108 @@ As the users of the platform include students, companies, and universities, the 
 the platform and meet their needs. For instance, many students may be unfamiliar with the internship search process and may lack experience
 in finding job opportunities, so the user interface should be simple and intuitive to use.
 
-The principal Graphical User Interfaces (GUIs) are described below and will be detailed further using mockups in the Design Document.
+In the following section, the principal Graphical User Interfaces (GUIs) are described within drafts, and this part will be further detailed
+using refined mockups in the Design Document
 \begin{itemize}
-    \item \textbf{Welcome page:} The welcome page is the first page that the user sees when they access the platform. On this page, the user
-    needs to select their user type (student, company, or university). Below that, there are two fields where the user can enter their email
-    and password. Under these fields, there is a button to log in and a link to register if the user is not already registered.
+    \item \textbf{Welcome page:} The welcome page is the first page users see when they open the platform. It contains the platform's logo 
+    and a brief description of its purpose. On this page, users can log in using their credentials or create an account if they are new
+    to Students \& Companies. A help section is also available for assistance if needed.
     
-    \item \textbf{Register Page:} In the registration phase, the user will first be asked to select their user type (student, company, or 
-    university). Then, based on the selected user type, the platform will request different information to be filled in. 
-    The following sections will describe in more detail the specific information required for each type of user during registration.
+    \item \textbf{Register Page:} During the registration phase, users will first be asked to select their user type (student, company, or
+     university). Based on the selected user type, the corresponding registration form will be displayed, and users will be prompted to 
+     provide the necessary information to create an account. In addition to common data such as name, email, and password, users will
+     need to provide additional information based on their user type. For example, students and companies will be asked to personalize 
+     their profiles by adding details such as their field of interest, skills, a short description of themselves, and more to make their
+      profiles more appealing to other users.
+    
+    \item \textbf{Notification Page:} It will display various types of notifications received from the platform. For example, students will
+    see notifications about updates on their application status, companies will receive notifications about new applications, and 
+    universities will be notified about new student registrations on the platform.
 
-    \item \textbf{Notification Page:} 
+    \item \textbf{Side Menu:} The side menu is a navigation menu that provides access to the main sections of the platform, depends on the
+    user's type. It will be displayed on the left side of the screen, with different sections available. For example, for students, the 
+    side menu will include sections such as Search Internships, Dashboard, My Profile, My Applications, Internship History, Chat, and Help.
 
-    \item \textbf{student Interface:} The student interface includes all the pages and functionalities specifically designed for students.
+    \item \textbf{Header Bar:} The header bar is displayed at the top of the screen and includes the platform's logo, a menu icon, a chat 
+    icon, a notification icon, and the user's profile icon. It remains visible on all pages once the user has logged in.
+
+    \item \textbf{Chat Interface:} The chat interface is accessible from either the side menu or the header bar of the platform. It allows 
+    students and companies to communicate with each other in real-time. They can view a list of available chats, send and receive messages, 
+    and access their chat history.
+
+    \item \textbf{Profile Page:} This interface is used by user to view and edit their profile data in case of necessary, in particular
+    the student can update their CV accessing this page.
+
+    \item \textbf{Search page:} This page contains a search bar and displays the results based on the user's search. For example, a student
+    can search for internships, and the platform will return a list of results based on the student's input. 
+    
+    \item \textbf{Internship evaluation page:} This page is used by both students and companies to evaluate internship performance. Both 
+    parties can provide feedback during the internship, and at the end, to complete the evaluation process, they must leave final comments 
+    and rate the internship. Students also have the option to leave anonymous reviews about their experience, which can help other students
+    make decisions about internships. These reviews will be visible when user visiting the company's profile.
+
+\end{itemize}
+
+Since the platform is designed for three types of users, the specialized interfaces for each user type are described in further detail
+below, considering the characteristics of each user.
+\begin{itemize}
+    \item \textbf{Student Interface:}
     \begin{itemize}
-        \item \textbf{Register Page for students:} In the registration phase, the student will first be asked to select their university. 
-        Next, the student will need to provide the necessary personal information, such as name, email, phone number, etc. After submitting
-        this information, the student must wait for a confirmation email to activate their account. Once the account is activated, the 
-        platform will prompt the student to upload their CV to complete the registration process.
+        \item \textbf{Student Dashboard:} This is the home page that appears once the student logs in. On this page, the student gets an 
+        overview of all the main functionalities they can access. The dashboard consists of:
 
-        \item \textbf{Internship Interface:}On this page, students can search for internships, view recommended internships based on their
-         search, and see internships suggested by the platform's matching algorithm, which aligns their profile information with the 
-         internships' requirements. Students can also view the details of available internships and apply for the ones that interest them.
-        \item \textbf{Profile Page:} This page contains the student's personal data stored during the registration phase. On this page, 
-        the student can edit their profile and update their CV.
+        1. Search Bar with Filter Command: Allows the student to search and filter based on specific criteria.
+        
+        2. Overview of Suggested Internships: Displays job search keywords and internships recommended by the platform's algorithm.
+        
+        3. Saved Internships: Lets the student view an overview of the internship listings they have saved for later review.
+        
+        4. My Applications: Provides a quick overview of the status of the student's applications.
+        
+        5. Internship History: Displays a record of the internships the student has applied for in the past, including the internship they 
+        are currently doing if exist.
+
+        \item \textbf{My applications:} The student can track the status of their applications and view the details of the internships 
+        they have applied for. Through this interface, the student can also receive information related to the selection process, such 
+        as the interview date, the interview result, and the final decision of the company. Additionally, the student can filter their 
+        applications based on their status, such as ``waiting''.
+
+        \item \textbf{Internship history:} The student can view the internships they have participated in so far, along with the 
+        evaluations related to their experiences. The page also allows the student to access the feedback section, where they can 
+        leave comments or notes about a specific internship.
+
+        \item \textbf{Internship saved:} On this page, the student can view a list of the internship announcements they have saved for
+        later review with the detail information of the internship.
+
     \end{itemize}
     \item \textbf{Company Interface:} 
     \begin{itemize}
-       \item \textbf{Register Page for companies:} 
+        \item \textbf{Company Dashboard:} It's the home page once the company logs in. On this page, the company gets an overview of 
+        all the main functionalities they can access. The dashboard consists of:
+
+        1. Search Bar with Filter Command: Allows the company to search and filter results based on specific criteria.
+        
+        2. Overview of Student Profiles: Displays student profiles suggested by the platform's matching algorithm for different internship 
+        announcements.
+        
+        3. Internship Announcements: A list of internship announcements the company has published, along with the number of the applications
+        received.
+        
+        4. Saved Student Profiles: A list of student profiles the company has saved for later review.
+       \item \textbf{Publish Internship Page:} This is the main functionality of the company interface. On this page, the company can 
+       create a new internship announcement and post it on the platform. The company is required to enter the necessary information, 
+       following the guidelines provided by the platform.
+
+        \item \textbf{Internship management page:} This page is divided into several sections: one for internship announcements that have 
+        been published but are still in the publication phase, one for internships in the selection phase, one for internships currently 
+        in progress, and one for closed internships. From this interface, the company can manage internships of all phases.
     \end{itemize}
+
     \item \textbf{University Interface:} 
     \begin{itemize}
-        \item \textbf{Register Page for universities:}
+        \item \textbf{University Dashboard:} The university dashboard displays a list of students and their associated activities. 
+        The university can view the list of students registered on the platform and select a student to see detailed information about 
+        their profile, activities, and internships they are currently doing or have completed in the past.
     \end{itemize}
 \end{itemize}
 \subsection{Hardware Interfaces}
