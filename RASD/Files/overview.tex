@@ -65,16 +65,14 @@ in the ``Your Applications'' section and the status will be marked as ``rejected
 \subsubsection{Scenario 6: Mr.Squidward goes through the interview phase}\label{subsubsec:scenario_6}
 Mr.Squidward, a student at the University of Bikini Bottom, was selected for an interview after he applied to the ``Krusty Krab Technology 
 Lab'' as a data science intern. He goes to the ``Your Applications'' section and fills the interview form with his answers. Then he checks the details for the 
-live interview and prepares for it. In the meantime, he can communicate with the company through the chat system to ask questions, clarify any doubts or 
-reschedule the interview if needed. After the interview, he receives feedback from the company about his performance and waits for the final decision. 
-Finally, if he is selected he will receive a notification with the offer from the company, he can still choose to turn down the offer if he changes 
-his mind or finds a better opportunity, in that case, the chat will be deactivated. Otherwise, if he accepts the internship will start and the chat 
-will remain active.
+live interview and prepares for it. After the interview, he waits for the company's final decision. Finally, if he is selected he will receive a notification 
+with the offer from the company, he can still choose to turn down the offer if he changes his mind or finds a better opportunity, otherwise he can accept the 
+internship offer will start.
 
 \subsubsection{Scenario 7: Ms.Sandy starts her internship}\label{subsubsec:scenario_7}
 Ms.Sandy is very passionate about space and is thrilled to have been selected for an internship at the Underwater Space Agency. She receives 
 and accepts an offer from the company. At the same time, the Bikini Bottom University of Aerospace's professor Manta received the notification
-about the new activity started by Sandy. However, she is a bit anxious, so she logs into the platform and navigates to the ``Internship'' 
+about the new activity started by Sandy. However, she is a bit anxious, so she logs into the platform and navigates to the ``Your Internship'' 
 section to review its details and opens the chat with the company's representative. She then asks some questions about how she should prepare in the 
 coming days and for any advice that they think should be useful to know to have a good start in the internship.
 
@@ -138,11 +136,10 @@ Otherwise the student or the company can close the recommendation after reviewin
     \includegraphics[width=1\textwidth]{Images/Selection_process.png}
     \caption{Statechart diagram for selection process for internship}\label{fig:statechart_selection_process_for_internship}
 \end{figure}
-With the selection process, after the application deadline, companies will review all applications received for the intern position and select 
-candidates for the interview stage. Once a decision is made, the company will send an interview invitation to the selected candidates through 
+Through the selection process, that will begin after the application deadline, companies will review all applications received for the intern position 
+and select candidates for the interview stage. Once a decision is made, the company will send an interview invitation to the selected candidates through 
 the platform, while those not selected will receive a notification explaining that, unfortunately, they were not chosen to proceed further.
-For selected candidates, a chat system between the company and the candidate will be activated to allow both parties to communicate and schedule 
-interview details. If a candidate does not attend the interview, the company will consider this as a rejection of the invitation.
+If a candidate does not attend the interview, the company will consider this as a rejection of the invitation.
 After all interviews are completed, the company will evaluate the candidates and decide whom to hire. The selected candidates will receive an offer, 
 and the company will await their acceptance to confirm the internship role. At the same time, candidates not selected at this stage will receive a 
 rejection notification. Once candidates respond to the offer, the company will be notified of their decision.
@@ -155,8 +152,8 @@ rejection notification. Once candidates respond to the offer, the company will b
 \end{figure}
 This statechart diagram will illustrate the internship status tracking process. Once the internship begins, the student’s university will be notified, 
 allowing the university to monitor the student’s activities and ensure the internship is progressing as expected.
-During the internship, the student can use a chat feature to communicate with their mentor and provide feedback on their internship experience in the 
-specific internship section. Similarly, the company can use the chat to communicate and leave feedback on the student’s performance, offering suggestions
+During the internship, the student can use a chat feature to communicate with the company representative and can provide feedback on their internship experience 
+in the specific internship section. Similarly, the company can use the chat to communicate and leave feedback on the student’s performance, offering suggestions
 for improvement.
 At the end of the internship, both the student and the company must complete the final evaluation and feedback process, marking the end of the internship phase.
 The internship will then be officially closed, and all related information will be archived in the database. At this stage, the university will be notified
@@ -215,10 +212,8 @@ The student will find this internship listed as a past activity in their interns
     \item \textcolor{bluepoli}{\textbf{Selection phase Assistance}}
     \\Once the application deadline has passed, the company can use this function to select candidates and send interview notifications. The system will 
     guide the company through the selection process by providing a list of received applications, allowing the company to review each candidate's profile 
-    and CVs. Additionally, the system will offer a chat feature and tools such as questionnaire forms to help the company know more about the candidates
-    before the actual interview will take place.
-    The system will also notify students of the results from the selection phase (application or interview result). If selected for an interview, the chat
-    system will be activated for the student, enabling both parties to communicate and schedule interview details.
+    and CVs. Additionally, the system will offer tools such as questionnaire forms to help the company know more about the candidates before the actual 
+    interview will take place. The system will also notify students of the results from the selection phase (application or interview result).
 
     \item \textcolor{bluepoli}{\textbf{Internship Status Tracking}}
     \\This function allows users to monitor the progress of internships, including the past completed internships and the current active internships.
@@ -236,11 +231,9 @@ The student will find this internship listed as a past activity in their interns
     feature.
     \item \textcolor{bluepoli}{\textbf{Chat system}}
     \\The chat system is an important feature of the platform that allows users to communicate with each other. Unlike a typical chat system, this function
-    is not always active. It is activated once a company selects a student as a candidate for an interview to discuss interview details. 
-    If the student is not selected for the final offer or rejects the offer, the specific chat window will be deactivated after the interview. However, 
-    if the student accepts the internship offer, the chat system will remain active, allowing both parties to communicate during the internship period and 
-    maintain contact afterward for potential future collaboration, such as mentorship or networking.
-    Through the chat system, they can exchange messages and files, while the chat history will be stored in the database for future reference and analysis.
+    is not always active. It is activated once a company selects a student to be part of one of their internships. 
+    It allows both parties to communicate during the internship period and maintain contact afterward for potential future collaboration, such as mentorship 
+    or networking. Through the chat system, they can exchange messages and files, while the chat history will be stored in the database for future reference.
     The activation and deactivation of the chat system ensures privacy and security, preventing unnecessary communication, such as spam or harassment, 
     before real collaboration begins and filtering out unqualified messages.
     The key difference between the chat system and the feedback system is that the chat system is real-time and private, accessible only to the two parties 
