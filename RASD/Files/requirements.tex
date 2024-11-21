@@ -103,9 +103,28 @@ below, considering the characteristics of each user.
         their profile, activities, and internships they are currently doing or have completed in the past.
     \end{itemize}
 \end{itemize}
+
+
 \subsection{Hardware Interfaces}
+Students\&Companies is a web-based platform, so it can be accessed from any device with an internet connection. The platform is
+compatible with all modern web browsers. It is designed to be responsive and work on different screen sizes, including desktops, 
+laptops, tablets, and smartphones. \\
+The system will be hosted on multiple server that meet the requirements for web hosting. They will be responsible for the platform's 
+backend processes, including the reccomendation algorithm, the data collection and the statistical analyses.
+
+
 \subsection{Software Interfaces}
+The system will interact with an emailing system to confirm the registration of new users. \\
+It will also integrate various APIs to provide additional functionalities, for instance an API for implementing statistical analyses 
+based on collected data that will be used to improve the recommendation algorithm. Another example would be an API to interact with
+the database in order to store and retrieve information.
+
+
 \subsection{Communication Interfaces}
+The system will use HTTPS to ensure secure communication between the client and the server. The platform will also use WebSockets to
+enable real-time communication between users, such as chat and notifications functionalities. Since the platform is designed to be a 
+RESTful web application, it will use JSON as the data interchange format between the client and the server. \\
+To interact with the mailing system, the platform will use SMTP protocol.
 
 
 \section{Functional Requirements}
@@ -116,9 +135,41 @@ below, considering the characteristics of each user.
 
 
 \section{Performance Requirements}
+\begin{itemize}
+    \item \textbf{Concurrent access of users and resource utilization:} A platform like Students\&Companies is expected to have a large
+    number of users, so it must be able to handle multiple requests simultaneously. By searching online for platforms that offer similar
+    services we have found that a good estimate for the number of concurrent users that the platform should be able to manage is roughly
+    a few thousands, peaking at a few tens of thousands during peak internship publishing periods (like at the end of universities semesters). \\
+    The platform should be able to optimixe the resource utilization to ensure that the system can handle the load without any performance
+    issues. This includes optimizing the database queries, caching data, and using load balancing techniques to distribute the load across
+    multiple servers.
+    
+    \item \textbf{Data processing and storage:} The system should be able to process and store a large amount of data efficiently. From 
+    what we were able to find online, similar platforms estimate that the number of registered users can reach a few hundreds of thousands,
+    and the number of internships published can reach a few tens of thousands. For this reason, the database should be able to easily handle
+    a few terabytes of data. \\
+    The platform should also be able to process data quickly, especially when performing statistical analyses in order to generate recommendations 
+    for students and companies. This includes optimizing the queries made by recommendation algorithm to ensure that it can provide 
+    recommendations in real-time.
 
+    \item \textbf{Availability:} The system should have a required uptime of at least 99.8\%, which means that the platform should be
+    available 99.8\% of the time. This is equivalent to a downtime of less than 18 hours per year. To achieve this, the platform should be
+    designed with fault tolerance in mind to ensure that the system can handle failures without affecting the availability. \\
+    During the downtime period, a maintenance page should be displayed to inform users that the platform is being updated or is experiencing
+    technical difficulties and is currently unavailable.
+
+    \item \textbf{Time of Response:} From the users' perspective, the system should be responsive, meaning the response to any of his request 
+    should appear instantly. In order to achieve this, the response time for most operations, such as loading a page, submitting an application, 
+    or performing a search, should be at most a few seconds during peak usage and in the domain of milliseconds in normal conditions. \\
+    Particular attention should be given to the recommendation algorithm, which should be able to provide recommendations in real-time,
+    to the chat functionality, which should allow users to communicate in real-time, and to the notification system, who must ensure that
+    updates are delivered to the user before relevant deadlines expire. \\
+    The response time of other operations such as the ones that involve the mailing system cannot be guaranteed by S\&C.
+
+\end{itemize}
 
 \section{Design Constraints}
+
 \subsection{Standards Compliance}
 \subsection{Hardware Limitations}
 \subsection{Any Other Constraint}
