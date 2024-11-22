@@ -1,3 +1,4 @@
+% chktex-file 44
 \renewcommand{\thesection}{\Alph{section}}
 \section{External Interface Requirements}
 \subsection{User Interfaces}\label{sec:UserInterfaces}
@@ -129,7 +130,7 @@ To interact with the mailing system, the platform will use SMTP protocol.
 
 \section{Functional Requirements}
 \subsection{Functional Requirements}
-[R1] S\&C allows unregistered ST and CO to sign up
+[R1] S\&C allows visitors to sign up
 
 [R2] S\&C allows registered Users to login	
 
@@ -193,21 +194,331 @@ To interact with the mailing system, the platform will use SMTP protocol.
 
 [R32] S\&C allows STs and COs to exchange information using the chat, only if the ST is participating or has participated in an internship offered by the company
 
-[R33] S\&C allows UNIs to monitor their STs and their current internship experiences
+[R33] S\&C allows UNIs to check the status of the internship records of their students.
 
-[R34] S\&C allows UNIs to visualize the profiles of their STs
+[R34] S\&C allows UNIs to access the list of all the STs registered on the platform related to their university
 
-[R35] S\&C allows COs to visualize the profile of a ST
+[R35] S\&C allows users to visualize the own and other users' profiles
 
-[R36] S\&C allows STs to visualize the profile of a CO
+[R36] S\&C allows users to modify their own profile data
 
-[R37] S\&C stores the information about the Users
+[R37] S\&C allows students to check the status of their applications
 
-[R38] S\&C shall ensure security of data
+[R38] S\&C notifies UNIs when their students register on the platform
 
-[R39] S\&C shall communicate with the mailing system in order to allow Users to register their account
+[R39] S\&C notified UNIs when their students start an internship
 
 \subsection{Requirement Mapping}
+In the following table, represent the mapping between the goals, requirements and domain assumptions. The requirements are
+mapped to the goals they contribute to, and the domain assumptions they depend on.
+\begin{center}
+    \begin{tabular}{|>{\columncolor{bluepoli!40}}c|p{22em}|p{11em}|}
+        \hline
+        \textbf{Goal} & \textbf{Requirement} & \textbf{Domain Assumption} \\
+        \hline
+        G1 & R1, R2 & A1, A2, A5, A6, A7, A8 \\
+        G2 & R36, R3 & A3, A5, A6, A7, A8 \\
+        G3 & R4, R21 & A6, A7, A8 \\
+        G4 & R5, R6, R7 & A4, A6, A7, A8, A9 \\
+        G5 & R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R19 & A5, A6, A7, A8 \\
+        G6 & R13, R18, R19 & A3, A5, A6, A7, A8 \\
+        G7 & R20, R21 & A3, A6, A7, A8, A10 \\
+        G8 & R22, R23, R24 & A4, A6, A7, A8 \\
+        G9 & R25 & A6, A7, A8 \\
+        G10 & R26, R27 & A4, A6, A7, A8 \\
+        G11 & R28 & A4, A5, A6, A7, A8 \\
+        G12 & R29, R37 & A6, A7, A8 \\
+        G13 & R30, R31, R38, R39 & A6, A7, A8 \\
+        G14 & R32 & A6, A7, A8 \\
+        G15 & R33, R34 & A6, A7, A8 \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G1] All unregistered users must be able to create an account on the platform using their
+        specific email address and log in to the platform.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R1] S\&C allows visitors to sign up}\\
+        \rowcolor{bluepoli!15}
+        \textbf{[R2] S\&C allows registered Users to login} \\
+        \textbf{[A1] The university of the student who want to register on the platform must be listed in the platform's database. If the university is not listed, the student
+        will not be able to complete the registration process.} \\
+        \textbf{[A2] All users who want to use the platform must have an email address and necessary information to verify their identity.} \\
+        \textbf{[A5] The platform will be able to communicate correctly with email servers to send notifications to users.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G2] Students must be able to upload their CVs on the platform.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R36] S\&C allows users to modify their own profile data} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R3] S\&C allows STs to upload their CV in their profile section} \\
+        \textbf{[A3] All students should have a CV that contains all the necessary information and details about their experience.} \\
+        \textbf{[A5] The platform will be able to communicate correctly with email servers to send notifications to users.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G3] Students must be able to search for available internship offers on the platform.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R4] S\&C allows STs to search for internships} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R21] S\&C allows STs to visualize information about a published internship.} \\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G4] Companies must be able to publish internship offers on the platform.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R5] S\&C allows COs to create internships by compiling all the information.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R6] S\&C allows COs to set a deadline for submitting the application to an internship.}\\
+        \rowcolor{bluepoli!15}
+        \textbf{[R7] S\&C allows allows COs to publish internships.}\\
+        \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \textbf{[A9] The companies publish do not publish the same internship offer more than once before the application deadline.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G5] Users must receive notifications about relevant events.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R8] S\&C should notify STs when they are selected by the CO for the interview process.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R9] S\&C should notify STs when a CO is interested in their profile.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R10] S\&C should notify STs when he is successfully selected for a position.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R11] S\&C should notify STs when a CO rejects their application.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R12] S\&C should notify STs when a new chat message is available.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R13] S\&C should notify STs when an internship who matches their interest is available.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R14] S\&C should notify COs when the deadline for a published internship has expired.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R15] S\&C should notify COs when the candidate accepts the position.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R16] S\&C should notify COs when the candidate refuses the position.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R17] S\&C should notify COs when a new chat message is available.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R18] S\&C should notify COs when a ST with a CV that corresponds to their needs is available.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R19] S\&C should notify UNIs when their students register on the platform.} \\
+        
+        \textbf{[A5] The platform will be able to communicate correctly with email servers to send notifications to users.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G6] Students and Companies must receive recommendations based on statistical analyses.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R13] S\&C should notify STs when an internship who matches their interest is available.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R18] S\&C should notify COs when a ST with a CV that corresponds to their needs is available.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R19] S\&C should be able to analyze the User’s data to provide the recommendations to both STs and COs.} \\
+        \textbf{[A3] All students should have a CV that contains all the necessary information and details about their experience.} \\
+        \textbf{[A5] The platform will be able to communicate correctly with email servers to send notifications to users.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G7] Students must be able to proactively apply for internships, before the submission deadline.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R20] S\&C allows STs to submit their application for an internship.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R21] S\&C allows STs to visualize information about a published internship.} \\
+        \textbf{[A3] All students should have a CV that contains all the necessary information and details about their experience.} \\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \textbf{[A10] The student do not apply for the internship if she/he has already accepted offer which starts in the same period.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G8] Companies must be able to set up the interview process.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R22] S\&C allows COs to view the list of all applications that were submitted for a specific internship.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R23] S\&C allows COs to record STs selection outcomes.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R24] S\&C allows COs to create forms to submit to candidates for the interview process.} \\
+        \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G9] During the interview process, students must be able to respond to the company's questions through questionnaires.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R25] S\&C allows candidates to respond to the received forms.} \\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G10] At the end of the interview process, companies must be able to collect the students' responses.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R26] S\&C allows COs to visualize the responses of the STs who have replied to the forms.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R27] S\&C allows COs to record the results of the interview.} \\
+        \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G11] Companies must be able to send the results of the interviews to the students.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R28] S\&C allows COs to contact the chosen students to offer them the position.} \\
+        \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
+        \textbf{[A5] The platform will be able to communicate correctly with email servers to send notifications to users.}\\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G12] Students must be able to accept or reject the offer after receiving the interview results.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R29] S\&C allows STs to accept or reject the offer after receiving the interview results.} \\
+        \textbf{[R37] S\&C allows students to check the status of their applications.} \\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G13] Students and companies must be able to write feedback regarding their internship experiences.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R30] S\&C allows STs and COs to write feedback and complaints relating to the internship experience.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R31] S\&C allows Users to view feedback and complaints relating to the internship experience.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R38] S\&C notified UNIs when their students start an internship.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R39] S\&C allows UNIs to access the list of all the STs registered on the platform related to their university.} \\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G14] Students and companies must be able to communicate with each other during internship process.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R32] S\&C allows STs and COs to exchange information using the chat, only if the ST is participating or has participated in an internship offered by the company.} \\
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\begin{center}
+    \begin{tabular}{|p{37em}|}
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \hline
+        \textbf{[G15] Universities must be able to monitor the internship process of their students.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R33] S\&C allows UNIs to check the status of the internship records of their students.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R34] S\&C allows UNIs to access the list of all the STs registered on the platform related to their university.} \\
+
+        \textbf{[A6] The platform has a secure and functional user authentication system to protect user data.}\\
+        \textbf{[A7] Users have a stable internet connection to access the platform.}\\
+        \textbf{[A8] Who wants to use the platform must have a device that supports the platform's features.}\\
+        \hline
+    \end{tabular}
+\end{center}
+
 \subsection{Use Case Diagram}
 \subsection{Traceability Matrix}
 
