@@ -152,12 +152,6 @@ To interact with the mailing system, the platform will use SMTP protocol.
     for students and companies. This includes optimizing the queries made by recommendation algorithm to ensure that it can provide 
     recommendations in real-time.
 
-    \item \textbf{Availability:} The system should have a required uptime of at least 99.8\%, which means that the platform should be
-    available 99.8\% of the time. This is equivalent to a downtime of less than 18 hours per year. To achieve this, the platform should be
-    designed with fault tolerance in mind to ensure that the system can handle failures without affecting the availability. \\
-    During the downtime period, a maintenance page should be displayed to inform users that the platform is being updated or is experiencing
-    technical difficulties and is currently unavailable.
-
     \item \textbf{Time of Response:} From the users' perspective, the system should be responsive, meaning the response to any of his request 
     should appear instantly. In order to achieve this, the response time for most operations, such as loading a page, submitting an application, 
     or performing a search, should be at most a few seconds during peak usage and in the domain of milliseconds in normal conditions. \\
@@ -171,12 +165,63 @@ To interact with the mailing system, the platform will use SMTP protocol.
 \section{Design Constraints}
 
 \subsection{Standards Compliance}
+The platform should comply with the REST API standard in order to correctly process user inputs. \\
+The system must be compliant with the European Union's General Data Protection Regulation (GDPR), which is a set of regulations that is designed
+to protect the privacy and personal data of individuals within the European Union. This means that the platform must ensure that user data is
+collected and processed in a lawful and transparent manner, and that users have the right to access, correct, and delete their data. \\
+The platform should also comply with the Web Content Accessibility Guidelines (WCAG) to ensure that the platform is accessible to users with
+disabilities. This includes providing alternative text for images and making sure that the platform is compatible with screen readers. \\
+Since the users accessing the platform could be from different countries and timezones, the platform should use a time standard like UTC to
+ensure that all dates and times are consistent across different regions and that deadlines can be communicated and handled without ambiguity.
+
 \subsection{Hardware Limitations}
+The platform is a web-based application, so it should be able to run on any device with an internet connection and a compatible web browser. 
+Furthermore, it should not require high level or specific hardware.
+
 \subsection{Any Other Constraint}
+S\&C is intended for students, companies and universities only, so the platform should not be accessible to users who do not belong to these
+categories. \\
+Since users may speak different languages, it should be designed completely in English, as it is the most widely spoken language and is commonly 
+used in the business and academic world.
+
+
 
 \section{Software System Attributes}
 \subsection{Reliability}
+The platform should be reliable and ensure that the data is always available and consistent. Particular attention should be given to the
+recommendation algorithm, which should be programmed with the utmost care so that it is always working properly and recommendations are always accurate. 
+This is because uninteresting and unfit recomendations could lead to a decrease in the platform's popularity and a loss of users. \\
+The system should also be able to cope with partial failures through replication and recover from failures quickly and without data loss. 
+This includes implementing regular backups of the database and state.
+
 \subsection{Availability}
+The system should have a required uptime of at least 99.8\%, which means that the platform should be available 99.8\% of the time. 
+This is equivalent to a downtime of less than 18 hours per year. To achieve this, the platform should be designed with fault tolerance 
+in mind to ensure that the system can handle failures without affecting the availability. \\
+During the downtime period, a maintenance page should be displayed to inform users that the platform is being updated or is experiencing
+technical difficulties and is currently unavailable. In order to avoid the expiration of a deadline during the downtFime, planned maintenance 
+should be scheduled during off-peak hours, such as late at night or early in the morning.
+
 \subsection{Security}
+In order to guarantee a secure system, the platform should control the access rights of the users, ensuring both authentication, meaning that 
+the identity of users that attempt to login must be verified, and authorization, meaning that the permission of users to perform specific actions
+must be verified. As an example, a student should not be allowed to create an internship. \\
+To comply with the GDPR, the platform should encrypt all sensitive data, such as passwords and personal information, using secure communication protocols, 
+like HTTPS and TLS, and algorithms.
+
+\subsection{Scalability}
+The system should be designed to be scalable, meaning that it shouldn't sacrifice performance as the number of concurrent users and stored data grows.
+This includes the ability to scale horizontally by adding more servers in orderd to distribute the load and the ability to scale vertically by upgrading 
+the backend hardware to increase the system's capacity. \\
+In particular, the recommendation algorithm must be able to scale well. It should be optimized to handle a larger number of users and data, and ensure
+that it can provide recommendations in real-time.
+
 \subsection{Maintainability}
+The platform should be easy to maintain and update. This includes writing clean, understandable and well-documented code, using version control systems 
+to track changes, and following best practices for software development, like writing unit tests and using continuous integration and deployment tools. \\
+The platform should also be designed to be modular, meaning that different components should be decoupled and independent from each other, so that
+they can be updated or replaced by different development teams without affecting the rest of the system.
+
 \subsection{Portability}
+The system should be compatible with any kind of device that has an internet connection and a compatible web browser. This includes desktops, laptops,
+tablets, and smartphones.
