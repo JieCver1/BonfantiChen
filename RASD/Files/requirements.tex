@@ -553,7 +553,443 @@ describe the functionalities that the actor can do on through the platform.
     \caption{Use Case Diagram}
 \end{figure}
 
+//-------------------------------------------------
 \subsubsection{Use Case Description}
+%Use Case 1
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U1]Register to S\&C} \\
+        \hline
+        \textbf{Actors} & Unregistered User \\
+        \hline
+        \textbf{Entry Condition} &  \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exceptions} &
+        \begin{enumerate}
+            \item
+        \end{enumerate} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 2
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U2]Login to S\&C} \\
+        \hline
+        \textbf{Actors} &  \\
+        \hline
+        \textbf{Entry Condition} &  \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exceptions} &
+        \begin{enumerate}
+            \item
+        \end{enumerate} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 3
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U3]See profile information} \\
+        \hline
+        \textbf{Actors} & User \\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item User is logged in with the corresponding account.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item User select profile which he/she wants to see.
+            \item If it is other user's profile, the user need to search for the profile first.
+            \item User click on the profile sending a request to the system.
+            \item System check request and send back the profile information.
+            \item System display the profile information.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+            System displayed the profile information requested by the user.\\
+        \hline
+        \textbf{Exceptions} &
+            If user is searching for other user's profile and the profile is not found, user will be notified that the profile is not exist.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 4
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U4]upload CV} \\
+        \hline
+        \textbf{Actors} &  \\
+        \hline
+        \textbf{Entry Condition} &  \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exceptions} &
+        \begin{enumerate}
+            \item
+        \end{enumerate} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 5
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U5]Search internship} \\
+        \hline
+        \textbf{Actors} &  \\
+        \hline
+        \textbf{Entry Condition} &  \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exceptions} &
+        \begin{enumerate}
+            \item
+        \end{enumerate} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 6
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U6]Apply internship} \\
+        \hline
+        \textbf{Actors} &  \\
+        \hline
+        \textbf{Entry Condition} &  \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exceptions} &
+        \begin{enumerate}
+            \item
+        \end{enumerate} \\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 7
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U7]Create interview} \\
+        \hline
+        \textbf{Actors} & Company, Student \\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Company is logged in with the corresponding account.
+            \item Company has a list of students selected to process the interview.
+            \item Student is selected by the company for the interview process.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Company set up the questions that will be asked to the student in the questionnaire and other information about the interview.
+            \item Company clicks on the ``submit'' button.
+            \item System check the list of students and the information filled by the company.
+            \item System store the data in the database.
+            \item System send Student about the upcoming interview details.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        Information related to the interview is stored and received by the system, the interview information is updated and the notification is 
+        sent to the student who is waiting for the interview process.\\
+        \hline
+        \textbf{Exceptions} &
+        The student selected by the company has already been accepted by another company and has started the internship at the same time.
+        Then the system will notify the company that to select another student from the list of the candidates.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 8
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U8]Accept/reject offer} \\
+        \hline
+        \textbf{Actors} & Company, Student\\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged in with the corresponding account.
+            \item Student has received an offer from the company.
+            \item Company which has sent the offer to that student.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Student click on the notification regarding the offer.
+            \item System display the offer details and the options to accept or reject the offer
+            \item Student click on the ``accept'' or ``reject'' button.
+            \item System check the student's choice and send the notification to the related company.
+            \item System register the student's decision and update the status of the student's application.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+         The student's decision is saved in the system, the status of the application of the student is updated, and the company
+         who has sent the offer is notified about the student's decision.\\
+        \hline
+        \textbf{Exceptions} &
+        The student has already accepted an offer from another company. The system will notify the student that he/she cannot accept
+        more than one offer if the two internships start at the same period.
+
+        The deadline for accepting the offer has passed. The system will notify the student that it is too late to accept the offer.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 9
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U9]Write feedback and complaints} \\
+        \hline
+        \textbf{Actors} & Company, Student\\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged in with the corresponding account.
+            \item Company is logged in with the corresponding account.
+            \item Student and company have taken part in an active internship.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Student or company click on the active internship which they want to leave comments.
+            \item System display the feedback and complaints page related to that internship.
+            \item Student or company write in the box dedicated
+            \item Student or company click on the ``submit'' button.
+            \item System store the comments and display them on the feedback page.
+            \item System notify the Student and company there is a new feedback or complaint regarding specific internship.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+         The comments are stored in database and displayed on the internship feedback page. The student and company are notified about the new feedback.\\
+        \hline
+        \textbf{Exceptions} &
+        The student or company send an empty comment, the system will notify he/she that the comment can not be empty.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 10
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U10]Chatting} \\
+        \hline
+        \textbf{Actors} & Company, Student\\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged in with the corresponding account.
+            \item Company is logged in with the corresponding account.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Student or company click on the chat icon.
+            \item System display the list of the chat available.
+            \item Student or company select the chat which they want to continue.
+            \item Student or company write the message in the message box and click on the ``send'' button.
+            \item System received the message and stored it in the chat history database.
+            \item System it to the recipient of the message and display it on the chat.
+            \item System notify the recipient that there is a new chat message.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+         The message is correctly sent and stored by the system. The recipient and the sender's chat history is updated and the recipient is
+         notified about the new message incoming, the message details is displayed successfully on the chat.\\
+        \hline
+        \textbf{Exceptions} &
+         If the content of the message is empty, the system will notify the sender that the message can not be empty.
+
+         There is no chat available in the chat list, the system will display a message that the chat will be available when the student and 
+         company have taken part in an internship at least once.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 11
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U11]Create and Publish Internship} \\
+        \hline
+        \textbf{Actors} & Company \\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Company is logged in with the corresponding account.
+            \item Company has all necessary information to create an internship announcement.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Company click on the ``create internship'' button.
+            \item System display the page with the form to fill in the internship announcement details.
+            \item Company insert the data needed to complete the form and click on the ``submit'' button.
+            \item System check the data inserted by the company and store it in the database.
+            \item System display updated list of the internship available related to this company.
+            \item System display the internship announcement on the platform.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+         The system successfully displayed the internship announcement on the platform.\\
+        \hline
+        \textbf{Exceptions} &
+        If there is a missing field in the form, the system will notify the company that all fields are required to be filled.
+
+        If the company has already published the announcement with the same content and that is still active, the system will notify the company
+        that the announcement is already exist.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 12
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U12]Select Candidates} \\
+        \hline
+        \textbf{Actors} & Company, Student\\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged in with the corresponding account.
+            \item Company is logged in with the corresponding account.
+            \item Company has published an internship and the application deadline has passed.
+            \item Student has applied for this internship.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Company click on the internship announcement which the company wants to select the candidates.
+            \item System display the page of the internship announcement.
+            \item Company click on the ``select candidates'' button.
+            \item System display the list of the students who have submitted the application.
+            \item Company clicks on the student's profile to see the details, in particular the CV.
+            \item System display the student's profile and CV to the company.
+            \item Company select the students who will be invited for the interview.
+            \item Company click on the ``submit'' button.
+            \item System store the list of the selected students and notify them about the application result in this phase.
+            \item System update the status of the application of the students who have applied for this internship.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+         The system stored the decision of the company and updated the status of the application of the students and notified them about the result.\\
+        \hline
+        \textbf{Exceptions} &
+         If the company has selected a student who has already accepted an offer from another company by the time, the system will notify the company 
+         that the student has already accepted an offer from another company, please select another student from the list of the candidates.
+
+         If the number of selected students is less or more than the number of the students specified in announcement, the system will notify the company to 
+         select more or fewer students.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 13
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U13]Monitor internship of students} \\
+        \hline
+        \textbf{Actors} & \\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item 
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item 
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & 
+        \\
+        \hline
+        \textbf{Exceptions} &
+        \\
+        \hline
+    \end{tabular}
+\end{center}
+
+
 \subsubsection{Sequence Diagrams}
 
 \subsection{Traceability Matrix}
