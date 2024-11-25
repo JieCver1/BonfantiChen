@@ -579,27 +579,35 @@ describe the functionalities that the actor can do on through the platform.
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
-        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \rowcolor{bluepoli!40}
         \textbf{Name} & \textbf{[U1]Register to S\&C} \\
         \hline
         \textbf{Actors} & Unregistered User \\
         \hline
-        \textbf{Entry Condition} &  \\
+        \textbf{Entry Condition} & 
+            \begin{itemize}
+                \item A user who does not have an account opens the platform. 
+            \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item 
+            \item S\&C shows the login page.
+            \item The user clicks on the "Create account" button.
+            \item S\&C shows the registration page.
+            \item The user selects the type of account to create by clicking either on the Student or on the Company button.
+            \item S\&C shows the respective registration form.
+            \item The user fills in the form with the required information, like: email, password, name, surname, interests, university (for the student).
+            \item The user clicks on the "Create account" button.
+            \item S\&C checks the information provided by the user.
+            \item S\&C updates the database in order to store all the provided information.
+            \item S\&C sends a confirmation email to the user.
+            \item The user clicks on the confirmation link in the email.
         \end{enumerate} \\
         \hline
-        \textbf{Exit Condition} & 
-        \begin{enumerate}
-            \item 
-        \end{enumerate} \\
+        \textbf{Exit Condition} & The user is now registered and is granted access to the platform. \\
         \hline
-        \textbf{Exceptions} &
-        \begin{enumerate}
-            \item
-        \end{enumerate} \\
+        \textbf{Exceptions} & In case the information provided by the user is not valid (step 8 fails), for instance the email is already linked to 
+        an account, the system will show an error message and ask to provide the correct information, effectively returning to step 5. \\
         \hline
     \end{tabular}
 \end{center}
@@ -608,27 +616,32 @@ describe the functionalities that the actor can do on through the platform.
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
-        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \rowcolor{bluepoli!40}
         \textbf{Name} & \textbf{[U2]Login to S\&C} \\
         \hline
-        \textbf{Actors} &  \\
+        \textbf{Actors} & User \\
         \hline
-        \textbf{Entry Condition} &  \\
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item A user who does have an account opens the platform.
+        \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item 
+            \item S\&C shows the login page.
+            \item If the user clicks on the "Forgot password" button, the system will send an email to the user with the instructions to reset the password.
+            \item The user resets the password following the instructions in the email and logs in.
+            \item Otherwise the user fills in the form with the required information, like: email, password, check the "Remember me" field.
+            \item The user clicks on the "Login" button.
+            \item S\&C checks the information provided by the user.
+            \item S\&C displays the Dashboard page. 
         \end{enumerate} \\
         \hline
-        \textbf{Exit Condition} & 
-        \begin{enumerate}
-            \item 
-        \end{enumerate} \\
+        \textbf{Exit Condition} & The user is now logged in the platform. \\
         \hline
-        \textbf{Exceptions} &
-        \begin{enumerate}
-            \item
-        \end{enumerate} \\
+        \textbf{Exceptions} & In case the information provided by the user is invalid (step 6 fails), for instance the email isn't linked to
+        any account or the password is wrong, an error message that asks to provide the correct information is shown, effectively 
+        returning to step 4. \\
         \hline
     \end{tabular}
 \end{center}
@@ -670,26 +683,34 @@ describe the functionalities that the actor can do on through the platform.
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U4]upload CV} \\
+        \textbf{Name} & \textbf{[U4]Upload CV} \\
         \hline
-        \textbf{Actors} &  \\
+        \textbf{Actors} & Student \\
         \hline
-        \textbf{Entry Condition} &  \\
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged.
+            \item Student opens the profile modification page.
+            \item Student has a CV file to upload.
+        \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item 
+            \item The student clicks on the "Edit profile" button.
+            \item S\&C shows the profile modification page.
+            \item The student clicks on the "Upload CV" button.
+            \item S\&C shows the file explorer.
+            \item The student selects the CV file and clicks on the "Upload" button.
+            \item S\&C checks the file format and size.
+            \item The students clicks on the "Save" button.
+            \item S\&C stores the file in the database.
+            \item S\&C displays the updated profile page.
         \end{enumerate} \\
         \hline
-        \textbf{Exit Condition} & 
-        \begin{enumerate}
-            \item 
-        \end{enumerate} \\
+        \textbf{Exit Condition} & The student's CV is uploaded and displayed in the profile page. \\
         \hline
-        \textbf{Exceptions} &
-        \begin{enumerate}
-            \item
-        \end{enumerate} \\
+        \textbf{Exceptions} & In case the file format or size is not valid (step 6 fails), the system will show an error message and ask 
+        to upload only files in ".pdf" format, effectively returning to step 2. \\
         \hline
     \end{tabular}
 \end{center}
@@ -701,24 +722,29 @@ describe the functionalities that the actor can do on through the platform.
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \textbf{Name} & \textbf{[U5]Search internship} \\
         \hline
-        \textbf{Actors} &  \\
+        \textbf{Actors} & Student \\
         \hline
-        \textbf{Entry Condition} &  \\
+        \textbf{Entry Condition} &  
+        \begin{itemize}
+            \item Student is logged.
+            \item S\&C shows the Dashboard page.
+            \item The student wants to search for an internship.
+        \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item 
+            \item The student clicks on the "Search" tab or on the search bar in the dashboard page.
+            \item The student types the keyword in the search bar.
+            \item The student clicks on the "Search" button.
+            \item S\&C shows the list of internships that match the keyword.
+            \item The student either clicks on an internship to see more details or scrolls down to see more internships.
         \end{enumerate} \\
         \hline
-        \textbf{Exit Condition} & 
-        \begin{enumerate}
-            \item 
-        \end{enumerate} \\
+        \textbf{Exit Condition} & The student has found the internship they were looking for. The student does not find what they were looking for,
+        so they close the search page or retry a new search. \\
         \hline
-        \textbf{Exceptions} &
-        \begin{enumerate}
-            \item
-        \end{enumerate} \\
+        \textbf{Exceptions} & In case the keyword does not match any internship (step 4 fails), the system will show a message that no internship
+        has been found and ask to try with a different keyword, effectively returning to step 2. \\
         \hline
     \end{tabular}
 \end{center}
@@ -730,24 +756,27 @@ describe the functionalities that the actor can do on through the platform.
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \textbf{Name} & \textbf{[U6]Apply internship} \\
         \hline
-        \textbf{Actors} &  \\
+        \textbf{Actors} & Student \\
         \hline
-        \textbf{Entry Condition} &  \\
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged.
+            \item S\&C shows the Internship details page.
+            \item The student wants to apply to the internship.
+        \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item 
+            \item The student clicks on the "Apply" button.
+            \item S\&C gets the student's information from the database.
+            \item S\&C creates and stores the application in the database.
+            \item S\&C shows the details of the application in the "My applications" page.
         \end{enumerate} \\
         \hline
-        \textbf{Exit Condition} & 
-        \begin{enumerate}
-            \item 
-        \end{enumerate} \\
+        \textbf{Exit Condition} & The student has applied for the internship. \\
         \hline
-        \textbf{Exceptions} &
-        \begin{enumerate}
-            \item
-        \end{enumerate} \\
+        \textbf{Exceptions} & The student has already applied for the internship (step 3 fails), S\&C will show an error message and ask to
+        check the "My applications" page to see the status of the application. \\
         \hline
     \end{tabular}
 \end{center}
@@ -988,23 +1017,30 @@ describe the functionalities that the actor can do on through the platform.
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \textbf{Name} & \textbf{[U13]Monitor internship of students} \\
         \hline
-        \textbf{Actors} & \\
+        \textbf{Actors} & University \\
         \hline
         \textbf{Entry Condition} & 
         \begin{itemize}
-            \item 
+            \item A university is logged in with the corresponding account.
+            \item The university has students who have taken part in internships.
+            \item The university representative wants to monitor the internship process of the students.
         \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item 
+            \item S\&C shows the home page with the list of all registered students of the university.
+            \item The University representative clicks on a student's profile.
+            \item S\&C shows the student's profile page.
+            \item The University representative clicks on one of the student's internships (current or past).
+            \item S\&C shows the internship details page.
+            \item The University representative can see the feedback and complaints from both parties involved related to that internship.
         \end{enumerate} \\
         \hline
-        \textbf{Exit Condition} & 
-        \\
+        \textbf{Exit Condition} & The university representative has monitored all the internship processes of the students that they were
+        interested in. \\
         \hline
-        \textbf{Exceptions} &
-        \\
+        \textbf{Exceptions} & If the student has not taken part in any internship, S\&C will communicate this to the representative with a 
+        message that says "This student has not taken part in any internship yet". \\
         \hline
     \end{tabular}
 \end{center}
