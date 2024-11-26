@@ -546,34 +546,34 @@ the interaction between the users and the platform in a more detailed way.
 
 \subsubsection{Use Case Diagrams}
 The use case is divided into three main actors: Students, Companies and Universities. Each actor has a set of use cases that
-describe the functionalities that the actor can do on through the platform.
+describe the functionalities he can access on S\&C.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Images/User_diagram.png}
+    \includegraphics[width=0.77\textwidth]{Images/Use_Case_Diagrams/User_diagram.png}
     \caption{User's Use Case Diagram}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Images/Student_diagram.png}
+    \includegraphics[width=0.7\textwidth]{Images/Use_Case_Diagrams/Student_diagram.png}
     \caption{Student's Use Case Diagram}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Images/Company_diagram.png}
+    \includegraphics[width=0.7\textwidth]{Images/Use_Case_Diagrams/Company_diagram.png}
     \caption{Company's Use Case Diagram}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Images/SandC_diagram.png}
+    \includegraphics[width=0.9\textwidth]{Images/Use_Case_Diagrams/SandC_diagram.png}
     \caption{Student and Company Use Case Diagram}
 \end{figure}
 \begin{figure}[H]
     \centering
-    \includegraphics[width=1\textwidth]{Images/University_diagram.png}
+    \includegraphics[width=0.6\textwidth]{Images/Use_Case_Diagrams/University_diagram.png}
     \caption{University's Use Case Diagram}
 \end{figure}
 
-%-------------------------------------------------------------------------------------------
+
 \subsubsection{Use Case Description}
 %Use Case 1
 \begin{center}
@@ -736,15 +736,15 @@ describe the functionalities that the actor can do on through the platform.
             \item The student clicks on the "Search" tab or on the search bar in the dashboard page.
             \item The student types the keyword in the search bar.
             \item The student clicks on the "Search" button.
-            \item S\&C shows the list of internships that match the keyword.
+            \item S\&C shows the internships that match the keyword.
             \item The student either clicks on an internship to see more details or scrolls down to see more internships.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & The student has found the internship they were looking for. The student does not find what they were looking for,
         so they close the search page or retry a new search. \\
         \hline
-        \textbf{Exceptions} & In case the keyword does not match any internship (step 4 fails), the system will show a message that no internship
-        has been found and ask to try with a different keyword, effectively returning to step 2. \\
+        \textbf{Exceptions} & In case the keyword doesn't match any internship (step 4 fails), S\&C shows the message: "No internship was found,
+        please try with a different keyword", effectively returning to step 2. \\
         \hline
     \end{tabular}
 \end{center}
@@ -753,7 +753,7 @@ describe the functionalities that the actor can do on through the platform.
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
-        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \rowcolor{bluepoli!40}
         \textbf{Name} & \textbf{[U6]Apply internship} \\
         \hline
         \textbf{Actors} & Student \\
@@ -769,6 +769,7 @@ describe the functionalities that the actor can do on through the platform.
         \begin{enumerate}
             \item The student clicks on the "Apply" button.
             \item S\&C gets the student's information from the database.
+            \item S\&C checks that the student has not already applied for the internship.
             \item S\&C creates and stores the application in the database.
             \item S\&C shows the details of the application in the "My applications" page.
         \end{enumerate} \\
@@ -1028,7 +1029,7 @@ describe the functionalities that the actor can do on through the platform.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item S\&C shows the home page with the list of all registered students of the university.
+            \item S\&C shows the dashboard page with the list of all registered students of the university.
             \item The University representative clicks on a student's profile.
             \item S\&C shows the student's profile page.
             \item The University representative clicks on one of the student's internships (current or past).
@@ -1047,6 +1048,36 @@ describe the functionalities that the actor can do on through the platform.
 
 
 \subsubsection{Sequence Diagrams}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/registration_SD.png}
+    \caption{Registration to S\&C Sequence Diagram}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/login_SD.png}
+    \caption{Login to S\&C Sequence Diagram}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/uploadCV_SD.png}
+    \caption{Student uploads CV to his profile Sequence Diagram}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/searchInt_SD.png}
+    \caption{Student searches for an internship Sequence Diagram}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/applyInt_SD.png}
+    \caption{Student applies for an internship Sequence Diagram}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/monitor_SD.png}
+    \caption{University monitors the internship processes of students Sequence Diagram}
+\end{figure}
 
 \subsection{Traceability Matrix}
 
