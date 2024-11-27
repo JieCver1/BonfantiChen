@@ -591,7 +591,7 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item S\&C shows the login page.
+            \item S\&C shows the welcome page.
             \item The user clicks on the "Create account" button.
             \item S\&C shows the registration page.
             \item The user selects the type of account to create by clicking either on the Student or on the Company button.
@@ -628,7 +628,7 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item S\&C shows the login page.
+            \item S\&C shows the welcome page.
             \item If the user clicks on the "Forgot password" button, the system will send an email to the user with the instructions to reset the password.
             \item The user resets the password following the instructions in the email and logs in.
             \item Otherwise the user fills in the form with the required information, like: email, password, check the "Remember me" field.
@@ -658,22 +658,24 @@ describe the functionalities he can access on S\&C.
         \textbf{Entry Condition} & 
         \begin{itemize}
             \item User is logged in with the corresponding account.
+            \item S\&C shows the Dashboard page.
         \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item User select profile which he/she wants to see.
-            \item If it is other user's profile, the user need to search for the profile first.
-            \item User click on the profile sending a request to the system.
-            \item System check request and send back the profile information.
-            \item System display the profile information.
+            \item User clicks on the "Search" tab or on the search bar in the dashboard page. 
+            \item User types the name of the user they want to search in the search bar.
+            \item User click on the "Search" button.
+            \item S\&C shows all the profiles that match the search.
+            \item User clicks on the profile they want to see.
+            \item S\&C shows the profile information.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-            System displayed the profile information requested by the user.\\
+            S\&C displayed the profile information requested by the user.\\
         \hline
         \textbf{Exceptions} &
-            If user is searching for other user's profile and the profile is not found, user will be notified that the profile is not exist.\\
+            If no profile is found, the user will be notified that the profile does not exist.\\
         \hline
     \end{tabular}
 \end{center}
@@ -769,15 +771,18 @@ describe the functionalities he can access on S\&C.
         \begin{enumerate}
             \item The student clicks on the "Apply" button.
             \item S\&C gets the student's information from the database.
-            \item S\&C checks that the student has not already applied for the internship.
+            \item S\&C checks that the student has not already applied for that internship or is starting an internship in the same period.
             \item S\&C creates and stores the application in the database.
             \item S\&C shows the details of the application in the "My applications" page.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & The student has applied for the internship. \\
         \hline
-        \textbf{Exceptions} & The student has already applied for the internship (step 3 fails), S\&C will show an error message and ask to
-        check the "My applications" page to see the status of the application. \\
+        \textbf{Exceptions} & The student has already applied for that internship (step 3 fails), S\&C will show an error message and ask to
+        check the "My applications" page to see the status of the application. 
+        
+        The student has already accepted an offer for another internship which start in the same period, so (step 3 fails), S\&C will show an 
+        error message and ask to check the "My Internship" page to see the current internship.\\
         \hline
     \end{tabular}
 \end{center}
@@ -794,7 +799,7 @@ describe the functionalities he can access on S\&C.
         \textbf{Entry Condition} & 
         \begin{itemize}
             \item Company is logged in with the corresponding account.
-            \item Company has a list of students selected to process the interview.
+            \item Company has a list of students selected to create the interview for.
             \item Student is selected by the company for the interview process.
         \end{itemize} \\
         \hline
@@ -831,7 +836,7 @@ describe the functionalities he can access on S\&C.
         \begin{itemize}
             \item Student is logged in with the corresponding account.
             \item Student has received an offer from the company.
-            \item Company which has sent the offer to that student.
+            \item Company is waiting for the student response.
         \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
@@ -874,9 +879,9 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Student or company click on the active internship which they want to leave comments.
+            \item Student or company click on the active internship which they want to leave comments on.
             \item System display the feedback and complaints page related to that internship.
-            \item Student or company write in the box dedicated
+            \item Student or company write in the box dedicated to the comments.
             \item Student or company click on the ``submit'' button.
             \item System store the comments and display them on the feedback page.
             \item System notify the Student and company there is a new feedback or complaint regarding specific internship.
@@ -1048,36 +1053,85 @@ describe the functionalities he can access on S\&C.
 
 
 \subsubsection{Sequence Diagrams}
+% Use Case 1
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/registration_SD.png}
     \caption{Registration to S\&C Sequence Diagram}
 \end{figure}
+% Use Case 2
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/login_SD.png}
     \caption{Login to S\&C Sequence Diagram}
 \end{figure}
+% Use Case 3
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/seeProfile_SD.png}
+    \caption{User sees profile information Sequence Diagram}
+\end{figure}
+% Use Case 4
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/uploadCV_SD.png}
     \caption{Student uploads CV to his profile Sequence Diagram}
 \end{figure}
+% Use Case 5
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/searchInt_SD.png}
     \caption{Student searches for an internship Sequence Diagram}
 \end{figure}
+% Use Case 6
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/applyInt_SD.png}
     \caption{Student applies for an internship Sequence Diagram}
 \end{figure}
+% Use Case 7
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/monitor_SD.png}
+    \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/createIntvw_SD.png}
+    \caption{Company creates an interview Sequence Diagram}
+\end{figure}
+% Use Case 8
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Sequence_Diagrams/acceptRej_SD.png}
+    \caption{Student accepts/rejects an offer Sequence Diagram}
+\end{figure}
+% Use Case 9
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Sequence_Diagrams/feedback_SD.png}
+    \caption{Student or Company writes feedback Sequence Diagram}
+\end{figure}
+% Use Case 10
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/chatting_SD.png}
+    \caption{Student or Company chats with each other Sequence Diagram}
+\end{figure}
+% Use Case 11
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/createInt_SD.png}
+    \caption{Company creates and publishes an internship Sequence Diagram}
+\end{figure}
+% Use Case 12
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Images/Sequence_Diagrams/select_SD.png}
+    \caption{Company selects candidates Sequence Diagram}
+\end{figure}
+% Use Case 13
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.73\textwidth]{Images/Sequence_Diagrams/monitor_SD.png}
     \caption{University monitors the internship processes of students Sequence Diagram}
 \end{figure}
+
 
 \subsection{Traceability Matrix}
 
