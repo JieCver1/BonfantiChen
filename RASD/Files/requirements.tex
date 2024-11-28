@@ -549,7 +549,7 @@ The use case is divided into three main actors: Students, Companies and Universi
 describe the functionalities he can access on S\&C.
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.77\textwidth]{Images/Use_Case_Diagrams/User_diagram.png}
+    \includegraphics[width=0.8\textwidth]{Images/Use_Case_Diagrams/User_diagram.png}
     \caption{User's Use Case Diagram}
 \end{figure}
 \begin{figure}[H]
@@ -685,7 +685,40 @@ describe the functionalities he can access on S\&C.
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U4]Upload CV} \\
+        \textbf{Name} & \textbf{[U4]View recommendation} \\
+        \hline
+        \textbf{Actors} & Student, Company \\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged.
+            \item Company is logged.
+            \item S\&C shows the Dashboard page.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item S\&C displays the recommendation section in the Dashboard page.
+            \item The student or company can browse the recommendations.
+            \item The student or company clicks on the recommendation they want to see.
+            \item S\&C shows the recommendation details.
+            \item The student or company can either accept the recommendation (by applying for the internship, or inviting the 
+            student to take part in an internship) or reject it.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & The recommendation is either accepted or ignored. \\
+        \hline
+        \textbf{Exceptions} & \\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 5
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U5]Upload CV} \\
         \hline
         \textbf{Actors} & Student \\
         \hline
@@ -717,12 +750,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 5
+%Use Case 6
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U5]Search internship} \\
+        \textbf{Name} & \textbf{[U6]Search internship} \\
         \hline
         \textbf{Actors} & Student \\
         \hline
@@ -751,12 +784,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 6
+%Use Case 7
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40}
-        \textbf{Name} & \textbf{[U6]Apply internship} \\
+        \textbf{Name} & \textbf{[U7]Apply internship} \\
         \hline
         \textbf{Actors} & Student \\
         \hline
@@ -787,12 +820,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 7
+%Use Case 8
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U7]Create interview} \\
+        \textbf{Name} & \textbf{[U8]Create interview} \\
         \hline
         \textbf{Actors} & Company, Student \\
         \hline
@@ -823,12 +856,83 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 8
+%Use Case 9
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U8]Accept/reject offer} \\
+        \textbf{Name} & \textbf{[U9]Respond to interview questionnaire} \\
+        \hline
+        \textbf{Actors} & Student\\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged.
+            \item Student was selected by the company for the interview process.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item Student click on the notification informing them about the interview or opens the interview page from the application page.
+            \item S\&C shows the interview questionnaire.
+            \item Student fills in the questionnaire.
+            \item Student clicks on the ``submit'' button.
+            \item S\&C checks the answers provided by the student.
+            \item S\&C stores the student's answers in the database.
+            \item S\&C notifies the company that the student has completed the questionnaire.
+            \item S\&C updates the status of the student's application.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & S\&C shows the student that the questionnaire has been submitted successfully.\\
+        \hline
+        \textbf{Exceptions} & The student does not correctly fill in the questionnaire (step 5 fails), S\&C will ask the student to correctly
+        fill the questionnaire, effectively returning to step 2.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 10
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U10]Send interview results} \\
+        \hline
+        \textbf{Actors} & Company, Student\\
+        \hline
+        \textbf{Entry Condition} & 
+        \begin{itemize}
+            \item Student is logged.
+            \item Company is logged.
+            \item Company has to decide who to accept for the internship.
+        \end{itemize} \\
+        \hline
+        \textbf{Events Flow} & 
+        \begin{enumerate}
+            \item The Company clicks on the button to open the "Internship details" page.
+            \item The Company clicks on "Questionnaire responses".
+            \item S\&C shows the list of students who have completed the questionnaire.
+            \item The Company selects the students to accept for the internship.
+            \item The Company clicks on the "Send results" button.
+            \item S\&C checks the list of students selected by the company.
+            \item S\&C stores the data in the database.
+            \item S\&C sends a notification to the students who have been accepted, asking them to confirm or reject the offer.
+        \end{enumerate} \\
+        \hline
+        \textbf{Exit Condition} & The company has sent the results of the interview to the students.\\
+        \hline
+        \textbf{Exceptions} & There is a problem with the company selection (step 6 fails), S\&C will notify the company that the selection
+        has not been saved and ask to try again, effectively returning to step 3.\\
+        \hline
+    \end{tabular}
+\end{center}
+
+%Use Case 11
+\begin{center}
+    \begin{tabular}{|p{9em}|p{27em}|}
+        \hline
+        \rowcolor{bluepoli!40} % comment this line to remove the color
+        \textbf{Name} & \textbf{[U11]Accept/reject offer} \\
         \hline
         \textbf{Actors} & Company, Student\\
         \hline
@@ -861,12 +965,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 9
+%Use Case 12
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U9]Write feedback and complaints} \\
+        \textbf{Name} & \textbf{[U12]Write feedback and complaints} \\
         \hline
         \textbf{Actors} & Company, Student\\
         \hline
@@ -896,12 +1000,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 10
+%Use Case 13
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U10]Chatting} \\
+        \textbf{Name} & \textbf{[U13]Chatting} \\
         \hline
         \textbf{Actors} & Company, Student\\
         \hline
@@ -935,12 +1039,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 11
+%Use Case 14
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U11]Create and Publish Internship} \\
+        \textbf{Name} & \textbf{[U14]Create and Publish Internship} \\
         \hline
         \textbf{Actors} & Company \\
         \hline
@@ -972,12 +1076,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 12
+%Use Case 15
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U12]Select Candidates} \\
+        \textbf{Name} & \textbf{[U15]Select Candidates} \\
         \hline
         \textbf{Actors} & Company, Student\\
         \hline
@@ -1016,12 +1120,12 @@ describe the functionalities he can access on S\&C.
     \end{tabular}
 \end{center}
 
-%Use Case 13
+%Use Case 16
 \begin{center}
     \begin{tabular}{|p{9em}|p{27em}|}
         \hline
         \rowcolor{bluepoli!40} % comment this line to remove the color
-        \textbf{Name} & \textbf{[U13]Monitor internship of students} \\
+        \textbf{Name} & \textbf{[U16]Monitor internship of students} \\
         \hline
         \textbf{Actors} & University \\
         \hline
@@ -1074,61 +1178,79 @@ describe the functionalities he can access on S\&C.
 % Use Case 4
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/uploadCV_SD.png}
-    \caption{Student uploads CV to his profile Sequence Diagram}
+    \includegraphics[width=0.8\textwidth]{Images/Sequence_Diagrams/recommendation_SD.png}
+    \caption{Student or Company views recommendation Sequence Diagram}
 \end{figure}
 % Use Case 5
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Images/Sequence_Diagrams/uploadCV_SD.png}
+    \caption{Student uploads CV to his profile Sequence Diagram}
+\end{figure}
+% Use Case 6
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/searchInt_SD.png}
     \caption{Student searches for an internship Sequence Diagram}
 \end{figure}
-% Use Case 6
+% Use Case 7
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/applyInt_SD.png}
     \caption{Student applies for an internship Sequence Diagram}
 \end{figure}
-% Use Case 7
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/createIntvw_SD.png}
-    \caption{Company creates an interview Sequence Diagram}
-\end{figure}
 % Use Case 8
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{Images/Sequence_Diagrams/acceptRej_SD.png}
-    \caption{Student accepts/rejects an offer Sequence Diagram}
+    \includegraphics[width=1.05\textwidth]{Images/Sequence_Diagrams/createIntvw_SD.png}
+    \caption{Company creates an interview Sequence Diagram}
 \end{figure}
 % Use Case 9
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.9\textwidth]{Images/Sequence_Diagrams/feedback_SD.png}
-    \caption{Student or Company writes feedback Sequence Diagram}
+    \includegraphics[width=0.9\textwidth]{Images/Sequence_Diagrams/respondQuest_SD.png}
+    \caption{Student responds to an interview questionnaire Sequence Diagram}
 \end{figure}
 % Use Case 10
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{Images/Sequence_Diagrams/intResults_SD.png}
+    \caption{Company sends interview results Sequence Diagram}
+\end{figure}
+% Use Case 11
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/acceptRej_SD.png}
+    \caption{Student accepts/rejects an offer Sequence Diagram}
+\end{figure}
+% Use Case 12
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/feedback_SD.png}
+    \caption{Student or Company writes feedback Sequence Diagram}
+\end{figure}
+% Use Case 13
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/chatting_SD.png}
     \caption{Student or Company chats with each other Sequence Diagram}
 \end{figure}
-% Use Case 11
+% Use Case 14
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.75\textwidth]{Images/Sequence_Diagrams/createInt_SD.png}
     \caption{Company creates and publishes an internship Sequence Diagram}
 \end{figure}
-% Use Case 12
+% Use Case 15
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.85\textwidth]{Images/Sequence_Diagrams/select_SD.png}
+    \includegraphics[width=1\textwidth]{Images/Sequence_Diagrams/select_SD.png}
     \caption{Company selects candidates Sequence Diagram}
 \end{figure}
-% Use Case 13
+% Use Case 16
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.73\textwidth]{Images/Sequence_Diagrams/monitor_SD.png}
+    \includegraphics[width=0.70\textwidth]{Images/Sequence_Diagrams/monitor_SD.png}
     \caption{University monitors the internship processes of students Sequence Diagram}
 \end{figure}
 
@@ -1164,6 +1286,7 @@ describe the functionalities he can access on S\&C.
 
 \end{itemize}
 
+
 \section{Design Constraints}
 
 \subsection{Standards Compliance}
@@ -1185,7 +1308,6 @@ S\&C is intended for students, companies and universities only, so the platform 
 categories. \\
 Since users may speak different languages, it should be designed completely in English, as it is the most widely spoken language and is commonly 
 used in the business and academic world.
-
 
 
 \section{Software System Attributes}
