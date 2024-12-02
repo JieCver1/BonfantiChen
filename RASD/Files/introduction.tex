@@ -9,12 +9,13 @@ Students\&Companies (S\&C) is a platform designed to facilitate this connection 
 students to match their preferences with available opportunities, ensuring internships align with their experiences and skills. 
 Companies can specify project requirements to attract suitable candidates.
 
-The platform supports both students and companies in two phases: recommendation and selection. During the recommendation phase, 
-it utilizes keyword searches and statistical analysis to assess internship information. Students can search for internships and receive 
-notifications about appealing opportunities, while companies can publish offers and get alerts when student CVs match their criteria.
-Once mutual interest is established, the selection phase begins, where the platform assists with interviews and finalizes the process. 
-It also monitors the internship journey, providing feedback and enabling direct communication to address any questions. Additionally, 
-the universities of the students can oversee the process to unsure the process is going smoothly.
+The platform supports both students and companies in two phases: recommendation and selection. It utilizes keyword searches 
+and statistical analyses to evaluate internship and student data, ensuring a match that meets the needs of both parties. 
+Students can search for internships and receive notifications about appealing opportunities, while companies can publish offers and get 
+alerts when student CVs match their criteria. Once mutual interest is established, the selection phase begins, where the platform assists 
+with interviews and finalizes the process. It also monitors the internship journey, providing the possibility to exchange feedback and 
+enabling direct communication to address any questions. Additionally, the universities of the students can oversee the process to ensure 
+that everything is going smoothly.
 
 \subsection{Goals}\label{subsec:goals}
 [G1] All unregistered Users must be able to create an account on the platform using their specific email address and log in to the platform.
@@ -39,7 +40,7 @@ the universities of the students can oversee the process to unsure the process i
 
 [G11] Companies must be able to send the results of the interviews to the students.
 
-[G12] Students must be able to accept or reject the offer after receiving the interview results.
+[G12] Students must be able to accept or reject the internship offer after receiving the interview results.
 
 [G13] Students and companies must be able to write feedback regarding their internship experiences.
 
@@ -63,7 +64,7 @@ Otherwise they can log in to the platform using their credentials.
 The universities associated with the students through their educational emails will be notified about the students' registration on the platform. 
 The system will then add the registered students to the university’s list, allowing the universities to monitor their internship activities.
 
-Companies wishing to announce internship opportunities can create an account on the platform, if they do not already have an account. They need to
+Companies wishing to announce internship opportunities can create an account on the platform, if they do not already have one. They need to
 provide the necessary information for the internship announcement such as the job description, requirements, and the number of interns needed etc. 
 Companies can also specify the skills they are looking for in students.
 
@@ -104,13 +105,13 @@ identified, specifying which parts are controlled by the machine and which parts
     \small\textbf{P9} &\small \textbf{Platform notifies users that a deadline has expired} & Yes & Machine \B\\
     \small\textbf{P10} &\small \textbf{Platform suggests recommendations} & Yes & Machine \T\B \\
     \small\textbf{P11} &\small \textbf{Platform adds student to university's list} & No & Machine \T\B \\
-    \small\textbf{P12} &\small \textbf{Student applies offer} & Yes & World \B\\
-    \small\textbf{P13} &\small \textbf{Student rejects or accepts internship} & Yes & World \T\B \\
-    \small\textbf{P14} &\small \textbf{Company selects candidates to interview} & Yes & World \T\B\\
-    \small\textbf{P15} &\small \textbf{Student participates interview} & Yes & World \T\B \\
-    \small\textbf{P16} &\small \textbf{Company sends interview results} & Yes & World \B\\
-    \small\textbf{P17} &\small \textbf{Stu\&Comp write feedback of internship} & Yes & World \T\B\\
-    \small\textbf{P18} &\small \textbf{Stu\&Comp view feedback of internship} & Yes & World \B\\
+    \small\textbf{P12} &\small \textbf{A student submits an application for an internship} & Yes & World \B\\
+    \small\textbf{P13} &\small \textbf{Company selects candidates to interview} & Yes & World \T\B\\
+    \small\textbf{P14} &\small \textbf{Student participates to the interview} & Yes & World \T\B \\
+    \small\textbf{P15} &\small \textbf{Company sends interview results} & Yes & World \B\\
+    \small\textbf{P16} &\small \textbf{Student accepts or rejects the internship} & Yes & World \T\B \\
+    \small\textbf{P17} &\small \textbf{ST and CO write feedback on the internship} & Yes & World \T\B\\
+    \small\textbf{P18} &\small \textbf{ST and CO view feedback on the internship} & Yes & World \B\\
     \small\textbf{P19} &\small \textbf{Student views the offers' description} & Yes & World \T\B \\
     \small\textbf{P20} &\small \textbf{Company views the students' profile} & Yes & World \T\B\\
     \small\textbf{P21} &\small \textbf{University views the list of its students} & Yes & World \B\\
@@ -126,22 +127,22 @@ identified, specifying which parts are controlled by the machine and which parts
 \begin{itemize}
     \item \textbf{Student:} A person who is looking for internships.
     \item \textbf{Company:} An organization which wants to announce internship opportunities to students.
-    \item \textbf{University:} An educational institution that related to students and their internships.
+    \item \textbf{University:} An educational institution that is related to students and their internships.
     \item \textbf{User:} A generic term for students, companies, and universities who use the platform.
     \item \textbf{Candidate:} A term for students whose applications are selected and that will take part in the interview process.
     \item \textbf{Internship:} A opportunity offered by companies to students to gain practical experience in a real job environment.
-    \item \textbf{CV:} Curriculum Vitae, a document that contains all necessary information about students to able to apply for internships.
-    \item \textbf{Recommendation:} A suggestion made by the platform to students and companies based on their statistical analysis and simple 
-    keyword searches.
+    \item \textbf{CV:} Curriculum Vitae, a document that contains all necessary information about students to be able to apply for internships.
+    \item \textbf{Recommendation:} A suggestion made by the platform to students and companies based on statistical analyses and keyword searches.
     \item \textbf{Selection:} The process of choosing students and companies to process the interview.
-    \item \textbf{Feedback:} Helpful information written by students and companies about their internship experiences to improve a performance of two parties.
+    \item \textbf{Feedback:} Helpful information written by students and companies about their internship experiences to improve a performance 
+    of the two parties.
     \item \textbf{Notification:} A message sent by the platform to inform students and companies about important events, such as new internship 
-    offers, matching CVs or interview results etc.
+    offers, matching CVs, interview results etc.
     \item \textbf{Interview:} A meeting between students and companies to decide an assignment of the internship offer.
     \item \textbf{Platform:} The Students\&Companies (S\&C) system that provides the services to students, companies, and universities about
     internships.
-    \item \textbf{Keyword:} A label or tag using word of great significance to describe content, such as skills, experiences, and preferences
-    of students and companies.
+    \item \textbf{Keyword:} A significant word or tag used to describe content, such as the skills, experiences, and preferences of students and 
+    companies.
     \item \textbf{Comment:} The text that is written by students and companies to provide feedback or complaints about their internship experiences.
     \item \textbf{Complain:} A text that expresses dissatisfaction, issues, or annoyance about the internship experiences.
 \end{itemize}
@@ -156,6 +157,7 @@ identified, specifying which parts are controlled by the machine and which parts
     \item \textbf{HTTP:} Hypertext Transfer Protocol
     \item \textbf{HTTPS:} Hypertext Transfer Protocol Secure
     \item \textbf{TLS:} Transport Layer Security
+    \item \textbf{REST:} Representational State Transfer
 
 \end{itemize}
 
@@ -164,8 +166,7 @@ identified, specifying which parts are controlled by the machine and which parts
     \item \textbf{[Gn]:} Used to number the goals, where Gn is the n-th goal.
     \item \textbf{[Pn]:} Used to number the phenomena, where Pn is the n-th phenomenon.
     \item \textbf{[Rn]:} Used to number the requirements, where Rn is the n-th requirement.
-    \item \textbf{[An]:} Used to number the definitions, where An is the n-th definition.
-    \item \textbf{Stu\&Comp:} students and companies
+    \item \textbf{[An]:} Used to number the domain assumptions, where An is the n-th assumption.
     \item \textbf{CO:} Company
     \item \textbf{ST:} Student
     \item \textbf{UNI:} University
@@ -188,12 +189,14 @@ This document is structured as follows:
     including the specification of definitions, acronyms, and abbreviations of the terms used in this document. In addition, it notes the revision 
     history for updates to the document and the reference documents that were used during the development of this document.
     \item \textbf{Section 2: Overall Description}
-    \\ In this section, the general view of the S\&C project is presented, including the product perspective, functions, characteristics, constraints,
-    assumptions, and dependencies. Through the use of UML diagrams, the statecharts, and the scenarios to explain the project's functionalities.
+    \\ In this section, the general view of the S\&C project is presented, including the product perspective, functions, characteristics, 
+    constraints, assumptions, and dependencies. Through the use of UML diagrams, the statecharts, and the scenarios to explain the project's 
+    functionalities.
     \item \textbf{Section 3: Specific Requirements}
     \\ A detailed description of the requirements of the project will be provided in this section. Using the various point of views, the external   
-    interface requirements, functional requirements, performance requirements, design constraints, software system attributes, and other requirements.
-    In particular to easier understanding, the use cases, sequence diagrams, mapping tables and simple drafts of the user interface will be presented.
+    interface requirements, functional requirements, performance requirements, design constraints, software system attributes, and other 
+    requirements. In particular to easier understanding, the use cases, sequence diagrams, mapping tables and simple drafts of the user interface 
+    will be presented.
     \item \textbf{Section 4: Formal Analysis}
     \\ Using the Alloy language to model the project and to verify the logical consistency of the model. It will also be used to check the
     correctness of the requirements and to present the main features guaranteed by the platform. Also, a part of the scenarios will be presented 

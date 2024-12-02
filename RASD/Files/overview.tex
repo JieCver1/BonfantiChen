@@ -38,11 +38,12 @@ Immediately after the publication, he receives a notification of recommended stu
 
 
 \subsubsection{Scenario 3: Mr.Patrick searches for internships}\label{subsubsec:scenario_3}
-Mr.Patrick is very worried because he is in the last semester of his master's degree, so he has to find an internship or he won't be able to graduate in Food Engineering.
-He remembers he has an account on the Students\&Companies platform, which he used to find an internship at the beginning of his studies, so he decides 
+Mr.Patrick is very worried because he is in the last semester of his master's degree, so he has to find an internship or he won't be able to graduate 
+in Food Engineering.
+He remembers he has an account on Students\&Companies, which he used to find an internship at the beginning of his studies, so he decides 
 to take another look at the platform. He logs in and updates his profile and CV, adding the new skills he has acquired during his master’s degree.
 He navigates to the search bar and types ``Hamburger'' to look for internships related to hamburger studies. When he doesn’t find anything that 
-interests him, he scrolls through the recommended internships list. Finally, he finds Mr.Krabs' posting and becomes very interested in the 
+interests him, he scrolls through the recommended internships list. Finally, he finds Mr.Krabs' announcement and becomes very interested in the 
 project, so he applies for the internship and waits for the company's response. After applying, he can check the status of his application in 
 the ``My Applications'' section.
 
@@ -50,15 +51,15 @@ the ``My Applications'' section.
 After the application deadline, Mr.Krabs and Mr.Plankton review all the applications received for the intern position. They select the
 candidates by reviewing their profiles and CVs, and then send them an invitation for an interview. For the first round of interviews, Mr.Plankton
 decides to formulate a set of short questions to know more about the candidates' skills and experiences. The candidate will be able to respond to 
-these questions through a form inside the platform. In said form Mr.Plankton also includes the date, time and location of the interview and the 
+these questions through a form inside the platform. In said form Mr.Plankton can also include the date, time and location for a live interview and the 
 necessary information to better prepare the candidates. After sending the invitations, the candidates selected for the interview receive a notification 
 from the platform. At the end of the interview, Mr.Plankton evaluates the candidates and discusses with Mr.Krabs to decide who to hire. Finally, they 
 send an offer to the best candidates and wait for their acceptance to start the internship.
 
 \subsubsection{Scenario 5: Mr.Gary's application is rejected}\label{subsubsec:scenario_5}
 Mr.Gary, an undergraduate student at the University of Bikini Bottom, applied for an internship at the ``Krusty Krab Technology Lab'' since he was very 
-interested in the internship opportunity. After the application deadline, Mr.Krabs and Mr.Plankton reviewed all the applications received for the intern 
-position. Unfortunately, they do not think Mr.Gary has enough experience for the internship, so they reject his application. Mr.Gary received a 
+interested in the opportunity. After the application deadline, Mr.Krabs and Mr.Plankton review all the applications received for the intern 
+position. Unfortunately, they do not think Mr.Gary has enough experience for the internship, so they reject his application. Mr.Gary receives a 
 notification informing him that his application was not selected and explaining the reason for the decision. He will still be able to see his application 
 in the ``My Applications'' section and the status will be marked as ``rejected''.
 
@@ -66,13 +67,13 @@ in the ``My Applications'' section and the status will be marked as ``rejected''
 Mr.Squidward, a student at the University of Bikini Bottom, was selected for an interview after he applied to the ``Krusty Krab Technology 
 Lab'' as a data science intern. He goes to the ``My Applications'' section and fills the interview form with his answers. Then he checks the details for the 
 live interview and prepares for it. After the interview, he waits for the company's final decision. Finally, if he is selected he will receive a notification 
-with the offer from the company, he can still choose to turn down the offer if he changes his mind or finds a better opportunity, otherwise he can accept the 
-internship offer will start.
+with the offer from the company, he can still choose to turn down the offer if he changes his mind or finds a better opportunity, otherwise he can accept and
+start the internship.
 
 \subsubsection{Scenario 7: Ms.Sandy starts her internship}\label{subsubsec:scenario_7}
 Ms.Sandy is very passionate about space and is thrilled to have been selected for an internship at the Underwater Space Agency. She receives 
-and accepts an offer from the company. At the same time, the Bikini Bottom University of Aerospace's professor Manta received the notification
-about the new activity started by Sandy. However, she is a bit anxious, so she logs into the platform and navigates to the ``My Internships'' 
+and accepts the offer from the company. At the same time, the Bikini Bottom University of Aerospace's professor Manta receives the notification
+about the new activity started by Sandy. However, Sandy is a bit anxious, so she logs into the platform and navigates to the ``My Internships'' 
 section to review its details and opens the chat with the company's representative. She then asks some questions about how she should prepare in the 
 coming days and for any advice that they think should be useful to know to have a good start in the internship.
 
@@ -100,18 +101,20 @@ passionate about!
 \end{figure}
 Students, Companies and Universities are implemented by extending the abstract class User. The User class contains the common attributes: email, password and
 the list of notifications. Notifications have a type, description and date and are related to a specific User. Universities have a name and contain the list 
-of all their enrolled students. The Student class contains specific attributes to save their profile information (like name, interests, university, CV) and 
-can create applications for internships that are stored in a list. They also have references to current interviews for internships, current chats and ongoing 
-and past internships. Companies contain specific attributes to save their profile information (like legalName, EIN, field of work) and can create internships 
-that are stored in a list. They also have references to ongoing and past internships, currently active offers and current chats. \\
-The chat is a collection of messages between a sender and a receiver. \\
-The Application class contains the information about the student that applied for an internship's offer, their personal statement of purpose and also records 
-the status of the application. The Offer class contains all the information about the internship: the title, location, description, deadline. It also has
-references to the Company who made the proposal, the Internship itself and maintains a list of all the submitted applications and all the interview sessions.\\
-The Interview class contains the information about the interview session: the date and link to the live session, and the map containing both the questions and 
-the student's answers. The Internship class contains a reference to the related Offer, a list of the students that were chosen for the internship, and a list of
-the feedbacks left both by the students and the company at the end of it. The Feedback class contains a reference to the related Internship and a description.\\
-There are enumerations to keep track of the state of the Application, Internship and Offer.
+of all their enrolled students. The Student class contains specific attributes to save their profile information (like name, interests, university, CV,...) 
+and can create applications for internships that are stored in a list. They also have references to ongoing chats and ongoing and past internships. 
+Companies contain specific attributes to save their profile information (like legalName, EIN, field of work,...) and can create internships that are stored in
+a list. They also have references to ongoing and past internships and current chats. \\
+The Chat is a collection of messages between a Student and a Company. \\
+The Application class contains the information about the student that applied for an internship and also records the status of the application. In the
+Application we also have a reference to an Interview object. \\
+The Interview class contains the information about the interview session: the date and link to the live session, and the Form, an object that contains both
+the questions and the student's answers. \\
+The Internship class contains all the information about it: the title, location, description, deadline. It also has references to the Company who made 
+the proposal, and maintains a list of all the submitted applications, a list of the students that were chosen for the internship, and a list of
+the feedbacks left both by the students and the company at the end of it. \\
+The Feedback class contains a reference to the related Internship and a description.\\
+There are enumerations to keep track of the state of the Application and Internship.
 
 \subsection{Statecharts}\label{subsec:statecharts}
 The following sections present statechart diagrams for the platform's main processes, including internship recommendations, the internship 
@@ -150,7 +153,7 @@ rejection notification. Once candidates respond to the offer, the company will b
     \includegraphics[width=1\textwidth]{Images/Statecharts/Internship_status.png}
     \caption{Statechart diagram for internship status}\label{fig:statechart_internship_status}
 \end{figure}
-This statechart diagram will illustrate the internship status tracking process. Once the internship begins, the student’s university will be notified, 
+This statechart diagram illustrates the internship status tracking process. Once the internship begins, the student’s university will be notified, 
 allowing the university to monitor the student’s activities and ensure the internship is progressing as expected.
 During the internship, the student can use a chat feature to communicate with the company representative and can provide feedback on their internship experience 
 in the specific internship section. Similarly, the company can use the chat to communicate and leave feedback on the student’s performance, offering suggestions
@@ -192,7 +195,7 @@ The student will find this internship listed as a past activity in their interns
     \item \textcolor{bluepoli}{\textbf{Recommendation system}} 
     \\This feature is one of the platform's main functionalities, offering personalized recommendations to students and companies based on their search
     preferences and the statistical analysis of data from profiles and internship details. Recommendations can be viewed in the search results, in
-    dashboard or in the notification section.
+    dashboard page or in the notification section.
     The system is designed to continuously improve the accuracy of these recommendations by analyzing user behavior and feedback in real-time, 
     optimizing the quality of the results. Users can click on a recommendation to view more details about the internship posting or student profile.
 
@@ -202,10 +205,11 @@ The student will find this internship listed as a past activity in their interns
     the results at this phase. 
     If a student's application is accepted, they will be invited for an interview. Otherwise, the student will be notified that their application was rejected.
     However, the student can still apply for other internships, but cannot reapply for the same internship once rejected.
+
     \item \textcolor{bluepoli}{\textbf{Internship Posting}}
-    \\Companies can publish internship offers on the platform using this function. In the ``Publish Internship'' section, companies must provide all required
+    \\Companies can publish internship announcements on the platform using this function. In the ``Publish Internship'' section, companies must provide all required
     details, including the title, location, role, application deadline, number of positions, duration, employment type, description, and required skills.
-    Once the internship offer is published, the company will receive recommendations for student profiles that match the offer’s criteria. Additionally, 
+    Once the internship offer is published, the company will receive recommendations for student profiles that match the it's criteria. Additionally, 
     the company can access the ``Available Internships'' section and select a specific posting to view the list of applications received and select 
     candidates for the interview stage.
 
@@ -229,6 +233,7 @@ The student will find this internship listed as a past activity in their interns
     the student and the company to submit their final evaluations or comments. Once the internship is concluded, this feature will be deactivated, and 
     all related information will be archived in the database. The university will evaluate the student's status based on the information provided by this
     feature.
+
     \item \textcolor{bluepoli}{\textbf{Chat system}}
     \\The chat system is an important feature of the platform that allows users to communicate with each other. Unlike a typical chat system, this function
     is not always active. It is activated once a company selects a student to be part of one of their internships. 
@@ -264,7 +269,7 @@ Here’s an overview of what each group expects from the platform:
 Students are the primary users of the platform who are looking for suitable internship opportunities to gain practical experience. They need an intuitive and 
 user-friendly interface that makes it easy to search for internships. Since many students are not familiar with the job market, they require a recommendation 
 system that suggests internships match their skills, preferences, and career goals. They also expect through the platform they will be able to apply for internships
-that are interested in and to update their profile and CV when they gain new skills or experiences.
+that they are interested in and to update their profile and CV when they gain new skills or experiences.
 Furthermore, students want to communicate directly with companies once a collaboration is established. They would like to receive feedback from companies about 
 their performance during the internship, as this helps them improve their skills and future careers. Additionally, they want to share their experiences and 
 leave comments to help other students evaluate potential employers before applying.
@@ -280,7 +285,7 @@ Additionally, companies need access to student profiles and CVs to identify the 
 They require the ability to track the status of internships and receive notifications regarding students' decisions on whether to accept or decline an offer.
 The platform should allow companies to have multiple accounts, especially if they represent different departments, and manage them separately. 
 Furthermore, companies should be able to select student profiles that interest them and contact students through the notification system to promote their 
-internship offers.
+internship announcements.
 
 \subsection{Universities}
 As users who are closely related to the students, universities need to be able to monitor the activities of students who are registered as their students.
@@ -296,7 +301,7 @@ will not be able to complete the registration process.
 
 [A3] All students should have a CV that contains all the necessary information and details about their experience.
 
-[A4] Every department of a company has a unique email address that identify it.
+[A4] Every department of a company has a unique email address that identifies it.
 
 [A5] The platform will be able to communicate correctly with email servers to verify users' identity.
 
@@ -304,9 +309,9 @@ will not be able to complete the registration process.
 
 [A7] The users of the platform must have a device that supports the platform's features.
 
-[A8] The companies publish do not publish the same internship offer more than once before the application deadline.
+[A8] The companies do not publish the same internship announcement more than once before the application deadline.
 
-[A9] A student does not apply for the internship if she/he has already accepted offer which starts in the same period.
+[A9] A student does not apply for the internship if she/he has already accepted an offer which starts in the same period.
 
 [A10] Companies who have an account on the platform will eventually publish internships.
 
