@@ -11,8 +11,8 @@ Companies can specify project requirements to attract suitable candidates.
 
 The platform supports both students and companies in two phases: recommendation and selection. It utilizes keyword searches 
 and statistical analyses to evaluate internship and student data, ensuring a match that meets the needs of both parties. 
-Students can search for internships and receive notifications about appealing opportunities, while companies can publish offers and get 
-alerts when student CVs match their criteria. Once mutual interest is established, the selection phase begins, where the platform assists 
+Students can search for internships opportunities and the most appealing will be recommended to him, while companies can publish offers and be 
+informed when student CVs match their criteria. Once mutual interest is established, the selection phase begins, where the platform assists 
 with interviews and finalizes the process. It also monitors the internship journey, providing the possibility to exchange feedback and 
 enabling direct communication to address any questions. Additionally, the universities of the students can oversee the process to ensure 
 that everything is going smoothly.
@@ -36,17 +36,15 @@ that everything is going smoothly.
 
 [G9] During the interview process, students must be able to respond to the company's questions through questionnaires.
 
-[G10] At the end of the interview process, companies must be able to collect the students' responses.
+[G10] Companies must be able to send the results of the interviews to the students.
 
-[G11] Companies must be able to send the results of the interviews to the students.
+[G11] Students must be able to accept or reject the internship offer after receiving the interview results.
 
-[G12] Students must be able to accept or reject the internship offer after receiving the interview results.
+[G12] Students and companies must be able to write feedback regarding their internship experiences.
 
-[G13] Students and companies must be able to write feedback regarding their internship experiences.
+[G13] Students and companies must be able to communicate with each other during internship process.
 
-[G14] Students and companies must be able to communicate with each other during internship process.
-
-[G15] Universities must be able to monitor the internship process of their students.
+[G14] Universities must be able to monitor the internship process of their students.
 
 
 \newpage
@@ -69,8 +67,9 @@ provide the necessary information for the internship announcement such as the jo
 Companies can also specify the skills they are looking for in students.
 
 The platform will extract key information from the students' profiles and the companies' internship announcements, along with historical feedback and 
-information collected from previous internships, to recommend the best matches for both parties. Students will receive notifications about 
-recommended internships, and companies will be alerted when existing students with matching CVs meet their needs.
+information collected from previous internships, to recommend the best matches for both parties. Recommended internships will be displayed to the 
+students, while students’ profiles with CVs that meet the company’s needs will be displayed to the company. Students will also receive notifications 
+about recommended internships, and companies will be alerted when existing students with matching CVs meet their needs.
 
 Once students apply for the offers they are interested in, the companies will receive the applications and can select the students they wish 
 to interview. The platform will assist companies in setting up the interview process and will allow them to record and store students' responses 
@@ -110,12 +109,11 @@ identified, specifying which parts are controlled by the machine and which parts
     \small\textbf{P14} &\small \textbf{Student participates to the interview} & Yes & World \T\B \\
     \small\textbf{P15} &\small \textbf{Company sends interview results} & Yes & World \B\\
     \small\textbf{P16} &\small \textbf{Student accepts or rejects the internship} & Yes & World \T\B \\
-    \small\textbf{P17} &\small \textbf{ST and CO write feedback on the internship} & Yes & World \T\B\\
-    \small\textbf{P18} &\small \textbf{ST and CO view feedback on the internship} & Yes & World \B\\
-    \small\textbf{P19} &\small \textbf{Student views the offers' description} & Yes & World \T\B \\
-    \small\textbf{P20} &\small \textbf{Company views the students' profile} & Yes & World \T\B\\
-    \small\textbf{P21} &\small \textbf{University views the list of its students} & Yes & World \B\\
-    \small\textbf{P22} &\small \textbf{University tracks the internship process} & Yes & World \T\B\\
+    \small\textbf{P17} &\small \textbf{ST and CO communicate with each other} & Yes & World \T\B\\
+    \small\textbf{P18} &\small \textbf{ST and CO write feedback on the internship} & Yes & World \T\B\\
+    \small\textbf{P19} &\small \textbf{ST and CO view feedback on the internship} & Yes & World \B\\
+    \small\textbf{P20} &\small \textbf{Company accesses and visualizes student profiles details} & Yes & World \T\B\\
+    \small\textbf{P21} &\small \textbf{University tracks the internship processes of its students} & Yes & World \T\B\\
     \hline
     \end{tabular}
     \\[10pt]
@@ -133,7 +131,8 @@ identified, specifying which parts are controlled by the machine and which parts
     \item \textbf{Internship:} A opportunity offered by companies to students to gain practical experience in a real job environment.
     \item \textbf{CV:} Curriculum Vitae, a document that contains all necessary information about students to be able to apply for internships.
     \item \textbf{Recommendation:} A suggestion made by the platform to students and companies based on statistical analyses and keyword searches.
-    \item \textbf{Selection:} The process of choosing students and companies to process the interview.
+    \item \textbf{Interview:} A questionnaire form, that can be followed by an external meeting between students and companies, to evaluate the
+    student preparation and make him understand what the company is looking for. 
     \item \textbf{Feedback:} Helpful information written by students and companies about their internship experiences to improve a performance 
     of the two parties.
     \item \textbf{Notification:} A message sent by the platform to inform students and companies about important events, such as new internship 
@@ -144,7 +143,8 @@ identified, specifying which parts are controlled by the machine and which parts
     \item \textbf{Keyword:} A significant word or tag used to describe content, such as the skills, experiences, and preferences of students and 
     companies.
     \item \textbf{Comment:} The text that is written by students and companies to provide feedback or complaints about their internship experiences.
-    \item \textbf{Complain:} A text that expresses dissatisfaction, issues, or annoyance about the internship experiences.
+    \item \textbf{Complain:} A text that expresses dissatisfaction, issues, or annoyance about the internship experiences. It will be treated as a
+    synonym of feedback in this document.
 \end{itemize}
 
 \subsection{Acronyms}\label{subsec:acronyms}
@@ -154,7 +154,6 @@ identified, specifying which parts are controlled by the machine and which parts
     \item \textbf{UI:} User Interface
     \item \textbf{UX:} User Experience
     \item \textbf{API:} Application Programming Interface
-    \item \textbf{HTTP:} Hypertext Transfer Protocol
     \item \textbf{HTTPS:} Hypertext Transfer Protocol Secure
     \item \textbf{TLS:} Transport Layer Security
     \item \textbf{REST:} Representational State Transfer

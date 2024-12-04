@@ -52,9 +52,8 @@ After the application deadline, Mr.Krabs and Mr.Plankton review all the applicat
 candidates by reviewing their profiles and CVs, and then send them an invitation for an interview. For the first round of interviews, Mr.Plankton
 decides to formulate a set of short questions to know more about the candidates' skills and experiences. The candidate will be able to respond to 
 these questions through a form inside the platform. In said form Mr.Plankton can also include the date, time and location for a live interview and the 
-necessary information to better prepare the candidates. After sending the invitations, the candidates selected for the interview receive a notification 
-from the platform. At the end of the interview, Mr.Plankton evaluates the candidates and discusses with Mr.Krabs to decide who to hire. Finally, they 
-send an offer to the best candidates and wait for their acceptance to start the internship.
+necessary information to better prepare the candidates. At the end of the interviews, Mr.Plankton evaluates the candidates and discusses with Mr.Krabs 
+to decide who to hire. Finally, they send an offer to the best candidates and wait for their acceptance to start the internship.
 
 \subsubsection{Scenario 5: Mr.Gary's application is rejected}\label{subsubsec:scenario_5}
 Mr.Gary, an undergraduate student at the University of Bikini Bottom, applied for an internship at the ``Krusty Krab Technology Lab'' since he was very 
@@ -80,8 +79,8 @@ coming days and for any advice that they think should be useful to know to have 
 \subsubsection{Scenario 8: Mr.Squidward leaves his feedback}\label{subsubsec:scenario_8}
 At the end of his internship at the ``Krusty Krab Technology Lab'' as a data science intern, Mr.Squidward is surprised by the experience 
 he has gained, even though he has several complaints about the heavy workload. He decides to leave a warm message for Mr.Krabs and Mr.Plankton 
-to thank them for the opportunity. After that, he navigates to the ``Internship'' section to add a review of his internship experience and rate 
-the company. It is also the section where he can check the suggestions left by his mentors regarding his internship, which is only visible to the 
+to thank them for the opportunity. After that, he navigates to the ``Internship'' section to write feedback on his internship experience. 
+It is also the section where he can check the suggestions left by his mentors regarding his internship work, which is only visible to the 
 company and the university.
 
 \subsubsection{Scenario 9: Track the internship activities}\label{subsubsec:scenario_9}
@@ -99,21 +98,27 @@ passionate about!
     \includegraphics[width=1\textwidth]{Images/UML_Class_diagram.png}
     \caption{Domain-level diagram}\label{fig:domain-lebel_diagram}
 \end{figure}
-Students, Companies and Universities are implemented by extending the abstract class User. The User class contains the common attributes: email, password and
-the list of notifications. Notifications have a type, description and date and are related to a specific User. Universities have a name and contain the list 
-of all their enrolled students. The Student class contains specific attributes to save their profile information (like name, interests, university, CV,...) 
-and can create applications for internships that are stored in a list. They also have references to ongoing chats and ongoing and past internships. 
-Companies contain specific attributes to save their profile information (like legalName, EIN, field of work,...) and can create internships that are stored in
-a list. They also have references to ongoing and past internships and current chats. \\
-The Chat is a collection of messages between a Student and a Company. \\
+Students, Companies and Universities are implemented by extending the abstract class User. The User class contains the common attributes: email, 
+password and the list of notifications. Notifications have a type, description and date and are related to a specific User. Universities have a 
+name and contain the list of all their enrolled students. The Student class contains specific attributes to save their profile information (like 
+name, interests, university, CV,...) and can create applications for internships that are stored in a list. They also have references to ongoing 
+chats and ongoing and past internships. Companies contain specific attributes to save their profile information (like legalName, EIN, field of 
+work,...) and can create internships that are stored in a list. They also have references to ongoing and past internships and current chats. 
+
+The Chat is a collection of messages between a Student and a Company.
+
 The Application class contains the information about the student that applied for an internship and also records the status of the application. In the
-Application we also have a reference to an Interview object. \\
-The Interview class contains the information about the interview session: the date and link to the live session, and the Form, an object that contains both
-the questions and the student's answers. \\
+Application we also have a reference to an Interview object.
+
+The Interview class contains the information about the interview session: the date and link to the live session, and the Form, an object that contains 
+both the questions and the student's answers.
+
 The Internship class contains all the information about it: the title, location, description, deadline. It also has references to the Company who made 
 the proposal, and maintains a list of all the submitted applications, a list of the students that were chosen for the internship, and a list of
-the feedbacks left both by the students and the company at the end of it. \\
-The Feedback class contains a reference to the related Internship and a description.\\
+the feedbacks left both by the students and the company at the end of it.
+
+The Feedback class contains a reference to the related Internship and a description.
+
 There are enumerations to keep track of the state of the Application and Internship.
 
 \subsection{Statecharts}\label{subsec:statecharts}
@@ -231,8 +236,7 @@ The student will find this internship listed as a past activity in their interns
     It allows students and companies to share useful information, such as suggestions, key issues, and ongoing feedback, separate from the chat system. 
     This section is designed to record important highlights throughout the internship process. At the end of the internship, the system will prompt both 
     the student and the company to submit their final evaluations or comments. Once the internship is concluded, this feature will be deactivated, and 
-    all related information will be archived in the database. The university will evaluate the student's status based on the information provided by this
-    feature.
+    all related information will be archived in the database. The university can access this data in order to monitor and evaluate the student's performance.
 
     \item \textcolor{bluepoli}{\textbf{Chat system}}
     \\The chat system is an important feature of the platform that allows users to communicate with each other. Unlike a typical chat system, this function
@@ -242,8 +246,7 @@ The student will find this internship listed as a past activity in their interns
     The activation and deactivation of the chat system ensures privacy and security, preventing unnecessary communication, such as spam or harassment, 
     before real collaboration begins and filtering out unqualified messages.
     The key difference between the chat system and the feedback system is that the chat system is real-time and private, accessible only to the two parties 
-    involved. In contrast, the information collected through the feedback system is more formal and public. The university can access this data when evaluating
-    the student's performance, and other users can read anonymous comments left by students who participated in internships when reviewing a company's reputation.
+    involved. In contrast, the information collected through the feedback system is more formal and public.
 
     \item \textcolor{bluepoli}{\textbf{Notification system}}
     \\This function creates a channel for the platform to send notifications to users. Notification types include recommendations, application results,

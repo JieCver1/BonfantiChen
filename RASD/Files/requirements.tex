@@ -6,86 +6,94 @@ As the users of the platform include students, companies, and universities, the 
 the platform and meet their needs. For instance, many students may be unfamiliar with the internship search process and may lack experience
 in finding job opportunities, so the user interface should be simple and intuitive to use.
 
-In the following section, the principal Graphical User Interfaces (GUIs) are described within drafts, and this part will be further detailed
-using refined mockups in the Design Document
+In the following section, we describe the drafts of the principal Graphical User Interfaces (GUIs). These will be further detailed
+using refined mockups in the Design Document.
 \begin{itemize}
     \item \textbf{Welcome page:} The welcome page is the first page users see when they open the platform. It contains the platform's logo 
     and a brief description of its purpose. On this page, users can log in using their credentials or create an account if they are new
-    to Students \& Companies.
+    to Students\&Companies.
     
-    \item \textbf{Register Page:} During the registration phase, users will first be asked to select their user type (student, company, or
+    \item \textbf{Registration Page:} In the registration page, users will first be asked to select their user type (student, company, or
      university). Based on the selected user type, the corresponding registration form will be displayed, and users will be prompted to 
      provide the necessary information to create an account. In addition to common data such as name, email, and password, users will
-     need to provide additional information based on their user type. For example, students and companies will be asked to personalize 
-     their profiles by adding details such as their field of interest, skills, a short description of themselves, and more to make their
-      profiles more appealing to other users.
+     need to provide additional information based on their user type. For example, students will be asked to personalize their profiles by 
+     adding details such as their interests, skills, CV, university and a short description of themselves, while companies will be 
+     asked their EIN number, etc.
     
     \item \textbf{Notification Page:} It will display various types of notifications received from the platform. For example, students will
-    see notifications about updates on their application status, companies will receive notifications about new applications, and 
+    see notifications about updates on their application status, companies will receive notifications about the student’s decision, and 
     universities will be notified about new student registrations on the platform.
 
-    \item \textbf{Side Menu:} The side menu is a navigation menu that provides access to the main sections of the platform, depends on the
-    user's type. It will be displayed on the left side of the screen, with different sections available. For example, for students, the 
-    side menu will include sections such as Search Internships, Dashboard, My Profile, My Applications and My Internships.
+    \item \textbf{Side Menu:} The side menu is a navigation menu that provides access to the main sections of the platform and depends on the
+    user's type. It will be displayed on the left side of the screen, with different sections available based on the user type (further explanation 
+    below).
 
-    \item \textbf{Header Bar:} The header bar is displayed at the top of the screen and includes the platform's logo, a menu icon, a chat 
+    \item \textbf{Header Bar:} The header bar is displayed at the top of the screen and includes the platform's logo, a Side Menu icon, a chat 
     icon, a notification icon, and the user's profile icon. It remains visible on all pages once the user has logged in.
 
-    \item \textbf{Chat Interface:} The chat interface is accessible from either the side menu or the header bar of the platform. It allows 
-    students and companies to communicate with each other in real-time. They can view a list of available chats, send and receive messages, 
-    and access their chat history.
+    \item \textbf{Chat Interface:} The chat interface is accessible from the header bar. It allows students and companies to communicate with 
+    each other in real-time. They can view a list of available chats, send and receive messages, and access their chat history.
 
-    \item \textbf{Profile Page:} This interface is used by user to view and edit their profile data in case of necessary, in particular
-    the student can update their CV accessing this page.
+    \item \textbf{Profile Page:} On this page, users can view other users' public information. If they own the profile, they can edit their data 
+    as needed (by filling the fields in the "Edit Profile" page). Specifically, students can update their CV by accessing this page.
 
     \item \textbf{Search page:} This page contains a search bar and displays the results based on the user's search. For example, a student
     can search for internships, and the platform will return a list of results based on the student's input. 
     
     \item \textbf{Internship evaluation page:} This page is used by both students and companies to evaluate internship performance. Both 
-    parties can provide feedback or companies during the internship, and at the end, to complete the evaluation process, they must leave
-    final comments and rate the internship. 
+    parties can provide feedback or complaints during the internship. At the end, to complete the evaluation process, they must leave
+    final comments and rate the internship.
+
+    \item \textbf{Internship details page:} This page displays detailed information about a specific internship. For example, all users can
+    view the internship's description, requirements, and application deadline.
 
 \end{itemize}
 
-Since the platform is designed for three types of users, the specialized interfaces for each user type are described in further detail
-below, considering the characteristics of each user.
+Since the platform is designed for three types of users, the specialized interfaces for each of them are described in further detail
+below, considering their characteristics.
 \begin{itemize}
-    \item \textbf{Student Interface:}
+    \item \textbf{Student Interfaces:}
     \begin{itemize}
         \item \textbf{Student Dashboard:} This is the home page that appears once the student logs in. On this page, the student gets an 
         overview of all the main functionalities they can access. The dashboard consists of:
 
-        1. Search Bar with Filter Command: Allows the student to search and filter based on specific criteria.
+        1. Search Bar with Filter Command: Allows to perform keyword searching.
         
-        2. Overview of Suggested Internships: Displays job search keywords and internships recommended by the platform's algorithm.
+        2. Overview of Recommended Internships: Displays job search keywords and internships recommended by the platform's algorithm.
         
-        3. My Applications: Provides a quick overview of the status of the student's applications.
+        3. My Applications: Provides an overview of the student's applications' status.
         
         4. My Internships: Displays a record of the internships the student has applied for in the past, including the internship they 
         are currently doing if exist.
+
+        \item \textbf{Student Side Menu:} For students, the side menu will include sections such as Search Internships, Dashboard, 
+        My Applications and My Internships.
 
         \item \textbf{My applications:} The student can track the status of their applications and view the details of the internships 
         they have applied for. Through this interface, the student can also receive information related to the selection process, such 
         as the interview date, the interview result, and the final decision of the company. Additionally, the student can filter their 
         applications based on their status, such as ``waiting''.
 
-        \item \textbf{Internship history:} The student can view the internships they have participated in so far, along with the 
-        evaluations related to their experiences. The page also allows the student to access the feedback section, where they can 
-        leave comments or notes about a specific internship.
+        \item \textbf{My Internships:} The student can view the internships they have participated in so far, along with the evaluations 
+        related to their experiences. If the student is currently participating to an internship, it will be displayed at the top. The 
+        page also allows the student to access the Internship Evaluation page, where they can leave comments or notes about a specific internship.
 
     \end{itemize}
-    \item \textbf{Company Interface:} 
+    \item \textbf{Company Interfaces:} 
     \begin{itemize}
-        \item \textbf{Company Dashboard:} It's the home page once the company logs in. On this page, the company gets an overview of 
+        \item \textbf{Company Dashboard:} It's the home page that appears once the company logs in. On this page, the company gets an overview of 
         all the main functionalities they can access. The dashboard consists of:
 
-        1. Search Bar with Filter Command: Allows the company to search and filter results based on specific criteria.
+        1. Search Bar with Filter Command: Allows to perform keyword searching.
         
-        2. Overview of suggested Student Profiles: Displays student profiles suggested by the platform's matching algorithm for internship 
+        2. Overview of recommended Student Profiles: Displays student profiles recommended by the platform's matching algorithm for the internship 
         announcements that have been published by the company.
         
         3. Internship Announcements: A list of internship announcements the company has published, along with the number of the applications
         received.
+
+        \item \textbf{Company Side Menu:} The side menu of companies includes sections such as Search Profile, Dashboard, Publish Internship,
+        and Internships Management.
         
        \item \textbf{Publish Internship Page:} This is the main functionality of the company interface. On this page, the company can 
        create a new internship announcement and post it on the platform. The company is required to enter the necessary information, 
@@ -96,11 +104,13 @@ below, considering the characteristics of each user.
         in progress, and one for closed internships. From this interface, the company can manage internships of all phases.
     \end{itemize}
 
-    \item \textbf{University Interface:} 
+    \item \textbf{University Interfaces:} 
     \begin{itemize}
         \item \textbf{University Dashboard:} The university dashboard displays a list of students and their associated activities. 
         The university can view the list of students registered on the platform and select a student to see detailed information about 
         their profile, activities, and internships they are currently doing or have completed in the past.
+
+        \item \textbf{University Side Menu:} For universities, the side menu will include sections such as Search Profile and Dashboard.
     \end{itemize}
 \end{itemize}
 
@@ -110,11 +120,11 @@ Students\&Companies is a web-based platform, so it can be accessed from any devi
 compatible with all modern web browsers. It is designed to be responsive and work on different screen sizes, including desktops, 
 laptops, tablets, and smartphones. \\
 The system will be hosted on multiple server that meet the requirements for web hosting. They will be responsible for the platform's 
-backend processes, such as recommendation algorithm, the data collection and the statistical analyses.
+backend processes, such as the recommendation algorithm, the data collection and storing and the statistical analyses.
 
 
 \subsection{Software Interfaces}
-The system will interact with an emailing system to confirm the registration of new users. \\
+S\&C will interact with an emailing system to confirm the registration of new users. \\
 It will also integrate various APIs to provide additional functionalities, for instance an API for implementing statistical analyses 
 based on collected data that will be used to improve the recommendation algorithm. Another example would be an API to interact with
 the database in order to store and retrieve information.
@@ -122,8 +132,8 @@ the database in order to store and retrieve information.
 
 \subsection{Communication Interfaces}
 The system will use HTTPS to ensure secure communication between the client and the server. The platform will also use WebSockets to
-enable real-time communication between users, such as chat and notifications functionalities. Since the platform is designed to be a 
-RESTful web application, it will use JSON as the data interchange format between the client and the server. \\
+enable real-time communication between users, that is required by functionalities such as the chat. Since the platform is designed to be a 
+RESTful web application, it will use JSON as the data exchange format between the client and the server. \\
 To interact with the mailing system, the platform will use SMTP protocol.
 
 
@@ -184,7 +194,7 @@ The functional requirements that the platform must meet to achieve the user's ne
 
 [R27] S\&C allows COs to record the results of the interview
 
-[R28] S\&C allows COs to contact the chosen students to offer them the position
+[R28] S\&C allows STs to check the status of their applications
 
 [R29] S\&C allows STs to accept or reject the offer after receiving the interview results
 
@@ -196,15 +206,14 @@ The functional requirements that the platform must meet to achieve the user's ne
 
 [R33] S\&C allows UNIs to check the status of the internship records of their students.
 
-[R34] S\&C allows UNIs to access the list of all the STs registered on the platform related to their university
+[R34] S\&C allows UNIs to access the list of all the enrolled STs that are registered on the platform
 
 [R35] S\&C allows Users to visualize the own and other users' profiles
 
 [R36] S\&C allows Users to modify their own profile data
 
-[R37] S\&C allows STs to check the status of their applications
+[R37] S\&C should notify UNIs when their students register on the platform
 
-[R38] S\&C should notify UNIs when their students register on the platform
 
 \subsection{Requirement Mapping}
 In the following table, represent the mapping between the goals, requirements and domain assumptions. The requirements are
@@ -215,20 +224,19 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
         \textbf{Goal} & \textbf{Requirement} & \textbf{Domain Assumption} \\
         \hline
         G1  & R1, R2    & A1, A2, A5, A6, A7 \\
-        G2  & R36, R3   & A3, A5, A6, A7 \\
+        G2  & R3, R36   & A3, A5, A6, A7 \\
         G3  & R4, R21   & A6, A7, A10 \\
         G4  & R5, R6, R7 & A4, A6, A7, A8, A10 \\
-        G5  & R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R38 & A6, A7 \\
+        G5  & R8, R9, R10, R11, R12, R13, R14, R15, R16, R17, R18, R37 & A6, A7 \\
         G6  & R13, R18, R19 & A3, A6, A7 \\
-        G7  & R20, R21 & A3, A6, A7, A8, A10, A11 \\
+        G7  & R20, R21 & A3, A6, A7, A9, A10, A11 \\
         G8  & R22, R23, R24 & A4, A6, A7, A11 \\
         G9  & R25 & A6, A7 \\
         G10 & R26, R27 & A4, A6, A7 \\
-        G11 & R28 & A4, A6, A7 \\
-        G12 & R29, R37 & A6, A7 \\
-        G13 & R30, R31, R38 & A6, A7, A10, A11 \\
-        G14 & R32 & A6, A7, A10, A11 \\
-        G15 & R33, R34 & A6, A7 \\
+        G11 & R28, R29 & A6, A7 \\
+        G12 & R30, R31, R37 & A6, A7, A10, A11 \\
+        G13 & R32 & A6, A7, A10, A11 \\
+        G14 & R33, R34, R35 & A6, A7 \\
         \hline
     \end{tabular}
 \end{center}
@@ -262,9 +270,9 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
         \textbf{[G2] Students must be able to upload their CVs on the platform.} \\
         % -------------------------------------------------------
         \rowcolor{bluepoli!15}
-        \textbf{[R36] S\&C allows Users to modify their own profile data} \\
-        \rowcolor{bluepoli!15}
         \textbf{[R3] S\&C allows STs to upload their CV in their profile section} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R36] S\&C allows Users to modify their own profile data} \\
         % -------------------------------------------------------
         \textbf{[A3] All students should have a CV that contains all the necessary information and details about their experience.} \\
         \textbf{[A5] The platform will be able to communicate correctly with email servers to verify users’ identity.}\\
@@ -308,7 +316,7 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
         \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
-        \textbf{[A8] The companies publish do not publish the same internship offer more than once before the application deadline.}\\
+        \textbf{[A8] The companies do not publish the same internship announcement more than once before the application deadline.}\\
         \textbf{[A10] Companies who have an account on the platform will eventually publish internships.}\\
         \hline
     \end{tabular}
@@ -343,7 +351,7 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
         \rowcolor{bluepoli!15}
         \textbf{[R18] S\&C should notify COs when a ST with a CV that corresponds to their needs is available.} \\
         \rowcolor{bluepoli!15}
-        \textbf{[R38] S\&C should notify UNIs when their students register on the platform.} \\
+        \textbf{[R37] S\&C should notify UNIs when their students register on the platform.} \\
         % -------------------------------------------------------
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
@@ -385,7 +393,7 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
         \textbf{[A3] All students should have a CV that contains all the necessary information and details about their experience.} \\
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
-        \textbf{[A8] The student do not apply for the internship if she/he has already accepted offer which starts in the same period.}\\
+        \textbf{[A9] The student do not apply for the internship if she/he has already accepted offer which starts in the same period.}\\
         \textbf{[A10] Companies who have an account on the platform will eventually publish internships.}\\
         \textbf{[A11] Students who have an account on the platform will eventually apply for internships.}\\
         \hline
@@ -432,9 +440,9 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
     \begin{tabular}{|p{37em}|}
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \hline
-        \textbf{[G10] At the end of the interview process, companies must be able to collect the students' responses.} \\
+        \textbf{[G10] Companies must be able to send the results of the interviews to the students.} \\
         % -------------------------------------------------------
-        \rowcolor{bluepoli!15}
+        \rowcolor{bluepoli!15}        
         \textbf{[R26] S\&C allows COs to visualize the responses of the candidates who have replied to the forms.} \\
         \rowcolor{bluepoli!15}
         \textbf{[R27] S\&C allows COs to record the results of the interview.} \\
@@ -442,6 +450,7 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
         \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
+
         \hline
     \end{tabular}
 \end{center}
@@ -450,29 +459,12 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
     \begin{tabular}{|p{37em}|}
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \hline
-        \textbf{[G11] Companies must be able to send the results of the interviews to the students.} \\
+        \textbf{[G11] Students must be able to accept or reject the offer after receiving the interview results.} \\
         % -------------------------------------------------------
         \rowcolor{bluepoli!15}
-        \textbf{[R28] S\&C allows COs to contact the chosen students to offer them the position.} \\
-        % -------------------------------------------------------
-        \textbf{[A4] Every department of a company has a unique email address that identify it.}\\
-        \textbf{[A6] Users have a stable internet connection to access the platform.}\\
-        \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
-
-        \hline
-    \end{tabular}
-\end{center}
-
-\begin{center}
-    \begin{tabular}{|p{37em}|}
-        \rowcolor{bluepoli!40} % comment this line to remove the color
-        \hline
-        \textbf{[G12] Students must be able to accept or reject the offer after receiving the interview results.} \\
-        % -------------------------------------------------------
+        \textbf{[R28] S\&C allows STs to check the status of their applications.} \\
         \rowcolor{bluepoli!15}
         \textbf{[R29] S\&C allows STs to accept or reject the offer after receiving the interview results.} \\
-        \rowcolor{bluepoli!15}
-        \textbf{[R37] S\&C allows STs to check the status of their applications.} \\
         % -------------------------------------------------------
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
@@ -484,16 +476,14 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
     \begin{tabular}{|p{37em}|}
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \hline
-        \textbf{[G13] Students and companies must be able to write feedback regarding their internship experiences.} \\
+        \textbf{[G12] Students and companies must be able to write feedback regarding their internship experiences.} \\
         % -------------------------------------------------------
         \rowcolor{bluepoli!15}
         \textbf{[R30] S\&C allows STs and COs to write feedback and complaints relating to the internship experience.} \\
         \rowcolor{bluepoli!15}
         \textbf{[R31] S\&C allows Users to view feedback and complaints relating to the internship experience.} \\
         \rowcolor{bluepoli!15}
-        \textbf{[R38] S\&C should notify UNIs when their students register on the platform.} \\
-        \rowcolor{bluepoli!15}
-        \textbf{[R34] S\&C allows UNIs to access the list of all the STs registered on the platform related to their university.} \\
+        \textbf{[R37] S\&C should notify UNIs when their students register on the platform.} \\
         % -------------------------------------------------------
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
@@ -507,7 +497,7 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
     \begin{tabular}{|p{37em}|}
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \hline
-        \textbf{[G14] Students and companies must be able to communicate with each other during internship process.} \\
+        \textbf{[G13] Students and companies must be able to communicate with each other during internship process.} \\
         % -------------------------------------------------------
         \rowcolor{bluepoli!15}
         \textbf{[R32] S\&C allows STs and COs to exchange information using the chat, only if the ST is participating 
@@ -525,12 +515,14 @@ mapped to the goals they contribute to, and the domain assumptions they depend o
     \begin{tabular}{|p{37em}|}
         \rowcolor{bluepoli!40} % comment this line to remove the color
         \hline
-        \textbf{[G15] Universities must be able to monitor the internship process of their students.} \\
+        \textbf{[G14] Universities must be able to monitor the internship process of their students.} \\
         % -------------------------------------------------------
         \rowcolor{bluepoli!15}
         \textbf{[R33] S\&C allows UNIs to check the status of the internship records of their students.} \\
         \rowcolor{bluepoli!15}
-        \textbf{[R34] S\&C allows UNIs to access the list of all the STs registered on the platform related to their university.} \\
+        \textbf{[R34] S\&C allows UNIs to access the list of all the enrolled STs that are registered on the platform.} \\
+        \rowcolor{bluepoli!15}
+        \textbf{[R35] S\&C allows Users to visualize the own and other users' profiles.} \\
         % -------------------------------------------------------
         \textbf{[A6] Users have a stable internet connection to access the platform.}\\
         \textbf{[A7] The users of the platform must have a device that supports the platform's features.}\\
@@ -627,9 +619,7 @@ describe the functionalities he can access on S\&C.
         \textbf{Events Flow} & 
         \begin{enumerate}
             \item S\&C shows the welcome page.
-            \item If the user clicks on the Forgot password button, the system will send an email to the user with the instructions to reset the password.
-            \item The user resets the password following the instructions in the email and logs in.
-            \item Otherwise the user fills in the form with the required information, like: email, password, check the Remember me field.
+            \item The user fills in the form with the required information, like: email, password.
             \item The user clicks on the Login button.
             \item S\&C checks the information provided by the user.
             \item S\&C displays the Dashboard page. 
@@ -637,9 +627,9 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Exit Condition} & The user is now logged in the platform. \\
         \hline
-        \textbf{Exceptions} & In case the information provided by the user is invalid (step 6 fails), for instance the email isn't linked to
+        \textbf{Exceptions} & In case the information provided by the user is invalid (step 4 fails), for instance the email isn't linked to
         any account or the password is wrong, an error message that asks to provide the correct information is shown, effectively 
-        returning to step 4. \\
+        returning to step 2. \\
         \hline
     \end{tabular}
 \end{center}
@@ -673,7 +663,7 @@ describe the functionalities he can access on S\&C.
             S\&C displayed the profile information requested by the user.\\
         \hline
         \textbf{Exceptions} &
-            If no profile is found, the user will be notified that the profile does not exist.\\
+            If no profile is found, a message will be displayed saying that the profile does not exist.\\
         \hline
     \end{tabular}
 \end{center}
@@ -697,19 +687,18 @@ describe the functionalities he can access on S\&C.
         \textbf{Events Flow} & 
         \begin{enumerate}
             \item S\&C displays the recommendation section in the Dashboard page.
-            \item The student or company can browse the recommendations.
+            \item The student or company browses the recommendations.
             \item The student or company clicks on the recommendation they want to see.
             \item S\&C shows the recommendation details.
             \item The student or company can either accept the recommendation (by applying for the internship, or inviting the 
-            student to take part in an internship) or ignored it.
+            student to take part in an internship) or ignore it.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-        The system displayed the recommendation details to the student or company who requested it and
-        allowed them to do the desired action. \\
+        S\&C displays the recommendation details to the student or company and allows them to do the desired action. \\
         \hline
         \textbf{Exceptions} & 
-        If there are not enough data to provide a recommendation related to the student or company, the system will show a message
+        If there are not enough data to provide a recommendation related to the student or company, S\&C will show a message
         that no recommendation is available. \\
         \hline
     \end{tabular}
@@ -737,7 +726,7 @@ describe the functionalities he can access on S\&C.
             \item S\&C shows the profile modification page.
             \item The student clicks on the Upload CV button.
             \item S\&C shows the file explorer.
-            \item The student selects the CV file and clicks on the Upload button.
+            \item The student selects the CV file and uploads it.
             \item S\&C checks the file format and size.
             \item The students clicks on the Save button.
             \item S\&C stores the file in the database.
@@ -770,7 +759,7 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item The student clicks on the Search tab or on the search bar in the dashboard page.
+            \item The student clicks on the Search tab or on the search bar in the Dashboard page.
             \item The student types the keyword in the search bar.
             \item The student clicks on the Search button.
             \item S\&C shows the internships that match the keyword.
@@ -780,8 +769,8 @@ describe the functionalities he can access on S\&C.
         \textbf{Exit Condition} & The student has found the internship they were looking for. The student does not find what they were looking for,
         so they close the search page or retry a new search. \\
         \hline
-        \textbf{Exceptions} & In case the keyword doesn't match any internship (step 4 fails), S\&C shows the message: No internship was found,
-        please try with a different keyword, effectively returning to step 2. \\
+        \textbf{Exceptions} & In case the keyword doesn't match any internship (step 4 fails), S\&C shows the message: "No internship was found,
+        please try with a different keyword", effectively returning to step 2. \\
         \hline
     \end{tabular}
 \end{center}
@@ -816,7 +805,7 @@ describe the functionalities he can access on S\&C.
         \textbf{Exceptions} & The student has already applied for that internship (step 3 fails), S\&C will show an error message and ask to
         check the My applications page to see the status of the application. 
         
-        The student has already accepted an offer for another internship which start in the same period, so (step 3 fails), S\&C will show an 
+        The student has already accepted an offer for another internship which start in the same period (step 3 fails), S\&C will show an 
         error message and ask to check the My Internship page to see the current internship.\\
         \hline
     \end{tabular}
@@ -840,16 +829,16 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Company set up the questions that will be asked to the student in the questionnaire and other information about the interview.
-            \item Company clicks on the ``submit'' button.
-            \item System check the list of students and the information filled by the company.
-            \item System store the data in the database.
-            \item System send Student about the upcoming interview details.
+            \item Company sets up the questions that will be asked to the student in the questionnaire and other information about the interview.
+            \item Company clicks on the ``Submit'' button.
+            \item S\&C checks the list of students and the information filled by the company.
+            \item S\&C stores the data in the database.
+            \item S\&C sends a notification to Student about the interview.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-        Information related to the interview is stored and received by the system, the interview information is updated and the notification is 
-        sent to the student who is waiting for the interview process.\\
+        Information related to the interview is received and stored by S\&C, the interview information is updated and the notification is 
+        sent to the student who is waiting for the interview process to start.\\
         \hline
         \textbf{Exceptions} &
         The student selected by the company has already been accepted by another company and has started the internship at the same time.
@@ -875,10 +864,10 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Student click on the notification informing them about the interview or opens the interview page from the application page.
+            \item Student clicks on the notification informing them about the interview or opens the interview page from the application page.
             \item S\&C shows the interview questionnaire.
             \item Student fills in the questionnaire.
-            \item Student clicks on the ``submit'' button.
+            \item Student clicks on the ``Submit'' button.
             \item S\&C checks the answers provided by the student.
             \item S\&C stores the student's answers in the database.
             \item S\&C updates the status of the student's application.
@@ -910,8 +899,8 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item The Company clicks on the button to open the Internship details page.
-            \item The Company clicks on Questionnaire responses.
+            \item The Company opens the Internship Management page.
+            \item The Company clicks on Interview Management page.
             \item S\&C shows the list of students who have completed the questionnaire.
             \item The Company selects the students to accept for the internship.
             \item The Company clicks on the Send results button.
@@ -947,10 +936,10 @@ describe the functionalities he can access on S\&C.
         \textbf{Events Flow} & 
         \begin{enumerate}
             \item Student click on the notification regarding the offer.
-            \item System display the offer details and the options to accept or reject the offer
-            \item Student click on the ``accept'' or ``reject'' button.
-            \item System check the student's choice and send the notification to the related company.
-            \item System register the student's decision and update the status of the student's application.
+            \item S\&C displays the details to the student and asks to accept or reject the offer.
+            \item Student clicks on the ``accept'' or ``reject'' button.
+            \item S\&C checks the student's choice and sends a notification to the related company.
+            \item S\&C registers the student's decision and updates the status of the student's application.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
@@ -958,8 +947,8 @@ describe the functionalities he can access on S\&C.
          who has sent the offer is notified about the student's decision.\\
         \hline
         \textbf{Exceptions} &
-        The student has already accepted an offer from another company. The system will notify the student that he/she cannot accept
-        more than one offer if the two internships start at the same period.
+        The student has already accepted another internship. S\&C will notify the student that they cannot accept more than one offer if 
+        the two internships start in the same period.
 
         The deadline for accepting the offer has passed. The system will notify the student that it is too late to accept the offer.\\
         \hline
@@ -977,26 +966,26 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Entry Condition} & 
         \begin{itemize}
-            \item Student is logged in with the corresponding account.
-            \item Company is logged in with the corresponding account.
+            \item Student and Company are logged in.
             \item Student and company have taken part in an active internship.
         \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Student or company click on the active internship which they want to leave comments on.
-            \item System display the feedback and complaints page related to that internship.
-            \item Student or company write in the box dedicated to the comments.
-            \item Student or company click on the ``submit'' button.
-            \item System store the comments and display them on the feedback page.
-            \item System notify the Student and company there is a new feedback or complaint regarding specific internship.
+            \item Student or company clicks on the active internship which they want to leave comments on.
+            \item S\&C displays the feedback and complaints page related to that internship.
+            \item Student or company writes in the box dedicated to the comments.
+            \item Student or company clicks on the ``Submit'' button.
+            \item S\&C stores the comments and displays them on the evaluation page.
+            \item S\&C notifies the Student and company that there is a new feedback or complaint regarding specific internship.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-         The comments are stored in database and displayed on the internship feedback page. The student and company are notified about the new feedback.\\
+         The comments are stored in the database and displayed on the internship evaluation page. 
+         The student and company are notified about the new feedback.\\
         \hline
         \textbf{Exceptions} &
-        The student or company send an empty comment, the system will notify he/she that the comment can not be empty.\\
+        The student or company send an empty comment, the system will notify them that the comment can not be empty.\\
         \hline
     \end{tabular}
 \end{center}
@@ -1012,30 +1001,29 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Entry Condition} & 
         \begin{itemize}
-            \item Student is logged in with the corresponding account.
-            \item Company is logged in with the corresponding account.
+            \item Student and Company are logged in.
         \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Student or company click on the chat icon.
-            \item System display the list of the chat available.
-            \item Student or company select the chat which they want to continue.
-            \item Student or company write the message in the message box and click on the ``send'' button.
-            \item System received the message and stored it in the chat history database.
-            \item System it to the recipient of the message and display it on the chat.
-            \item System notify the recipient that there is a new chat message.
+            \item Student or company clicks on the chat icon.
+            \item S\&C displays the list of the available chats.
+            \item Student or company selects the chat where they want write.
+            \item Student or company write the message in the message box and click on the ``Send'' button.
+            \item S\&C receives the message and stores it in the chat history database.
+            \item S\&C sends it to the recipient and displays it in the chat.
+            \item S\&C notifies the recipient that there is a new message.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-         The message is correctly sent and stored by the system. The recipient and the sender's chat history is updated and the recipient is
-         notified about the new message incoming, the message details is displayed successfully on the chat.\\
+         The message is correctly sent and stored by S\&C. The recipient and the sender's chat history are updated and the recipient is
+         notified about the new message incoming, the message details are displayed successfully in the chat.\\
         \hline
         \textbf{Exceptions} &
-         If the content of the message is empty, the system will notify the sender that the message can not be empty.
+         If the content of the message is empty, S\&C will notify the sender that the message can not be empty.
 
-         There is no chat available in the chat list, the system will display a message that the chat will be available when the student and 
-         company have taken part in an internship at least once.\\
+         If there is no chat available in the chat list, S\&C will display a message saying the chats will be available when the student or 
+         company will have taken part in an internship at least once.\\
         \hline
     \end{tabular}
 \end{center}
@@ -1057,22 +1045,22 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Company click on the ``create internship'' button.
-            \item System display the page with the form to fill in the internship announcement details.
-            \item Company insert the data needed to complete the form and click on the ``submit'' button.
-            \item System check the data inserted by the company and store it in the database.
-            \item System display updated list of the internship available related to this company.
-            \item System display the internship announcement on the platform.
+            \item Company opens the ``Publish internship'' page.
+            \item S\&C displays the page with the form to fill in the internship announcement details.
+            \item Company inserts the data needed to complete the form and clicks on the ``Submit'' button.
+            \item S\&C checksthe data inserted by the company and stores it in the database.
+            \item S\&C displays updated list of the internship available related to this company.
+            \item S\&C displays the internship announcement on the platform.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-         The system successfully displayed the internship announcement on the platform.\\
+        S\&C successfully displays the internship announcement on the platform.\\
         \hline
         \textbf{Exceptions} &
-        If there is a missing field in the form, the system will notify the company that all fields are required to be filled.
+        If there is a missing field in the form, S\&C will notify the company that all fields are required to be filled.
 
-        If the company has already published the announcement with the same content and that is still active, the system will notify the company
-        that the announcement is already exist.\\
+        If the company has already published the announcement with the same content and it is still active, S\&C will notify the company
+        that the announcement already exist.\\
         \hline
     \end{tabular}
 \end{center}
@@ -1088,34 +1076,33 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Entry Condition} & 
         \begin{itemize}
-            \item Student is logged in with the corresponding account.
-            \item Company is logged in with the corresponding account.
+            \item Student and Company are logged in.
             \item Company has published an internship and the application deadline has passed.
             \item Student has applied for this internship.
         \end{itemize} \\
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item Company click on the internship announcement which the company wants to select the candidates.
-            \item System display the page of the internship announcement.
-            \item Company click on the ``select candidates'' button.
-            \item System display the list of the students who have submitted the application.
+            \item Company clicks on the internship announcement which they wants to select the candidates.
+            \item S\&C displays the Internship management page.
+            \item Company clicks on the ``Select candidates'' button.
+            \item S\&C displays the list of the students who have submitted the application.
             \item Company clicks on the student's profile to see the details, in particular the CV.
-            \item System display the student's profile and CV to the company.
-            \item Company select the students who will be invited for the interview.
-            \item Company click on the ``submit'' button.
-            \item System store the list of the selected students and notify them about the application result in this phase.
-            \item System update the status of the application of the students who have applied for this internship.
+            \item S\&C displays the student's profile and CV to the company.
+            \item Company selects the students who will be invited for the interview.
+            \item Company click on the ``Submit'' button.
+            \item S\&C stores the list of the selected students and notifies them about the application result in this phase.
+            \item S\&C updates the status of the applications of the students who have applied for this internship.
         \end{enumerate} \\
         \hline
         \textbf{Exit Condition} & 
-         The system stored the decision of the company and updated the status of the application of the students and notified them about the result.\\
+        S\&C stores the decision of the company and updates the status of the application of the students and notifies them about the result.\\
         \hline
         \textbf{Exceptions} &
-         If the company has selected a student who has already accepted an offer from another company by the time, the system will notify the company 
-         that the student has already accepted an offer from another company, please select another student from the list of the candidates.
+         If the company has selected a student who has already accepted an offer from another company, S\&C will notify the company 
+         that the student has already accepted an offer from another company, and ask to select another student from the list of the candidates.
 
-         If the number of selected students is less or more than the number of the students specified in announcement, the system will notify the company to 
+         If the number of selected students is less or more than the number of the students specified in announcement, S\&C will notify the company to 
          select more or fewer students.\\
         \hline
     \end{tabular}
@@ -1139,7 +1126,7 @@ describe the functionalities he can access on S\&C.
         \hline
         \textbf{Events Flow} & 
         \begin{enumerate}
-            \item S\&C shows the dashboard page with the list of all registered students of the university.
+            \item S\&C shows the Dashboard page with the list of all registered students of the university.
             \item The University representative clicks on a student's profile.
             \item S\&C shows the student's profile page.
             \item The University representative clicks on one of the student's internships (current or past).
@@ -1151,7 +1138,7 @@ describe the functionalities he can access on S\&C.
         interested in. \\
         \hline
         \textbf{Exceptions} & If the student has not taken part in any internship, S\&C will communicate this to the representative with a 
-        message that says This student has not taken part in any internship yet. \\
+        message that says "This student has not taken part in any internship yet". \\
         \hline
     \end{tabular}
 \end{center}
@@ -1262,16 +1249,16 @@ Mapping the requirements to the use cases using the following matrix:
 Note: \textit{Some requirements are mapped to multiple use cases because they relate to multiple functionalities.
 However, in the matrix, we show only the one use case that is most relevant to the requirement.}
 
-\begin{longtable}{|c|c|c|}
+\begin{longtable}{|c|c|c|c|}
     \hline
     % Header row
-     & \textbf{Req ID} & \textbf{Principal Use Case} \T\B \\
+    \textbf{Raw ID} & \textbf{Req. ID} & \textbf{Goal ID} & \textbf{Principal Use Case} \T\B \\
     \hline \hline
     \endfirsthead%
     
     \hline
     % Header row for subsequent pages
-     & \textbf{Req ID} & \textbf{Principal Use Case} \T\B \\
+    \textbf{Raw ID} & \textbf{Req. ID} & \textbf{Goal ID} & \textbf{Principal Use Case} \T\B \\
     \hline \hline
     \endhead%
     
@@ -1285,83 +1272,82 @@ However, in the matrix, we show only the one use case that is most relevant to t
     \endlastfoot%
     % Table body
         \hline \hline
-        \textbf{row1} & R1 & U1.Register to S\&C   \T\B \\
+        \textbf{1} & R1 & G1 & U1.Register to S\&C   \T\B \\
         \hline
-        \textbf{row2} & R2 & U2.Login to S\&C  \T\B \\
+        \textbf{2} & R2 & G1 & U2.Login to S\&C  \T\B \\
         \hline
-        \textbf{row3} & R3 & U5.Upload CV  \T\B \\
+        \textbf{3} & R3 & G2 & U5.Upload CV  \T\B \\
         \hline
-        \textbf{row4} & R4 & U6.Search internship  \T\B \\
+        \textbf{4} & R4 & G3 & U6.Search internship  \T\B \\
         \hline
-        \textbf{row5} & R5 & U14.Create and Publish Internship  \T\B \\
+        \textbf{5} & R5 & G4 & U14.Create and Publish Internship  \T\B \\
         \hline
-        \textbf{row6} & R6 & U14.Create and Publish Internship  \T\B \\
+        \textbf{6} & R6 & G4 & U14.Create and Publish Internship  \T\B \\
         \hline
-        \textbf{row7} & R7 & U14.Create and Publish Internship  \T\B \\
+        \textbf{7} & R7 & G4 & U14.Create and Publish Internship  \T\B \\
         \hline
-        \textbf{row8} & R8 & U15.Select Candidates  \T\B \\
+        \textbf{8} & R8 & G5 & U15.Select Candidates  \T\B \\
         \hline
-        \textbf{row9} & R9 & U4. View recommendation  \T\B \\
+        \textbf{9} & R9 & G5 & U4. View recommendation  \T\B \\
         \hline
-        \textbf{row10} & R10 & U10.Send interview results  \T\B \\
+        \textbf{10} & R10 & G5 & U10.Send interview results  \T\B \\
         \hline
-        \textbf{row11} & R11 & U15.Select Candidates  \T\B \\
+        \textbf{11} & R11 & G5 & U15.Select Candidates  \T\B \\
         \hline
-        \textbf{row12} & R12 & U11.Accept/reject offer  \T\B \\
+        \textbf{12} & R12 & G5 & U11.Accept/reject offer  \T\B \\
         \hline
-        \textbf{row13} & R13 & U4.View recommendation  \T\B \\
+        \textbf{13} & R13 & G5, G6 & U4.View recommendation  \T\B \\
         \hline
-        \textbf{row14} & R14 & U15.Select Candidates  \T\B \\
+        \textbf{14} & R14 & G5 & U15.Select Candidates  \T\B \\
         \hline
-        \textbf{row15} & R15 & U11.Accept/reject offer  \T\B \\
+        \textbf{15} & R15 & G5 & U11.Accept/reject offer  \T\B \\
         \hline
-        \textbf{row16} & R16 & U11.Accept/reject offer  \T\B \\
+        \textbf{16} & R16 & G5 & U11.Accept/reject offer  \T\B \\
         \hline
-        \textbf{row17} & R17 & U13.Chatting  \T\B \\
+        \textbf{17} & R17 & G5 & U13.Chatting  \T\B \\
         \hline
-        \textbf{row18} & R18 & U4.View recommendation  \T\B \\
+        \textbf{18} & R18 & G5, G6 & U4.View recommendation  \T\B \\
         \hline
-        \textbf{row19} & R19 & U4.View recommendation  \T\B \\
+        \textbf{19} & R19 & G6 & U4.View recommendation  \T\B \\
         \hline
-        \textbf{row20} & R20 & U7.Apply internship  \T\B \\
+        \textbf{20} & R20 & G7 & U7.Apply internship  \T\B \\
         \hline
-        \textbf{row21} & R21 & U6.Search internship \T\B \\
+        \textbf{21} & R21 & G3, G7 & U6.Search internship \T\B \\
         \hline
-        \textbf{row22} & R22 & U15.Select Candidates  \T\B \\
+        \textbf{22} & R22 & G8 & U15.Select Candidates  \T\B \\
         \hline
-        \textbf{row23} & R23 & U15.Select Candidates  \T\B \\
+        \textbf{23} & R23 & G8 & U15.Select Candidates  \T\B \\
         \hline
-        \textbf{row24} & R24 & U8.Create interview\T\B \\
+        \textbf{24} & R24 & G8 & U8.Create interview\T\B \\
         \hline
-        \textbf{row25} & R25 & U9.Respond to interview questionnaire \T\B \\
+        \textbf{25} & R25 & G9 & U9.Respond to interview questionnaire \T\B \\
         \hline
-        \textbf{row26} & R26 & U10.Send interview results  \T\B \\
+        \textbf{26} & R26 & G10 & U10.Send interview results  \T\B \\
         \hline
-        \textbf{row27} & R27 & U12.Send interview results  \T\B \\
+        \textbf{27} & R27 & G10 & U12.Send interview results  \T\B \\
         \hline
-        \textbf{row28} & R28 & U13.Chatting  \T\B \\
+        \textbf{37} & R28 & G11 & U14.Accept/reject offer  \T\B \\
         \hline
-        \textbf{row29} & R29 & U14.Accept/reject offer \T\B \\
+        \textbf{29} & R29 & G11 & U14.Accept/reject offer \T\B \\
         \hline
-        \textbf{row30} & R30 & U12.Write feedback and complaints  \T\B \\
+        \textbf{30} & R30 & G12 & U12.Write feedback and complaints  \T\B \\
         \hline
-        \textbf{row31} & R31 & U12.Write feedback and complaints \T\B \\
+        \textbf{31} & R31 & G12 & U12.Write feedback and complaints \T\B \\
         \hline
-        \textbf{row32} & R32 & U13.Chatting  \T\B \\
+        \textbf{32} & R32 & G13 & U13.Chatting  \T\B \\
         \hline
-        \textbf{row33} & R33 & U16.Monitor internship of students  \T\B \\
+        \textbf{33} & R33 & G14 & U16.Monitor internship of students  \T\B \\
         \hline
-        \textbf{row34} & R34 & U16.Monitor internship of students  \T\B \\
+        \textbf{34} & R34 & G14 & U16.Monitor internship of students  \T\B \\
         \hline
-        \textbf{row35} & R35 & U3.See profile information  \T\B \\
+        \textbf{35} & R35 & G14 & U3.See profile information  \T\B \\
         \hline
-        \textbf{row36} & R36 & U5.Upload CV \T\B \\
+        \textbf{36} & R36 & G2 & U5.Upload CV \T\B \\
         \hline
-        \textbf{row37} & R37 & U14.Accept/reject offer  \T\B \\
-        \hline
-        \textbf{row38} & R38 & U1.Register to S\&C  \T\B \\
+        \textbf{37} & R37 & G5, G12 & U1.Register to S\&C  \T\B \\
         \hline
     \end{longtable}
+
 
 \section{Performance Requirements}
 \begin{itemize}
@@ -1388,7 +1374,6 @@ However, in the matrix, we show only the one use case that is most relevant to t
     to the chat functionality, which should allow users to communicate in real-time, and to the notification system, who must ensure that
     updates are delivered to the user before relevant deadlines expire. \\
     The response time of other operations such as the ones that involve the mailing system cannot be guaranteed by S\&C.
-
 \end{itemize}
 
 
@@ -1400,7 +1385,7 @@ The system must be compliant with the European Union's General Data Protection R
 to protect the privacy and personal data of individuals within the European Union. This means that the platform must ensure that user data is
 collected and processed in a lawful and transparent manner, and that users have the right to access, correct, and delete their data. \\
 The platform should also comply with the Web Content Accessibility Guidelines (WCAG) to ensure that the platform is accessible to users with
-disabilities. This includes providing alternative text for images and making sure that the platform is compatible with screen readers. \\
+disabilities. This includes providing multiple ways to navigate the platform, for example by showing alternative text for images. \\
 Since the users accessing the platform could be from different countries and timezones, the platform should use a time standard like UTC to
 ensure that all dates and times are consistent across different regions and that deadlines can be communicated and handled without ambiguity.
 
@@ -1411,8 +1396,8 @@ Furthermore, it should not require high level or specific hardware.
 \subsection{Any Other Constraint}
 S\&C is intended for students, companies and universities only, so the platform should not be accessible to users who do not belong to these
 categories. \\
-Since users may speak different languages, it should be designed completely in English, as it is the most widely spoken language and is commonly 
-used in the business and academic world.
+The target of the platform is the European market. Since users may speak different languages, it should be designed completely in English, as 
+it is the most widely spoken language and is commonly used in the business and academic world.
 
 
 \section{Software System Attributes}
@@ -1421,7 +1406,7 @@ The platform should be reliable and ensure that the data is always available and
 recommendation algorithm, which should be programmed with the utmost care so that it is always working properly and recommendations are always accurate. 
 This is because uninteresting and unfit recommendations could lead to a decrease in the platform's popularity and a loss of users. \\
 The system should also be able to cope with partial failures through replication and recover from failures quickly and without data loss. 
-This includes implementing regular backups of the database and state.
+This includes implementing regular backups of the database and the state.
 
 \subsection{Availability}
 The system should have a required uptime of at least 99.8\%, which means that the platform should be available 99.8\% of the time. 
@@ -1436,7 +1421,7 @@ In order to guarantee a secure system, the platform should control the access ri
 the identity of users that attempt to login must be verified, and authorization, meaning that the permission of users to perform specific actions
 must be verified. As an example, a student should not be allowed to create an internship. \\
 To comply with the GDPR, the platform should encrypt all sensitive data, such as passwords and personal information, using secure communication protocols, 
-like HTTPS and TLS, and algorithms.
+like HTTPS, TLS, and specific algorithms.
 
 \subsection{Scalability}
 The system should be designed to be scalable, meaning that it shouldn't sacrifice performance as the number of concurrent users and stored data grows.
