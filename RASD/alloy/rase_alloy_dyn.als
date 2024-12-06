@@ -20,12 +20,11 @@ sig University extends User {                         // University class to mod
     var enrolls: set Student                        // Students enrolled in university
 }
 
-var sig Internship {                                      // Internship class to model internships' applications and feedbacks
+sig Internship {                                      // Internship class to model internships' applications and feedbacks
     var submissions: set Application,               // Applications submitted by students for internship
     var submittedFeedbacks: set Feedback,           //or call them "reviews"
     var internStatus: one InternshipStatus
 }{
-    one s: Student | this in s.participates
     one c: Company | this in c.publishes
 }             
 
@@ -155,15 +154,17 @@ fact allInterviewsInApplication{
 
 // Fact to ensure that a feedback is submitted only if at least a student has participated in the internship
 fact feedbackOnlyIfStudentInInternship{
-     always all f: Feedback, i: Internship | f in i.submittedFeedbacks implies (some s: Student | i in s.participates and 
+     always all f: Feedback, i: Internship | f in i.submittedFeedbacks 
+     implies (some s: Student | i in s.participates and 
         (some a: Application | a in s.submits and a in i.submissions))
 }
 
 // Fact to ensure that all internships where a student has participated have an interview scheduled for the application
 fact allStudentInternshipsHaveInterviewInApplication{
      always all s: Student, i: Internship | i in s.participates implies 
-        (some a: Application | a in s.submits and a in i.submissions and 
+        (some a: Application | a in s.submits and a in i.submissions and
         (some intv: Interview | intv in a.interview))
+
 }
 
 //-----------------------------New Constraints------------------------------------
@@ -171,21 +172,22 @@ fact allStudentInternshipsHaveInterviewInApplication{
 //-----------Application and Internship Statuses----------------
 //Application can only have one status at a time (DONE with the Assert and Check)
 fact ApplicationStatusCanOnlyHaveOnePhaseAtATime{
-    always all a: Application | one a.AppStatus and
+    always all a: Application | (one a.AppStatus and
     (a.AppStatus in SubmissionWaiting or 
     a.AppStatus in SelectedToInterview or 
     a.AppStatus in AcceptedToInternship or 
     a.AppStatus in AcceptedOffer or 
     a.AppStatus in Rejected or 
-    a.AppStatus in RejectedOffer)
+    a.AppStatus in RejectedOffer))
 }
-/*
+
 assert NonExistAppStatusOutOfRange{
-    all a: Application | a.AppStatus in ApplicationStatus
+    always all a: Application | a.AppStatus in ApplicationStatus
 }
 check NonExistAppStatusOutOfRange for 5
+
 assert NoTwoAppStatusAtSameTime{
-    all a: Application | a.AppStatus in SubmissionWaiting implies 
+    always all a: Application | a.AppStatus in SubmissionWaiting implies
     a.AppStatus not in SelectedToInterview and 
     a.AppStatus not in AcceptedToInternship and 
     a.AppStatus not in AcceptedOffer and 
@@ -193,7 +195,6 @@ assert NoTwoAppStatusAtSameTime{
     a.AppStatus not in RejectedOffer
 }
 check NoTwoAppStatusAtSameTime for 5
-*/
 
 //Internship can only have one possible status at a time (DONE with the Assert and Check)
 fact InternshipStatusCanOnlyHaveOnePhaseAtATime {
@@ -204,25 +205,28 @@ fact InternshipStatusCanOnlyHaveOnePhaseAtATime {
     i.internStatus in Completed)
 }
 
-//When internship is in publishing status, no applications submitted should have an interview scheduled (DONE with the Assert and Check)
-fact InternshipInPublishingNoneInterviews{
-    always all i: Internship | i.internStatus = InPublishing implies
-    all a: i.submissions | a.interview = none
+fact NoStudentParticipatesInInternshipIfNotInProgressOrCompleted{
+    always all s: Student, i: Internship | i in s.participates implies
+    (i.internStatus in InProgress or i.internStatus in Completed)
 }
-/*
+
+//When internship is in publishing status, no applications submitted should have an interview scheduled (DONE with the Assert and Check)
+fact InternshipInPublishingNoneInterviews {
+    always all i: Internship | i.internStatus = InPublishing implies (no a: i.submissions | a.interview != none)
+}
+
 assert NoInterviewInPublishing{
-    all i: Internship | i.internStatus = InPublishing implies
-    no a: i.submissions | a.interview != none
+    always all i: Internship | i.internStatus = InPublishing implies 
+    (all a: i.submissions | a.interview = none)
 }
 check NoInterviewInPublishing for 5
-*/
 
 //When an internship is in selection status, all applications should be updated from submission waiting (DONE with the Assert and Check) 
 fact InternshipInInterviewStatusAndItsApplications{
-    always all i: Internship | i.internStatus in InSelection implies (
-        no a: i.submissions | a.AppStatus in SubmissionWaiting)        
+    always all i: Internship | i.internStatus in InSelection implies 
+        (no a: i.submissions | a.AppStatus in SubmissionWaiting)        
 }
-/*
+
 assert NoStatusSubmissionWaitingInSelectionPhase{
     all i: Internship | i.internStatus in InSelection implies
     all a: i.submissions | 
@@ -233,97 +237,95 @@ assert NoStatusSubmissionWaitingInSelectionPhase{
     a.AppStatus in RejectedOffer
 }
 check NoStatusSubmissionWaitingInSelectionPhase for 5
-*/
 
 /*
 When an internship is in progress status or completed status, all applications should be in the final status: accepted offer, rejected offer or rejected
 (DONE with the Assert and Check) 
 */
 fact InternshipInProgressOrCompletedApplicationsInFinalStatus{
-    always all i: Internship | i.internStatus = InProgress or i.internStatus = Completed implies
-    (all a: i.submissions | (a.AppStatus = AcceptedOffer or a.AppStatus = RejectedOffer or a.AppStatus = Rejected)
-    )
+    always all i: Internship | (i.internStatus = InProgress or i.internStatus = Completed) implies
+    (all a: i.submissions | (a.AppStatus = AcceptedOffer or a.AppStatus = RejectedOffer or a.AppStatus = Rejected))
 }
-/*
+
 assert NotAcceptNoFinalStatus{
     all i: Internship | i.internStatus = InProgress or i.internStatus = Completed 
     implies
      (no a: i.submissions | a.AppStatus = SubmissionWaiting or a.AppStatus = SelectedToInterview or a.AppStatus = AcceptedToInternship)
 }
 check NotAcceptNoFinalStatus for 5
-*/
-//When an application is accepted by the student, such application should be accepted by the company before (DONE with the Assert and Check) 
-fact AcceptedOfferOnceAcceptedToInternship{
-    always all a: Application | a.AppStatus = AcceptedOffer implies
-    before a.AppStatus = AcceptedToInternship
-}
-/*
-assert NoApplicationCanBeAcceptedIfNotAcceptedByCompany{
-    all a: Application | a.AppStatus = AcceptedOffer implies
-    historically a.AppStatus = AcceptedToInternship
-}
-check NoApplicationCanBeAcceptedIfNotAcceptedByCompany for 5
-*/
 
 //Once Internship is completed, no more feedbacks can be submitted (DONE with the Assert and Check) 
 fact InternshipCompletedNoMoreFeedbacks{
     always all i: Internship | i.internStatus = Completed implies
-    always i.submittedFeedbacks' = i.submittedFeedbacks
+    (i.submittedFeedbacks' = i.submittedFeedbacks)
 }
-/*
+
 assert NoFeedBacksAfterInternshipCompleted{
     always all i: Internship | i.internStatus in Completed implies no f: Feedback | f in
     i.submittedFeedbacks' and f not in i.submittedFeedbacks
 }
 check NoFeedBacksAfterInternshipCompleted
-*/
 
 //Before an internship enter in InProgress status, the feedbacks submitted should be equals to zero (DONE with the Assert and Check) 
 fact NoFeedbacksBeforeInProgress{
-    always all i: Internship | i.internStatus = InPublishing or i.internStatus = InSelection implies i.submittedFeedbacks=none
+    always all i: Internship | (i.internStatus = InPublishing or i.internStatus = InSelection )implies i.submittedFeedbacks=none
 }
-/*
+
 assert BeforeInProgressNoFeedbacks{
     always all i: Internship | i.internStatus not in InProgress and i.internStatus not in Completed implies
     i.submittedFeedbacks = none
 }
 check BeforeInProgressNoFeedbacks for 5
+
+/*
+If an internship is in publishing status, the next status should be InSelection if exists applications in the internship has been selected to interview otherwise remains in publishing status
+If an internship is in selection status, the next status should be InProgress if exists applications in the internship has been accepted to the internship otherwise remains in selection status
+If an internship is in progress status, the next status should be Completed
+If an internship is in completed status, the next status should be Completed
 */
 
-//Transaction rule:
-pred validInternshipStatusTransition(i: InternshipStatus) {
-    //pre condition -> post condition
-    (i= InPublishing implies i' = InSelection ) and 
-    (i= InSelection implies i' = InProgress) and
-    (i= InProgress implies i' = Completed) and
-    (i= Completed implies i' = Completed)
-    //invariant of internship 
-    Internship' = Internship
+fact InternshipStatusTransitionAndItsApplications {
+    always all i: Internship | 
+        (i.internStatus = InPublishing implies (all a: i.submissions | a.AppStatus in SubmissionWaiting ))and 
+        (i.internStatus = InSelection implies (all a: i.submissions | a.AppStatus = SelectedToInterview or a.AppStatus = Rejected or a.AppStatus = AcceptedToInternship)) and
+        (i.internStatus = InProgress implies (all a: i.submissions | a.AppStatus = AcceptedOffer or a.AppStatus = Rejected or a.AppStatus = RejectedOffer) and (some a: i.submissions | a.AppStatus = AcceptedOffer)) and 
+        (i.internStatus = Completed implies  (all a: i.submissions | a.AppStatus = AcceptedOffer or a.AppStatus = Rejected or a.AppStatus = RejectedOffer) and (some a: i.submissions | a.AppStatus = AcceptedOffer))
+}
+
+assert InProgressMustHaveOneAcceptedOffer{
+    always all i: Internship | (i.internStatus = InProgress or i.internStatus = Completed )implies(
+    (some a: i.submissions | a.AppStatus = AcceptedOffer) and (no a: i.submissions | a.AppStatus = SubmissionWaiting or a.AppStatus = SelectedToInterview or a.AppStatus = AcceptedToInternship)) 
+}
+check InProgressMustHaveOneAcceptedOffer for 5
+
+fact InternshipStatusTransition{
+    always all i: Internship | 
+        (i.internStatus = InPublishing implies 
+            i.internStatus' = InSelection and
+                i.internStatus'' = InProgress and
+                    i.internStatus''' = Completed) and
+        (i.internStatus = InSelection implies
+                i.internStatus'= InProgress and
+                    i.internStatus'' = Completed) and
+        (i.internStatus = InProgress implies
+            i.internStatus' = Completed)
+            and
+        (i.internStatus = Completed implies
+            i.internStatus' = Completed)
     
 }
 
-pred validApplicationStatusTransition(a: ApplicationStatus){ 
-    (a= SubmissionWaiting implies a' = SelectedToInterview or a'=Rejected) and 
-    (a= SelectedToInterview implies a' = AcceptedToInternship or a' = Rejected) and
-    (a= AcceptedToInternship implies a' = AcceptedOffer or a' = RejectedOffer) and
-    (a= AcceptedOffer implies a' = AcceptedOffer) and
-    (a= RejectedOffer implies a' = RejectedOffer) and
-    (a= Rejected implies a' = Rejected)
-    //invariant of application
-    Application' = Application
+fact ApplicationTransition{
+    always all a: Application |
+    (a.AppStatus= SubmissionWaiting implies (a.AppStatus' = SelectedToInterview or a.AppStatus'=Rejected)) and 
+    (a.AppStatus= SelectedToInterview implies (a.AppStatus' = AcceptedToInternship or a.AppStatus' = Rejected)) and
+    (a.AppStatus= AcceptedToInternship implies (a.AppStatus' = AcceptedOffer or a.AppStatus' = RejectedOffer)) and
+    (a.AppStatus= AcceptedOffer implies a.AppStatus' = AcceptedOffer) and
+    (a.AppStatus= RejectedOffer implies a.AppStatus' = RejectedOffer) and
+    (a.AppStatus= Rejected implies a.AppStatus' = Rejected)
 }
-//(DONE with the Assert and Check)
-//Internship status should be changed in order: InPublishing -> InInterview -> FinalOffer -> InProgress -> Completed
-fact InternshipStatusOrder{
-    always all i: Internship | validInternshipStatusTransition[i.internStatus]
-}
-//(DONE with the Assert and Check)
-//Application status should be changed in order: SubmissionWaiting -> SelectedToInterview -> AcceptedToInternship -> AcceptedOffer if everything goes well
-//Otherwise, it will be Rejected or RejectedOffer
-fact ApplicationStatusOrder{
-    always all a: Application | validApplicationStatusTransition[a.AppStatus]
-}
-/*
+
+
 assert NoApplicationTransitionOutOrder{
     always all a: Application | a.AppStatus in AcceptedOffer implies
          a.AppStatus' in AcceptedOffer
@@ -337,10 +339,10 @@ assert NoInternshipOutOrder{
 check NoInternshipOutOrder for 5
 
 assert NoOrderInternOutRule{
-    always all i: Internship | i.internStatus in InPublishing implies
-    after i.internStatus = InSelection and 
-        after i.internStatus = InProgress and
-            after i.internStatus = Completed
+    always all i: Internship | i.internStatus in InPublishing implies(
+    i.internStatus' = InSelection and 
+        (i.internStatus'' = InProgress and(
+            i.internStatus''' = Completed)))
 }
 check NoOrderInternOutRule for 5
 
@@ -362,7 +364,7 @@ assert NoOrderAppOutRule{
     )
 }
 check NoOrderAppOutRule for 5
-*/
+
 //Variation of Interview in every state of the application
 fact InterviewInEveryStateOfApplication{
     always all a: Application | 
@@ -376,15 +378,13 @@ fact InterviewInEveryStateOfApplication{
 //Number of invitations sent by a company should be equal to the number of interviews scheduled and less or equal to the number of applications submitted
 fact NumInvitationsEqualsNumInterviews{
     always all i: Internship | i.internStatus = InSelection implies
-    all a: i.submissions | a.AppStatus = SelectedToInterview implies
-    a.interview != none
+    (all a: i.submissions | a.AppStatus = SelectedToInterview implies a.interview != none)
 }
 
 fact InInterviewCanNotBeRemoved{
-    always all a: Application | a.interview!=none implies
-    always a.interview'=a.interview and a.AppStatus'!=none
+    always all a: Application | a.interview!=none implies (a.interview'=a.interview)
 }
-/*
+
 assert ExistInterviewIfSelectedToInterview{
     always all a:Application | a.AppStatus = SelectedToInterview implies
     a.interview != none
@@ -393,26 +393,30 @@ check ExistInterviewIfSelectedToInterview for 5
 
 assert OnceInterviewCreatedCannotBeRemoved{
     always all a: Application | a.interview != none implies
-    always a.interview' = a.interview
+    a.interview' = a.interview
 }
 check OnceInterviewCreatedCannotBeRemoved for 5
-*/
+
 
 fact BeforeInSelectionNoInterviews{
     always all i: Internship | i.internStatus = InPublishing implies
-    no a: i.submissions | a.interview != none
+    (no a: i.submissions | a.interview != none)
 }
 
 fact AfterInSelectionInterviewsInvariant{
-    always all i: Internship | i.internStatus = InProgress or i.internStatus = Completed implies
+    always all i: Internship | (i.internStatus = InProgress or i.internStatus = Completed )implies
     i.submissions.interview' = i.submissions.interview
 }
 
 //Every Student can only do one internship at a time (DONE with the Assert and Check)
-fact StudentInOneInternshipAtATime{
-    always all s: Student | no disj i1,i2: s.participates | (i1.internStatus = InProgress and i2.internStatus = InProgress)
+fact StudentParticipatesInternship{
+    always all s: Student | all disj i: s.participates | (i.internStatus = InProgress or i.internStatus = Completed) 
 }
-/*
+
+fact StudentCanDoOneInternshipsAtATime{
+    always all s: Student | # {i: Internship | i in s.participates and i.internStatus = InProgress} <= 1
+}
+
 assert StudentCanNotDoTwoInternshipsAtATime{
     always all s: Student | all i1,i2: s.participates | (i1.internStatus = InProgress and i2.internStatus = InProgress) implies
     i1 = i2
@@ -423,14 +427,10 @@ assert StudentCanOnlyHaveOneInternshipInProgress{
     always all s: Student | # {i: Internship | i in s.participates and i.internStatus = InProgress} <= 1    
 }
 check StudentCanOnlyHaveOneInternshipInProgress for 5
-*/
 
-//Student application number should be equal to the number of internships he/she has participated in
+//Student application number should be more or equals to the number of internships he/she has participated in
 fact StudentApplicationsInInternships{
-    always all s: Student | 
-    let numApplications = #s.submits | 
-    let numInternships = #s.participates |
-    numApplications = numInternships
+    always all s: Student | #s.submits >= #s.participates 
 }
 
 //Student should have the offer accepted equal or less than the number of applications submitted
@@ -440,91 +440,59 @@ fact StudentOffersAccepted{
     let numApplications = #s.submits |
     numOffersAccepted <= numApplications
 }
-/*
-------------------------TO DO------------------------
-//---Dynamic scenarios---
 
-//Student submits an application for an internship
-pred SubmitApplicationForInternship(s: Student, i: Internship, a: Application) {
-    always (all s: Student, i: Internship, a: Application |
-    i in
-    a.interview' = none and
-    a.AppStatus' = SubmissionWaiting and
-    Application' = Application + a and
-    s.submits' = s.submits + a and
-    i.submissions' = i.submissions + a)
+//Student has the internship participated if and only if he accepted the application related to the internship
+fact StudentParticipatesInInternship{
+    always all s: Student, i: Internship | i in s.participates implies
+    (some a: Application | a in s.submits and a in i.submissions and a.AppStatus = AcceptedOffer )
+}
+assert RejectedOfferStudentNotParticipates{
+    always all s: Student | all i: Internship | i in s.participates implies
+    (no a: Application | a in s.submits and a in i.submissions and a.AppStatus not in AcceptedOffer)
+}
+check RejectedOfferStudentNotParticipates for 5
 
+fact InSelectionStudentApplication{
+    always all s: Student, a: Application| a in s.submits implies 
+    after a in s.submits
 }
 
-pred CompanyPublishInternship {
-    eventually all c: Company, i: Internship |
-    i.internStatus = InPublishing and
-    i not in c.publishes and
-    c.publishes' = c.publishes + i
+fact SubmissionsMutableOnlyInPublishing {
+    always all i: Internship |
+        i.internStatus not in InPublishing implies
+        (i.submissions' = i.submissions)
 }
 
-pred CompanyCreateInterview {
-    eventually all i: Internship, a: Application, intv: Interview |
-    a in i.submissions and
-    a.AppStatus = SelectedToInterview and
-    intv not in a.interview and
-    Interview' = Interview + intv and
-    a.interview = none and 
-    a.interview' = intv
+fact FeedbackExistCanBeCancelled{
+    always all f: Feedback, i: Internship | f in i.submittedFeedbacks implies
+    after f in i.submittedFeedbacks
+}
+//Feedback in Completed status means feedback has been submitted in the In Progress status
+fact FeedbackInCompletedStatus{
+    always all f: Feedback, i: Internship | f in i.submittedFeedbacks and i.internStatus = Completed implies
+    historically f in i.submittedFeedbacks
 }
 
-pred StudentRegisterToSystem {
-    eventually all s: Student, u: University |
-    s not in u.enrolls and
-    u.enrolls' = u.enrolls + s
-}
+// ---------Basic run commands to show the model----------------
+run { some s: Student, i: Internship | i in s.participates} for 10
 
-pred StudentRejectedFromInterview {
-    eventually all s: Student, a: Application, intv: Interview|
-    a in s.submits and
-    a.AppStatus = SelectedToInterview and
-    a.interview = intv and
-    always a.AppStatus' = Rejected
-}
+run { some i: Internship |  i.internStatus in InPublishing} for 9
+run { some  i: Internship | i.internStatus in InSelection} for 5
 
-pred CompanySendInterviewResult {
-    eventually all i: Internship| some a: Application | 
-    a in i.submissions and a.AppStatus = AcceptedToInternship implies
-    i.internStatus' = WaitingStuDecision and 
-    a.AppStatus' = Rejected or a.AppStatus' = AcceptedToInternship
-}
+run { some s: Student, i: Internship | i in s.participates and i.internStatus in InProgress} for 5
 
-pred StudentDecision {
-    eventually all s: Student, a: Application |
-    a in s.submits and a.AppStatus = AcceptedToInternship implies
-    a.AppStatus' = AcceptedOffer or a.AppStatus' = RejectedOffer
-}
+run { some s: Student, i: Internship | i in s.participates and i.internStatus in Completed} for 5
+
+run { some s: Student, a: Application | a in s.submits and a.AppStatus in AcceptedOffer} for 5
+
+run { some s: Student, a: Application | a in s.submits and a.AppStatus in RejectedOffer} for 5
+
+run { some s: Student, a: Application | a in s.submits and a.AppStatus in Rejected} for 5
+
+run { some s: Student, a: Application | a in s.submits and a.AppStatus in SubmissionWaiting} for 5
+
+run { some s: Student, a: Application | a in s.submits and a.AppStatus in SelectedToInterview} for 5
+
+run { some s: Student, a: Application | a in s.submits and a.AppStatus in AcceptedToInternship} for 5
 
 
-pred startInternship {
-    eventually all i: Internship | 
-    i.internStatus = FinalOffer implies
-    i.internStatus' = InProgress
-}
-
-pred SubmitFeedback{
-    eventually all s: Student, i: Internship, f: Feedback |
-    f not in i.submittedFeedbacks and
-    i in s.participates and
-    i.submittedFeedbacks' = i.submittedFeedbacks + f
-    and i.internStatus = InProgress
-}
-
-pred CloseInternship{
-    eventually all i: Internship | 
-    i.internStatus = InProgress implies
-    i.internStatus' = Completed
-}
-
-// Example 0: Simple model with 1 university, 2 students, 2 internships, and 1 company.
-// Only 1 student participates in an internship (the other one does not), both students submit different number of applications, 
-// no bounds on the number of interviews and feedbacks.
-run StudentApplicationsLessThanInternships for 2 but exactly 1 Student, 2 Internship, 1 Company, 1 University, 2 Application, 1 Interview, 1 Feedback
-
-run SubmitApplicationForInternship for 2
-*/
