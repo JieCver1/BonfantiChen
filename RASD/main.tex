@@ -86,6 +86,52 @@
 \usepackage{xcolor} % For color support
 \usepackage{enumitem}
 \usepackage{multirow} % For multi row in tables
+\usepackage{listings} % For code snippets
+
+% ------------------------------------------------------------------------------
+%	ALLOY CODE LISTING
+% ------------------------------------------------------------------------------
+\lstdefinelanguage{alloy}{
+    morekeywords={
+        module, open, as,
+        private, abstract, sig, extends, in,
+        lone, some, one, disj,
+        fact, pred, fun, assert,
+        run, check,
+        for, but, exactly,
+        this, not, implies, else, let,
+        not, no, set, all, sum,
+        iff, or, Int, and,
+        none, univ, iden,
+        historically, always, eventually, after, before
+    },
+    sensitive=true,
+    morecomment=[l]{//},
+    morecomment=[l]{--},
+    morecomment=[s]{/*}{*/},
+    morestring=[b]{"},
+}[keywords,comments,strings]
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+
+\lstset{frame=tb,
+  language=alloy,
+  aboveskip=3mm,
+  belowskip=3mm,
+  showstringspaces=false,
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{blue},
+  commentstyle=\color{dkgreen},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=3
+}
+
+%----------------------------------------------------------------------------
 
 \fancyhf{}
 

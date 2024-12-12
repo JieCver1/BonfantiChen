@@ -1,46 +1,41 @@
-//----------------------------------------------------------------------------------------
-//------------------------------- RASD Alloy Model ---------------------------------------
-//----------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
+//---------------------------- RASD Alloy Static Model -----------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
+//---------------------------------- Signatures ------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
 
+abstract sig User {}                 // Abstract signature for all users
 
-//----------------------------------------------------------------------------------------
-//---------------------------------- Signatures ------------------------------------------
-//----------------------------------------------------------------------------------------
-
-abstract sig User {}        // Abstract class for all users
-
-sig Student extends User {                             // Student class to model students' submitted applications and participations in internships
-    submits: set Application,         // Applications submitted by student
-    participates: set Internship         // Internships student has participated in
+sig Student extends User {           // Student signature to model students' submitted applications and participations in internships
+    submits: set Application,        // Applications submitted by student
+    participates: set Internship     // Internships student has participated in
 }
 
-sig Company extends User {                            // Company class to model companies' published internships
-    publishes: set Internship            // Internships published by company
+sig Company extends User {           // Company signature to model companies' published internships
+    publishes: set Internship        // Internships published by company
 }
 
-sig University extends User {                         // University class to model universities' students
-    enrolls: set Student                        // Students enrolled in university
+sig University extends User {        // University signature to model universities' students
+    enrolls: set Student             // Students enrolled in university
 }
 
-sig Internship {                                      // Internship class to model internships' applications and feedbacks
-    submissions: set Application,           // Applications submitted by students for internship
-    submittedFeedbacks: set Feedback        // Feedbacks submitted by student who participated in internship
-}               //or call them "reviews"
+sig Internship {                     // Internship signature to model internships' applications and feedbacks
+    submissions: set Application,    // Applications submitted by students for internship
+    submittedFeedbacks: set Feedback // Feedbacks submitted by student who participated in internship
+}               
 
-sig Application {                                     // Application class to model applications' interviews
-    interview: lone Interview               // Interview scheduled for application
+sig Application {                    // Application signature to model applications' interviews
+    interview: lone Interview        // Interview scheduled for application
 }
 
-sig Feedback {}                                       // Feedback class to model feedbacks submitted by students who participated in internships and companies who published them
+sig Feedback {}  // Feedback signature to model feedbacks submitted by students who participated in internships and companies who published them
 
-sig Interview {}                                      // Interview class to model interviews scheduled for applications
+sig Interview {} // Interview signature to model interviews scheduled for applications
 
-// enum ApplicationStatus {Submitted, Selected, Accepted, Rejected} // Enum to model the status of an application
-// enum InternshipStatus {SubmissionPhase, SelectionPhase, InProgress, Completed} // Enum to model the status of an internship
-
-//------------------------------------------------------------------------------------------------------------------------------------------
-//-------------------------- Facts for the static model ----------------------------------
-//----------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
+//-------------------------- Facts for the static model ----------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
 // Fact to ensure that each application is submitted by only one student (no application can be submitted by multiple students)
 fact oneStudentPerApplication{
     all s1,s2: Student | no a: Application | (a in s1.submits and  a in s2.submits and s1 != s2)
@@ -125,9 +120,9 @@ fact allStudentInternshipsHaveInterviewInApplication{
         (some intv: Interview | intv in a.interview))
 }
 
-//---------------------------------------------------------------------------------------------------------------------------------------------
-//----------------------- Predicates to show the static model ----------------------------
-//----------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
+//----------------------- Predicates to show the static model ----------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------------------------------
 // Example 0: Simple model with 1 university, 2 students, 2 internships, and 1 company.
 // Only 1 student participates in an internship (the other one does not), both students submit different number of applications, 
 // no bounds on the number of interviews and feedbacks.
@@ -141,9 +136,6 @@ pred example0 {
     one s: Student | #s.submits = 2
     one s: Student | #s.participates = 1
     one s: Student | #s.participates = 0
-
-    // #ApplicationStatus = 0
-    // #InternshipStatus = 0
 } 
 run example0 for 4
 
@@ -164,11 +156,7 @@ pred example1 {
     #Application > 0
     #Feedback > 0
     #Interview < #Application
-
-    // #ApplicationStatus = 0
-    // #InternshipStatus = 0
 } 
-
 run example1 for 9
 
 // Example 2: More complex model with 2 universities, 5 students, 5 internships, and 2 companies.
@@ -199,37 +187,6 @@ pred example2 {
     some i: Internship | #i.submissions = 0
     all i: Internship | #i.submittedFeedbacks < 3
 
-    //all i: Internship, s: Student | (#i.submissions > 0) implies (#i.submissions > #s.participates)
-
     all c: Company | #c.publishes <= 3
-
-    // #ApplicationStatus = 0
-    // #InternshipStatus = 0
 }
-
 run example2 for 13
-
-//---------------------------------------------------------------------------------------------------------------------------------------------
-//----------------------- Assertions to prove the static model ---------------------------
-//----------------------------------------------------------------------------------------
-
-assert interviewLessThanApplication {
-    #Interview <= #Application
-}
-
-check interviewLessThanApplication for 15
-
-
-//----------------------------------------------------------------------------------------
-//----------------------------- Dynamic Constraints --------------------------------------
-//----------------------------------------------------------------------------------------
-
-
-
-//----------------------------------------------------------------------------------------
-//---------------------- Predicates to show the dynamic model ----------------------------
-//----------------------------------------------------------------------------------------
-
-run show {
-
-} 
