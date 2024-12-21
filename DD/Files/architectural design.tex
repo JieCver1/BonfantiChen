@@ -52,7 +52,67 @@ SQL queries; and the Application Server interacts with the Mail Server through S
 
 
 \section{Selected architectural styles and patterns}\label{sec:selected architectural styles and patterns}
-
+\subsection{Three-Tiered Architecture}\label{subsec:three-tiered architecture}
+As described in Section Overview, the Students\&Companies (S\&C) platform is build using a multi-tier architecture. This decision was made with the aim of 
+providing a more scalable and flexible system.
+The system is divided into three main layers: the presentation layer, the application layer, and the data layer.
+Each layer has its own responsibilities and plays a specific role in the system: the presentation layer serves as the front end, accessible through the GUI, 
+while the application layer and data layer together form the back end of the system, accessible via API-based methods.
+\begin{itemize}
+    \item \textbf{Presentation Layer:} The presentation layer is implemented as a generic web application accessible through a web browser.
+    It is responsible for managing the presentation logic, including user interaction, the user interface, and rendering information.
+    This layer serves as the front end of the system, the only part that the user can access directly.
+    \item \textbf{Application Layer:} The application layer is implemented as a set of RESTful web services.
+    It is responsible for managing the functional logic of the system, controlling communication between the presentation layer and the data layer.
+    This layer allows the system to react to user input and generate appropriate responses accordingly.
+    It includes the Application Server and is also used to interact with third-party services.
+    \item \textbf{Data Layer:} The data layer is responsible for managing the data storage and access within the system.
+    All operations that require data manipulation must be performed through interactions with the data layer.
+    The platform uses a Relational Database Management System (RDBMS), making the data accessible through SQL queries.
+\end{itemize}
+\subsection{RESTful API}\label{subsec:restful api}
+The Representational State Transfer (REST) style is designed to be stateless, enabling more efficient and seamless communication between the client and the server.
+It uses standard HTTP methods (GET, POST, PUT, DELETE) to perform operations on resources.
+The decision to incorporate RESTful APIs into the architecture provides advantages in terms of performance, modifiability, and simplicity by defining conventions 
+for interacting with resources in resource-oriented manner.
+\subsection{Model-View-Controller (MVC) Pattern}\label{subsec:model-view-controller pattern}
+One of the most recommended design patterns for the Three-Tier Architecture is the Model-View-Controller (MVC) pattern. It separates the application into three 
+components: the model, the view, and the controller, minimizing interdependencies between the components and improving the maintainability, manageability, and 
+scalability of the system. Each component can be developed, tested, and maintained independently.
+\begin{itemize}
+\item \textbf{Model:} Contains the state and application logic and is independent of the other components.
+\item \textbf{View:} Represents the visual presentation logic of the Model and is responsible for displaying data to the user.
+\item \textbf{Controller:} Acts as an intermediary between the Model and the View. It receives user input forwarded by the View, then processes operations and 
+updates the Model and the View accordingly.
+\end{itemize}
 
 \section{Other design decisions}\label{sec:other design decisions}
+\begin{itemize}
+    \item \textbf{Design patterns related to the behavioral aspects:} Observer Pattern and State Pattern.
+    \item \textbf{Design decisions related to the system's requirements:} Some design decisions are already described in the RASD, such as reliability, availability, scalability, security, maintainability, and portability. 
+    The following sections revisit availability, scalability, and security to emphasize their importance in the system.
+\end{itemize}
+\subsection{Observer Pattern}\label{subsec:observer pattern}
+The Observer pattern is particularly useful when multiple objects need to be notified about a change in the state of another object. In the context of the S\&C platform, 
+a large number of functionalities require the participation of multiple objects, such as notifying users about the results of an interview or updates on the status of an application.
+\subsection{State Pattern}\label{subsec:state pattern}
+The State pattern is recommended to efficiently manage operations across different states and handle transitions between them, as it allows objects to change their behavior 
+when their internal state changes. In the context of the S\&C platform, the State pattern can be used to manage the lifecycle of an application for a internship position.
+
+\subsection{Availability}\label{subsec:availability}
+The system is designed to be highly available, ensuring that users can access the platform at any time, as described in the RASD, with at least 99.8 percent uptime. 
+To achieve this, critical components should be replicated across multiple servers to provide redundancy and fault tolerance in case of failure. Load balancing is 
+correctly configured to distribute incoming traffic, preventing overload on any single server. Continuous monitoring of the system's performance allows for the 
+detection and resolution of any issues that may arise in real-time.
+\subsection{Scalability}\label{subsec:scalability}
+The platform is designed to handle increased user loads in the future by scaling individual layers independently, thanks to the architectural styles and patterns 
+mentioned earlier. As described in the RASD, the system can be scaled horizontally by adding more servers or vertically by increasing the resources of existing 
+servers, without affecting performance. This scalability is essential, especially as the number of users grows, leading to a higher volume of application requests 
+over time.
+\subsection{Security}\label{subsec:security}
+The system is designed to ensure the privacy and security of user data both during transmission over the network and while stored in the database. This includes the 
+use of authentication and authorization mechanisms to ensure that only authorized users can access the system, reducing the risk of unauthorized access. Additionally, 
+a firewall and Intrusion Detection System (IDS) are set up in the network to protect the system from external threats and attacks. Protocols like HTTPS are used to 
+encrypt communication between the client and server, and other encryption algorithms are employed to protect sensitive data stored in the database, such as user 
+passwords.
 
