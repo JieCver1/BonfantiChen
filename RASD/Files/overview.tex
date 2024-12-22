@@ -119,7 +119,9 @@ the feedbacks left both by the students and the company at the end of it.
 
 The Feedback class contains a reference to the related Internship and a description.
 
-There are enumerations to keep track of the state of the Application and Internship.
+The ApplicationStatus enumeration is used to keep track of the status of the application: Waiting, Selected, AcceptedToInternship, AcceptedOffer,
+RejectedOffer, Rejected.
+The InternshipStatus enumeration is used to keep track of the status of the internship: InPublising, InSelection, InProgress, Completed.
 
 \subsection{Statecharts}\label{subsec:statecharts}
 The following sections present statechart diagrams for the platform's main processes, including internship recommendations, the internship 
