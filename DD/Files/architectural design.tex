@@ -223,8 +223,8 @@ the data related to that application and take a track of its status.
     \item[-] registration (String email, String password, String name, String surname, University university, List[Field] interests, List[String] skills): Boolean
     \item[-] registration (String email, String password, String legalName, String EIN, String department, List[Field] fields): Boolean
     \item[-] registration (String email, String password, String name, String legalName): Boolean
-    \item[-] confirmRegistration (String email): Boolean
     \item[-] generateUserId (): int
+    \item[-] confirmRegistration (String email): Boolean 
 \end{itemize}
 
 \paragraph{Login Manager}
@@ -247,6 +247,11 @@ the data related to that application and take a track of its status.
     \item[-] removeFieldOfInterest (int userId, Field field): Boolean
     \item[-] addSkill (int userId, String skill): Boolean
     \item[-] removeSkill (int userId, String skill): Boolean
+    \item[-] checkFileFormat (File file): Boolean
+    \item[-] saveModifications (int userId): Boolean 
+    \item[-] saveModifications (int userId, String email, String password, String name, String surname, University university, List[Field] interests, List[String] skills): Boolean
+    \item[-] saveModifications (int userId, String email, String password, String legalName, String EIN, String department, List[Field] fields): Boolean
+    \item[-] saveModifications (int userId, String email, String password, String legalName): Boolean  
 \end{itemize}
 
 \paragraph{View Profile Manager}
@@ -258,7 +263,7 @@ the data related to that application and take a track of its status.
 
 \subsubsection{Search Manager}
 \begin{itemize}
-    \item[-] search (int userId, String keyword): List[Result]
+    \item[-] search (int userId, String keyword): List[Result] and List[Recommendation]
     \item[-] searchFilterByType (int userId, SearchType type, List[Result]): List[Result]
     \item[-] searchFilterByField (int userId, Field field, List[Result]): List[Result]
     \item[-] searchFilterByLocation (int userId, String location, List[Result]): List[Result]
@@ -268,9 +273,11 @@ the data related to that application and take a track of its status.
 
 \subsubsection{Notification Manager}
 \begin{itemize}
-    \item[-] notify (int userId, String notification, NotificationType type): Boolean
+    \item[-] notify (int userId, String notification, NotificationType type): Boolean 
+    \item[-] notify (int userId, String notification): Boolean 
+    \item[-] notify (String internshipId, String notification): Boolean
     \item[-] getNotifications (int userId): List[Notification]
-    \item[-] getNotificationDetails (int userId, String notification): Notification
+    \item[-] getNotificationDetails (int userId): Notification
     \item[-] isRead (int userId, String notification): Boolean
     \item[-] deleteNotification (int userId, String notification): Boolean
     \item[-] deleteAllNotifications (int userId): Boolean
@@ -290,39 +297,39 @@ the data related to that application and take a track of its status.
 \subsubsection{Internship Manager}
 \paragraph{Creation Manager}
 \begin{itemize}
-    \item[-] createInternship (): None
-    \item[-] publishInternship (String title, String description, Field field, String location, Date startDate, Date endDate, int duration, int totalPositions, 
-    Date deadline): Boolean
+    \item[-] createInternship (String title, String description, Field field, String location, Date startDate, Date endDate, int duration, String position, Date deadline): Boolean
     \item[-] generateInternshipID (): String
-    \item[-] addInternshipInList (String internshipID, Company company): Boolean
+    \item[-] addInternshipInList (String internshipId, Company company): Boolean
 \end{itemize}
 
 \paragraph{View Internship Information Manager}
 \begin{itemize}
-    \item[-] getInternshipInformation (String internshipID): Internship
+    \item[-] getInternshipInformation (String internshipId): Internship
     \item[-] getInternshipList (Company company): List[Internship]
     \item[-] getInternshipList (Student student): List[Internship]
 \end{itemize}
 
 \paragraph{Selection Manager}
 \begin{itemize}
-    \item[-] selectStudentForInterview (String internshipID, List[Student]): List[Student]
-    \item[-] selectStudentForInternship (String internshipID, List[Student]): List[Student]
-    \item[-] getSelectedStudents (String internshipID): List[Student]
-    \item[-] updateStudentStatus (String internshipID, Student student, Status status): Boolean
-    \item[-] getCandidatesList (String internshipID): List[Student]
+    \item[-] selectStudentForInterview (String internshipId, List[Student]): Boolean
+    \item[-] selectStudentForInternship (String internshipId, List[Student]): Boolean
+    \item[-] getSelectedStudents (String internshipId): List[Student]
+    \item[-] updateStudentStatus (String internshipId, Student student, Status status): Boolean
+    \item[-] getCandidatesList (String internshipId): List[Student]
+    \item[-] acceptOffer (String internshipId, int userId): Boolean
+    \item[-] rejectOffer (String internshipId, int userId): Boolean  
 \end{itemize}
 
 \paragraph{Feedback Manager}
 \begin{itemize}
-    \item[-] writeFeedback (String internshipID, String feedback, int userId): Boolean
-    \item[-] getFeedback (String internshipID): List[String]
+    \item[-] writeFeedback (int userId, String internshipId, String feedback): Boolean
+    \item[-] getFeedback (String internshipId): List[String]
 \end{itemize}
 
 \paragraph{Chat Manager}
 \begin{itemize}
-    \item[-] sendMessage (String ChatID, String message, String sender, String receiver): Boolean
-    \item[-] getChatHistory (String ChatID): List[Message]
+    \item[-] sendMessage (int receiverId, String ChatID, String message): Boolean
+    \item[-] getChatHistory (int userId, String ChatID): List[Message]
     \item[-] createChat (int userId1, int userId2): String
     \item[-] getChatID (int userId1, int userId2): String
     \item[-] openChat (String ChatID): Boolean
@@ -334,25 +341,25 @@ the data related to that application and take a track of its status.
 \subsubsection{Application Manager}
 \paragraph{Submission Manager}
 \begin{itemize}
-    \item[-] applyForInternship (String internshipID): Boolean
-    \item[-] submitApplication (String internshipID, int userId): Boolean
+    \item[-] applyForInternship (String internshipId): Boolean
+    \item[-] submitApplication (int userId, String internshipId): Boolean
     \item[-] generateApplicationID (): String
-    \item[-] acceptOffer (String internshipID, int userId): Boolean
-    \item[-] rejectOffer (String internshipID, int userId): Boolean
-    \item[-] getApplicationStatus (String internshipID, int userId): Status
-    \item[-] updateApplicationStatus (String internshipID, int userId, ApplicationStatus status): Boolean
+    \item[-] acceptOffer (String internshipId, int userId): Boolean
+    \item[-] rejectOffer (String internshipId, int userId): Boolean
+    \item[-] getApplicationStatus (String internshipId, int userId): Status
+    \item[-] updateApplicationStatus (String internshipId, int userId, ApplicationStatus status): Boolean
     \item[-] getApplicationList (int userId): List[Application]
 \end{itemize}
 
 \paragraph{View Application Information Manager}
 \begin{itemize}
-    \item[-] getApplicationList (String internshipID): List[Application]
+    \item[-] getApplicationList (String internshipId): List[Application]
     \item[-] getApplicationStatus (String applicationID, int userId): Status
 \end{itemize}
 
 \paragraph{Interview Manager}
 \begin{itemize}
-    \item[-] createInterviewForm (): None
+    \item[-] setUpInterview (int companyId, Form questionnaire, String info, List[Student] students): Boolean
     \item[-] submitInterviewForm (String descriptionLetter, List[String] question): Boolean
     \item[-] recordInterviewResults (String formID, int userId, ApplicationStatus InterviewResult): Boolean
     \item[-] getInterviewResults (String applicationID): List[ApplicationStatus]
@@ -362,12 +369,47 @@ the data related to that application and take a track of its status.
 
 \paragraph{Questionnaire Manager}
 \begin{itemize}
-    \item[-] getInterviewForm (String formID): InterviewForm
-    \item[-] respondForm (String formID, List[String] answers): Boolean
-    \item[-] getFormResponses (String internshipID): List[Questionnaire]
-    \item[-] getSpecificFormResponse (String formID): Questionnaire
+    \item[-] getInterviewForm (int userId, String formID): Form
+    \item[-] respondForm (int userId, String formID, List[String] answers): Boolean
+    \item[-] getFormResponses (String internshipId): List[Form]
+    \item[-] checkAnswerValidity (List[String] answers): Boolean
 \end{itemize}
 
+\paragraph{Model Module}
+\begin{itemize}
+    \item[-] checkValidity (String email, String password, String name, String surname, University university): Boolean
+    \item[-] checkValidity (String email, String password, String legalName, String EIN): Boolean
+    \item[-] checkValidity (String email, String password, String legalName): Boolean
+    \item[-] confirmRegistration (int userId, String email, String password, String name, String surname, University university, List[Field] interests, List[String] skills): Boolean
+    \item[-] confirmRegistration (int userId, String email, String password, String legalName, String EIN, String department, List[Field] fields): Boolean
+    \item[-] confirmRegistration (int userId, String email, String password, String name, String legalName): Boolean
+    \item[-] checkCredentials (String email, String password): Boolean
+    \item[-] getUserId (String email): int
+    \item[-] getMatchingTuple (String keyword): List[Result]
+    \item[-] getRecommendations (int userId): List[Recommendation]
+    \item[-] retrieveProfileInfo (int userId): Profile
+    \item[-] retrieveInternshipInfo (String internshipId): Internship
+    \item[-] retrieveProfileInfo (int userId): Profile
+    \item[-] storeNewCV (int userId, File cv): Boolean
+    \item[-] checkSubmissionValidity (int userId, String internshipId): Boolean
+    \item[-] submitApplication (int userId, String internshipId): Boolean
+    \item[-] retrieveApplicationDetails (int userId, String internshipId): Application
+    \item[-] checkInterviewValidity (int companyId, Form questionnaire, String info, List[Student] students): Boolean
+    \item[-] createInterview (int companyId, Form questionnaire, String info, List[Student] students): Boolean
+    \item[-] retrieveInterviewForm (int formId): Form
+    \item[-] storeResponse (int userId, int formId, List[String] answers): Boolean
+    \item[-] checkSelection (String internshipId, List[Student] students): Boolean
+    \item[-] storeSelection (String internshipId, List[Student] students): Boolean
+    \item[-] checkFeedbackValidity (int userId, String internshipId, String feedback): Boolean
+    \item[-] storeFeedback (int userId, String internshipId, String feedback): Boolean
+    \item[-] retrieveChatList (int userId): List[Chat]
+    \item[-] retrieveChatHistory (int userId, int chatId): List[Message]
+    \item[-] checkValidity (int userId, int chatId, String message): Boolean    
+    \item[-] storeMessage (int userId, int chatId, String message): Boolean
+    \item[-] storeInternship (String title, String description, List[Field] fields, String location, Date startDate, Date endDate, int duration, String position, Date deadline): Boolean
+    \item[-] checkSelectionValidity (String internshipId, List[Student] students): Boolean
+    \item[-] retrieveEnrolledList (int userId): List[Student]
+\end{itemize}
 
 \section{Runtime view}\label{sec:runtime view}
 In the following section we describe the runtime view of the S\&C platform, focusing on the interactions between the components and the 
