@@ -22,7 +22,7 @@ In the following paragraph we describe each tier presented in Figure \ref{fig:ti
 \begin{itemize}
     \item \textbf{Firewall:} It will be responsible for managing the security of the system, by filtering the incoming and outgoing traffic and restricting
     the access based on predefined rules. It will be placed between the Web Server and the Internet and between the Application Server and the Web Server.
-    In this way, the web server will reside in a DMZ (Demilitarized Zone), while the application server will resides in a protected internal network.
+    In this way, the web server will reside in a DMZ (Demilitarized Zone), while the application server will reside in a protected internal network.
     \item \textbf{Web Server:} It serves as a gateway between the client and the application server (backend). It will be responsible for hosting part 
     of the presentation layer. For example, it will be responsible for serving the web pages to the client, handling requests routing to the application
     server, managing load balancing, and handling security.
@@ -34,7 +34,7 @@ In the following paragraph we describe each tier presented in Figure \ref{fig:ti
     the users. It is triggered by the application server.
 \end{itemize}
 
-The Figure\ref{fig:tiers_architecture} also shows how the tiers interact with each other. The Web App interacts with the Web Server through HTTPS/REST 
+The Figure \ref{fig:tiers_architecture} also shows how the tiers interact with each other. The Web App interacts with the Web Server through HTTPS/REST 
 requests; the Web Server interacts with the Application Server through HTTPS/REST calls; the Application Server interacts with the Database Server through 
 SQL queries; and the Application Server interacts with the Mail Server through SMTP requests.
 
