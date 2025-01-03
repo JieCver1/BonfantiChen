@@ -59,32 +59,64 @@ to the system.
 \begin{enumerate}
     \item \textbf{Model Module:} The connection between the Model Module and the DBMS will be established first, as it is responsible for 
     managing the platform's data and providing an interface for other components to access the data.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.16\textwidth]{Images/BottomUp/Model.png}
+    \end{figure}
     \item \textbf{Notification Manager:} The Notification Manager will be integrated next with the Model Module, at this stage, the connection
     between the Notification Manager and the Model Module will be established and tested.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.2\textwidth]{Images/BottomUp/Notification.png}
+    \end{figure}
     \item \textbf{Authentication Manager:} The Authentication Manager, including the Registration and Login Manager, will be integrated next, 
     as these are the basic functionalities for accessing the platform. After interaction with the Model Module and the Notification Manager, 
     their functionalities will be tested to ensure that reading and writing operations in the database work correctly and that notifications 
-    are sent properly during the registration and login processes. Additionally, the communication with the external email service will be verified. 
+    are sent properly during the registration and login processes. Additionally, the communication with the external email service will be verified.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{Images/BottomUp/Auth.png}
+    \end{figure} 
     \item \textbf{User Manager:} As the last basic component, the View Profile Manager and Profile Modification Manager will be integrated. 
     Since they depend only on components that have already been integrated, unit testing and integration testing can be conducted to ensure that 
     all basic functionalities work correctly before moving to the integration of the core functionalities.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{Images/BottomUp/Profile.png}
+    \end{figure}
     \item \textbf{Internship Manager:} The Internship Manager is the first core functionality to be integrated, as it is responsible for managing 
     internship data and providing an interface for internship-related operations. The order of integration of its components is as follows: 
     Creation Manager, View Internship Information Manager, Selection Manager, Chat Manager, and Feedback Manager, reflecting the order of processing 
     internship evolution. Unit testing is crucial at this stage, and extreme cases should be evaluated. Mock data will be used to simulate real 
     internship events. Integration testing of all components integrated so far will also be conducted to ensure that everything works without 
     conflicts or crashes.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Images/BottomUp/Intern.png}
+    \end{figure}
     \item \textbf{Application Manager:} Next, the Application Manager, which manages applications and controls the selection process, will be integrated. 
     The order of integration of its components is as follows: Submissions Manager, View Application Information Manager, Interview Manager, and 
     Questionnaire Manager. It must collaborate seamlessly with the Internship Manager and the User Manager. Integration testing is critical during 
     this phase since the platform's main functionalities are involved.
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Images/BottomUp/Application.png}
+    \end{figure}
     \item \textbf{Recommendation Module:} After integrating and testing the core and basic functionalities, the Recommendation Module will be integrated. 
     This module depends on all previously developed components. Testing of the recommendation algorithm will be performed to verify that it provides 
     suitable recommendations based on the user's profile and internship experiences. 
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Images/BottomUp/Recomm.png}
+    \end{figure}
     \item \textbf{Search Module:} Even though the Search Module is not closely related to all components developed so far, it will be integrated at the
      end of the integration process. This is because it is a secondary function closely connected to the platform's core functionalities. Once all other
       components have been integrated and tested, the Search Module can be integrated and tested. This approach ensures that any issues with the search 
       functionalities are not caused by other components.
+      \begin{figure}[H]
+        \centering
+        \includegraphics[width=1\textwidth]{Images/BottomUp/Search.png}
+    \end{figure}
     \item After completing the server-side integration, the client-side integration will be performed. The integration of server-side components with 
     client-side components will be processed, and testing of the interaction between server-side and client-side components will be conducted.
 \end{enumerate}
